@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Menu, X, Code, Users, Calendar, Camera, Award, UserPlus, Mail
+  Menu, X, Code, Users, Calendar, Camera, Award, Mail
 } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
