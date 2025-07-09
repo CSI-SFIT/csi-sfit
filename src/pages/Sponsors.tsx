@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Handshake, Download, ExternalLink } from 'lucide-react';
@@ -17,15 +17,43 @@ interface Sponsor {
 
 export const Sponsors: React.FC = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [showNavbar, setShowNavbar] = useState(false);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setShowNavbar(e.clientY < window.innerHeight / 2);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  // Sponsor card component to avoid using hooks inside map
+  const SponsorCard: React.FC<{ sponsor: Sponsor; index: number; tier: string }> = ({ sponsor, index, tier }) => {
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    
+    return (
+      <motion.div
+        key={sponsor.id}
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+      >
+        <Enhanced3DCard glowColor={tierColors[tier as keyof typeof tierColors].glow}>
+          <div className="p-6 text-center max-w-xs">
+            <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-hidden">
+              <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-cover" />
+            </div>
+            <h4 className="text-xl font-semibold text-white mb-2">{sponsor.name}</h4>
+            <p className="text-gray-400 text-sm mb-3">{sponsor.description}</p>
+            <p className="text-primary-300 text-sm mb-3">{sponsor.contribution}</p>
+            <motion.a
+              href={sponsor.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium"
+            >
+              <span>Visit</span>
+              <ExternalLink className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </Enhanced3DCard>
+      </motion.div>
+    );
+  };
 
   const sponsors: Sponsor[] = [
     {
@@ -143,40 +171,14 @@ export const Sponsors: React.FC = () => {
             <div key={tier} className="mb-16">
               <h3 className="text-2xl font-bold text-gray-300 mb-8 text-center capitalize">{tier} Partners</h3>
               <div className="flex flex-wrap justify-center gap-8">
-                {sponsors.filter(s => s.tier === tier).map((sponsor, index) => {
-                  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-                  return (
-                    <motion.div
-                      key={sponsor.id}
-                      ref={ref}
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={inView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                    >
-                      <Enhanced3DCard glowColor={tierColors[tier as keyof typeof tierColors].glow}>
-                        <div className="p-6 text-center max-w-xs">
-                          <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-hidden">
-                            <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-cover" />
-                          </div>
-                          <h4 className="text-xl font-semibold text-white mb-2">{sponsor.name}</h4>
-                          <p className="text-gray-400 text-sm mb-3">{sponsor.description}</p>
-                          <p className="text-primary-300 text-sm mb-3">{sponsor.contribution}</p>
-                          <motion.a
-                            href={sponsor.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium"
-                          >
-                            <span>Visit</span>
-                            <ExternalLink className="w-4 h-4" />
-                          </motion.a>
-                        </div>
-                      </Enhanced3DCard>
-                    </motion.div>
-                  );
-                })}
+                {sponsors.filter(s => s.tier === tier).map((sponsor, index) => (
+                  <SponsorCard 
+                    key={sponsor.id}
+                    sponsor={sponsor} 
+                    index={index} 
+                    tier={tier}
+                  />
+                ))}
               </div>
             </div>
           ))}

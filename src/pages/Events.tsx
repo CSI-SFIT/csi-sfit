@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Calendar, Clock, MapPin, Users, ExternalLink, Tag, Filter, Search } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, ExternalLink, Filter, Search } from 'lucide-react';
 import { GlassCard } from '../components/GlassCard';
 
 interface Event {
