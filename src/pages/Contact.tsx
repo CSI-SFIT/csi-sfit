@@ -12,7 +12,8 @@ import {
   IconBrandX,
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconSend
+  IconSend,
+  IconBrandLinktree
 } from '@tabler/icons-react';
 import emailjs from '@emailjs/browser';
 
@@ -116,7 +117,8 @@ export const Contact: React.FC = () => {
     { icon: IconBrandFacebook, link: 'https://www.facebook.com/csi.sfit/', color: 'hover:text-blue-500' },
     { icon: IconBrandX, link: 'https://x.com/csi_sfit?lang=ar-x-fm', color: 'hover:text-sky-500' },
     { icon: IconBrandInstagram, link: 'https://www.instagram.com/csi_sfit?igsh=YTdsdGM0bG9ieHRv', color: 'hover:text-pink-500' },
-    { icon: IconBrandLinkedin, link: 'https://www.linkedin.com/company/csi-sfit/', color: 'hover:text-blue-600' }
+    { icon: IconBrandLinkedin, link: 'https://www.linkedin.com/company/csi-sfit/', color: 'hover:text-blue-600' },
+    { icon: IconBrandLinktree, link: ' https://linktr.ee/CSI_SFIT', color: 'hover:text-green-500' }
   ];
 
   return (
