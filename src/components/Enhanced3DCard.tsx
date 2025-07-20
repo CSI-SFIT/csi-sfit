@@ -12,7 +12,7 @@ export const Enhanced3DCard: React.FC<Enhanced3DCardProps> = ({
   children,
   className = '',
   intensity = 15,
-  glowColor = '#ff6b00'
+  glowColor = '#36b7b7' // <--- Changed default to teal/cyan
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);

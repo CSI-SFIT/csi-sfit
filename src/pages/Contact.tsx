@@ -12,9 +12,11 @@ import {
   IconBrandX,
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconSend
+  IconSend,
+  IconBrandLinktree
 } from '@tabler/icons-react';
 import emailjs from '@emailjs/browser';
+import { Icon } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -26,7 +28,6 @@ export const Contact: React.FC = () => {
     message: ''
   });
 
-  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -77,19 +78,19 @@ export const Contact: React.FC = () => {
       content: (
         <p className="text-gray-300 space-x-2">
           <span>
-            <a href="tel:+919325209355" className="hover:text-primary-500 transition-colors">
+            <a href="tel:+919325209355" className="hover:text-[#2580E4] transition-colors">
               Aryan Brahmane - +91 93252 09355
             </a>
           </span>
           <span className="mx-2 text-white/30">|</span>
           <span>
-            <a href="tel:+919372937532" className="hover:text-primary-500 transition-colors">
+            <a href="tel:+919372937532" className="hover:text-[#2580E4] transition-colors">
               Rayan Pawar - +91 93729 37532
             </a>
           </span>
           <span className="mx-2 text-white/30">|</span>
           <span>
-            <a href="tel:+917499531769" className="hover:text-primary-500 transition-colors">
+            <a href="tel:+917499531769" className="hover:text-[#2580E4] transition-colors">
               Shahiil Shet - +91 74995 31769
             </a>
           </span>
@@ -116,7 +117,8 @@ export const Contact: React.FC = () => {
     { icon: IconBrandFacebook, link: 'https://www.facebook.com/csi.sfit/', color: 'hover:text-blue-500' },
     { icon: IconBrandX, link: 'https://x.com/csi_sfit?lang=ar-x-fm', color: 'hover:text-sky-500' },
     { icon: IconBrandInstagram, link: 'https://www.instagram.com/csi_sfit?igsh=YTdsdGM0bG9ieHRv', color: 'hover:text-pink-500' },
-    { icon: IconBrandLinkedin, link: 'https://www.linkedin.com/company/csi-sfit/', color: 'hover:text-blue-600' }
+    { icon: IconBrandLinkedin, link: 'https://www.linkedin.com/company/csi-sfit/', color: 'hover:text-blue-600' },
+    { icon: IconBrandLinktree, link: ' https://linktr.ee/CSI_SFIT', color: 'hover:text-green-500' }
   ];
 
   return (
@@ -163,16 +165,17 @@ export const Contact: React.FC = () => {
                       animate={heroInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.6, delay: 0.1 * index }}
                     >
-                      <Enhanced3DCard intensity={5}>
-                        <div className="p-6">
-                          <div className="flex items-start space-x-4">
+                      {/* Only the teal/cyan glow on hover now */}
+                      <Enhanced3DCard intensity={5} className="transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(54,183,183,0.3)]">
+                        <div className="p-6 ">
+                          <div className="flex items-start space-x-4 ">
                             <div className={`w-12 h-12 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center ${info.color}`}>
                               <Icon className="w-6 h-6" />
                             </div>
                             <div>
                               <h3 className="text-lg font-semibold text-white mb-2">{info.title}</h3>
                               {info.link ? (
-                                <a href={info.link} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary-500 transition-colors">
+                                <a href={info.link} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2580E4] transition-colors">
                                   {info.content}
                                 </a>
                               ) : (
@@ -192,10 +195,10 @@ export const Contact: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="mb-4" // This margin-bottom will create separation before the next section
+                className="mb-4"
               >
                 <h3 className="text-xl font-semibold text-white mb-4">Follow Us</h3>
-                <div className="flex space-x-6"> {/* Increased space-x from 4 to 6 */}
+                <div className="flex space-x-6">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
                     return (
@@ -206,9 +209,9 @@ export const Contact: React.FC = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center text-gray-400 transition-colors ${social.color}`} // Corrected line 196
+                        className={`w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center text-gray-400 transition-colors ${social.color}`}
                       >
-                        <Icon className="w-8 h-8" /> {/* Increased icon size to w-8 h-8 */}
+                        <Icon className="w-8 h-8" />
                       </motion.a>
                     );
                   })}
@@ -231,14 +234,14 @@ export const Contact: React.FC = () => {
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                         <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors"
+                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors"
                           placeholder="Your name"
                         />
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
                         <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors"
+                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors"
                           placeholder="your.email@example.com"
                         />
                       </div>
@@ -247,7 +250,7 @@ export const Contact: React.FC = () => {
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
                       <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleInputChange} required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors"
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors"
                         placeholder="What's this about?"
                       />
                     </div>
@@ -255,13 +258,13 @@ export const Contact: React.FC = () => {
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
                       <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows={6}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors resize-none"
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors resize-none"
                         placeholder="Tell us more about your inquiry..."
                       />
                     </div>
 
                     <motion.button type="submit" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
-                      className="w-full py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-primary-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
+                      className="w-full py-4 bg-gradient-to-r from-[#2580E4] to-[#1B6DC1] text-white font-semibold rounded-lg shadow-lg hover:shadow-[0_4px_8px_0_#2580E433,0_5px_12px_0_#36B7B766] transition-all duration-300 flex items-center justify-center space-x-2"
                     >
                       <IconSend className="w-5 h-5" />
                       <span>Send Message</span>
@@ -275,7 +278,7 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* Location Section */}
-      <section className="pt-10 pb-10"> {/* Adjusted padding here */}
+      <section className="pt-10 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
