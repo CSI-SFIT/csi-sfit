@@ -1,9 +1,7 @@
 import "./Card.css";
 import ProfileCard from "./ProfileCard";
-// import man1 from "../assets/man1.png";
-import man1 from "../../../assets/man1.png"
-// import man2 from "../assets/man2.png";
-// import woman1 from "../assets/woman1.png";
+// import man1 from "../../../assets/man1.png";
+import man1 from "../../../assets/man1.webp";
 import { Instagram, Linkedin } from "lucide-react";
 
 export interface CardProps {
