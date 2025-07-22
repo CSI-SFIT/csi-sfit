@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Menu, X, Code, Users, Calendar, Camera, Award, Mail
+  Menu, X, Code, Users, Calendar, Camera, Award, Mail,CirclePlus
 } from 'lucide-react';
 
 import logo from '../logo.png'; // Assuming logo.png is in src/assets
@@ -39,6 +39,7 @@ export const Navigation: React.FC = () => {
     { path: '/gallery', label: 'Gallery', icon: Camera },
     { path: '/sponsors', label: 'Sponsors', icon: Award },
     { path: '/contact', label: 'Contact', icon: Mail },
+    {path: '/membership', label: 'Join', icon: CirclePlus }  /// New Membership Page Icon
   ];
 
   return (

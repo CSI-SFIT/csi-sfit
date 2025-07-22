@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom"; 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GlassCard } from '../components/GlassCard';
@@ -19,6 +20,15 @@ import emailjs from '@emailjs/browser';
 import { Icon } from 'lucide-react';
 
 export const Contact: React.FC = () => {
+  const location = useLocation(); 
+
+  useEffect(() => {
+
+    if (location.pathname === "/contact") {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formRef, formInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formData, setFormData] = useState({

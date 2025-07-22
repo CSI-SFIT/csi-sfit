@@ -28,7 +28,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/sponsors" element={<Sponsors />} />
-            <Route path="/join" element={<Membership />} />
+            <Route path="/membership" element={<Membership />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
