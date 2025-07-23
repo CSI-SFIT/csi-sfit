@@ -19,7 +19,7 @@ export const FloatingLogo: React.FC = () => {
         }}
         className="absolute inset-0 flex items-center justify-center"
       >
-        <div className="w-24 h-24 bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-500 rounded-xl shadow-2xl flex items-center justify-center relative overflow-hidden">
+        <div className="w-24 h-24 w-24 h-24 bg-[linear-gradient(to_bottom_right,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] rounded-xl shadow-2xl flex items-center justify-center relative overflow-hidden"> 
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
           <motion.div
             animate={{ rotate: 360 }}
