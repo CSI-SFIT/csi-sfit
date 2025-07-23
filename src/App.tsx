@@ -1,17 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { Navigation } from './components/Navigation';
-import { ParticleBackground } from './components/ParticleBackground';
-import { FloatingElements } from './components/FloatingElements';
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Events } from './pages/Events';
-import { Team } from './pages/Team';
-import { Contact } from './pages/Contact';
-import { Gallery } from './pages/Gallery';
-import { Sponsors } from './pages/Sponsors';
-import { Membership } from './pages/Membership';
+import { AnimatePresence } from "framer-motion";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { FloatingElements } from "./components/FloatingElements";
+import { Navigation } from "./components/Navigation";
+import { ParticleBackground } from "./components/ParticleBackground";
+import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
+import { Events } from "./pages/Events";
+import { Gallery } from "./pages/Gallery";
+import { Home } from "./pages/Home";
+import { Membership } from "./pages/Membership";
+import { Sponsors } from "./pages/Sponsors";
+import { Team } from "./pages/Team";
 
 function App() {
   return (

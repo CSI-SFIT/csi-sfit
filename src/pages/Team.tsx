@@ -176,7 +176,7 @@ export const Team: React.FC = () => {
     { id: "creative", label: "Creative", icon: Lightbulb },
     { id: "multimedia", label: "Multimedia", icon: Video },
     { id: "marketing", label: "Marketing", icon: Megaphone },
-    { id: "pr", label: "Public Relations", icon: MicVocal  },
+    { id: "pr", label: "Public Relations", icon: MicVocal },
   ];
 
   let filteredMembers;
@@ -197,7 +197,6 @@ export const Team: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-16">
-    
       <section className="relative py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1e30ff]/20 via-[#42e0d8]/10 to-[#f7baa8]/20" />
 
@@ -221,7 +220,6 @@ export const Team: React.FC = () => {
               technology.
             </p>
           </motion.div>
-
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -255,11 +253,8 @@ export const Team: React.FC = () => {
         </div>
       </section>
 
-
       <section className="py-20">
-        <div 
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={teamRef}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center"

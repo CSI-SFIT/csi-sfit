@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Menu, X, Code, Users, Calendar, Camera, Award, Mail
-} from 'lucide-react';
+  Award,
+  Calendar,
+  Camera,
+  Code,
+  Mail,
+  Menu,
+  Users,
+  X,
+} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-import logo from '../logo.png'; // Assuming logo.png is in src/assets
+import logo from "../logo.png"; // Assuming logo.png is in src/assets
 
 export const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,23 +29,23 @@ export const Navigation: React.FC = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const navItems = [
-    { path: '/', label: 'Home', icon: Code },
-    { path: '/about', label: 'About', icon: Users },
-    { path: '/events', label: 'Events', icon: Calendar },
-    { path: '/team', label: 'Team', icon: Users },
-    { path: '/gallery', label: 'Gallery', icon: Camera },
-    { path: '/sponsors', label: 'Sponsors', icon: Award },
-    { path: '/contact', label: 'Contact', icon: Mail },
+    { path: "/", label: "Home", icon: Code },
+    { path: "/about", label: "About", icon: Users },
+    { path: "/events", label: "Events", icon: Calendar },
+    { path: "/team", label: "Team", icon: Users },
+    { path: "/gallery", label: "Gallery", icon: Camera },
+    { path: "/sponsors", label: "Sponsors", icon: Award },
+    { path: "/contact", label: "Contact", icon: Mail },
   ];
 
   return (
@@ -51,8 +58,8 @@ export const Navigation: React.FC = () => {
           transition={{ duration: 0.3 }}
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
             scrolled
-              ? 'bg-dark-800/80 backdrop-blur-lg border-b border-white/10'
-              : 'bg-transparent'
+              ? "bg-dark-800/80 backdrop-blur-lg border-b border-white/10"
+              : "bg-transparent"
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,8 +90,8 @@ export const Navigation: React.FC = () => {
                       to={item.path}
                       className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group ${
                         isActive
-                          ? 'text-[#00FFF0]'
-                          : 'text-gray-300 hover:text-[#00FFF0]'
+                          ? "text-[#00FFF0]"
+                          : "text-gray-300 hover:text-[#00FFF0]"
                       }`}
                     >
                       <div className="flex items-center space-x-2">
@@ -110,7 +117,11 @@ export const Navigation: React.FC = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm"
               >
-                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </motion.button>
             </div>
           </div>
@@ -120,7 +131,7 @@ export const Navigation: React.FC = () => {
             {isOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+                animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 className="md:hidden bg-dark-800/95 backdrop-blur-lg border-t border-white/10"
               >
@@ -136,8 +147,8 @@ export const Navigation: React.FC = () => {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                           isActive
-                            ? 'bg-[#1A5AFF]/10 text-[#1A5AFF] border border-[#1A5AFF]/20'
-                            : 'text-gray-300 hover:text-white hover:bg-white/5'
+                            ? "bg-[#1A5AFF]/10 text-[#1A5AFF] border border-[#1A5AFF]/20"
+                            : "text-gray-300 hover:text-white hover:bg-white/5"
                         }`}
                       >
                         <Icon className="w-5 h-5" />

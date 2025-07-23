@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 export const FloatingElements: React.FC = () => {
   return (
@@ -10,8 +10,12 @@ export const FloatingElements: React.FC = () => {
           key={i}
           className="absolute w-4 h-4 border border-[#FFCDB9]/60 rounded-sm" // outline only, no background
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x:
+              Math.random() *
+              (typeof window !== "undefined" ? window.innerWidth : 1000),
+            y:
+              Math.random() *
+              (typeof window !== "undefined" ? window.innerHeight : 1000),
             rotate: 0,
           }}
           animate={{
@@ -22,7 +26,7 @@ export const FloatingElements: React.FC = () => {
           transition={{
             duration: 10 + Math.random() * 20,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
             delay: Math.random() * 5,
           }}
           style={{
@@ -49,7 +53,7 @@ export const FloatingElements: React.FC = () => {
           transition={{
             duration: 8 + Math.random() * 12,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: Math.random() * 3,
           }}
           style={{
