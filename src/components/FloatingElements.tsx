@@ -8,7 +8,7 @@ export const FloatingElements: React.FC = () => {
       {[...Array(12)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-4 h-4 border border-[#FFCDB9]/60 rounded-sm" // outline only, no background
+          className="absolute w-4 h-4 border border-[linear-gradient(to_bottom_right,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] rounded-sm" // outline only, no background
           initial={{
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
