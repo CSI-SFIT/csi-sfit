@@ -25,148 +25,7 @@ export const Team: React.FC = () => {
     threshold: 0.1,
   });
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  //   {
-  //     id: "1",
-  //     name: "Arjun Sharma",
-  //     position: "President",
-  //     department: "Computer Engineering",
-  //     year: "Final Year",
-  //     bio: "Passionate about AI/ML and leading the team towards innovation. Currently working on deep learning research projects.",
-  //     image:
-  //       "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     skills: ["Python", "Machine Learning", "Leadership", "TensorFlow"],
-  //     achievements: [
-  //       "Best Project Award 2023",
-  //       "Google Summer of Code",
-  //       "Published Research Paper",
-  //     ],
-  //     social: {
-  //       github: "https://github.com/arjun",
-  //       linkedin: "https://linkedin.com/in/arjun",
-  //       email: "arjun@csi.sfit.ac.in",
-  //     },
-  //     category: "core",
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Priya Patel",
-  //     position: "Vice President",
-  //     department: "Information Technology",
-  //     year: "Third Year",
-  //     bio: "Full-stack developer with expertise in modern web technologies. Leads technical workshops and hackathons.",
-  //     image:
-  //       "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     skills: ["React", "Node.js", "MongoDB", "AWS"],
-  //     achievements: [
-  //       "Winner - Smart India Hackathon",
-  //       "Microsoft Student Ambassador",
-  //       "Open Source Contributor",
-  //     ],
-  //     social: {
-  //       github: "https://github.com/priya",
-  //       linkedin: "https://linkedin.com/in/priya",
-  //       email: "priya@csi.sfit.ac.in",
-  //     },
-  //     category: "core",
-  //   },
-  //   {
-  //     id: "3",
-  //     name: "Rahul Krishnan",
-  //     position: "Technical Head",
-  //     department: "Computer Engineering",
-  //     year: "Final Year",
-  //     bio: "Cybersecurity enthusiast and competitive programmer. Organizes coding competitions and security workshops.",
-  //     image:
-  //       "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     skills: ["Cybersecurity", "C++", "Python", "Ethical Hacking"],
-  //     achievements: [
-  //       "ACM ICPC Regionalist",
-  //       "Bug Bounty Hunter",
-  //       "CEH Certified",
-  //     ],
-  //     social: {
-  //       github: "https://github.com/rahul",
-  //       linkedin: "https://linkedin.com/in/rahul",
-  //       email: "rahul@csi.sfit.ac.in",
-  //     },
-  //     category: "technical",
-  //   },
-  //   {
-  //     id: "4",
-  //     name: "Sneha Gupta",
-  //     position: "Creative Head",
-  //     department: "Information Technology",
-  //     year: "Second Year",
-  //     bio: "UI/UX designer and digital artist. Creates stunning visuals for events and manages social media presence.",
-  //     image:
-  //       "https://images.pexels.com/photos/3992656/pexels-photo-3992656.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     skills: [
-  //       "UI/UX Design",
-  //       "Adobe Creative Suite",
-  //       "Figma",
-  //       "Digital Marketing",
-  //     ],
-  //     achievements: [
-  //       "Best Design Award",
-  //       "Adobe Certified Expert",
-  //       "50K+ Social Media Reach",
-  //     ],
-  //     social: {
-  //       github: "https://github.com/sneha",
-  //       linkedin: "https://linkedin.com/in/sneha",
-  //       email: "sneha@csi.sfit.ac.in",
-  //     },
-  //     category: "creative",
-  //   },
-  //   {
-  //     id: "5",
-  //     name: "Vikram Singh",
-  //     position: "Operations Head",
-  //     department: "Computer Engineering",
-  //     year: "Third Year",
-  //     bio: "Expert in event management and logistics. Ensures smooth execution of all CSI activities and workshops.",
-  //     image:
-  //       "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     skills: [
-  //       "Project Management",
-  //       "Event Planning",
-  //       "Communication",
-  //       "Team Coordination",
-  //     ],
-  //     achievements: [
-  //       "Organized 20+ Events",
-  //       "PMP Certified",
-  //       "Student Leadership Award",
-  //     ],
-  //     social: {
-  //       linkedin: "https://linkedin.com/in/vikram",
-  //       email: "vikram@csi.sfit.ac.in",
-  //     },
-  //     category: "operations",
-  //   },
-  //   {
-  //     id: "6",
-  //     name: "Ananya Rao",
-  //     position: "Web Development Lead",
-  //     department: "Information Technology",
-  //     year: "Third Year",
-  //     bio: "Frontend specialist passionate about creating beautiful and functional web experiences.",
-  //     image:
-  //       "https://images.pexels.com/photos/3985363/pexels-photo-3985363.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     skills: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
-  //     achievements: [
-  //       "Freelance Developer",
-  //       "Open Source Maintainer",
-  //       "Tech Blog Writer",
-  //     ],
-  //     social: {
-  //       github: "https://github.com/ananya",
-  //       linkedin: "https://linkedin.com/in/ananya",
-  //       email: "ananya@csi.sfit.ac.in",
-  //     },
-  //     category: "technical",
-  //   },
-  // ];
+  const [visibleCount, setVisibleCount] = useState<number>(6);
 
   const categories = [
     { id: "all", label: "All Members", icon: Users },
@@ -176,7 +35,7 @@ export const Team: React.FC = () => {
     { id: "creative", label: "Creative", icon: Lightbulb },
     { id: "multimedia", label: "Multimedia", icon: Video },
     { id: "marketing", label: "Marketing", icon: Megaphone },
-    { id: "pr", label: "Public Relations", icon: MicVocal  },
+    { id: "pr", label: "Public Relations", icon: MicVocal },
   ];
 
   let filteredMembers;
@@ -195,9 +54,10 @@ export const Team: React.FC = () => {
     });
   }
 
+  const visibleMembers = filteredMembers.slice(0, visibleCount);
+
   return (
     <div className="min-h-screen pt-16">
-    
       <section className="relative py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1e30ff]/20 via-[#42e0d8]/10 to-[#f7baa8]/20" />
 
@@ -222,7 +82,6 @@ export const Team: React.FC = () => {
             </p>
           </motion.div>
 
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -239,7 +98,10 @@ export const Team: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelectedCategory(category.id)}
+                  onClick={() => {
+                    setSelectedCategory(category.id);
+                    setVisibleCount(9);
+                  }}
                   className={`relative z-10 flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                     selectedCategory === category.id
                       ? "bg-gradient-to-r from-[#36B7B7] to-[#2AA198] text-white shadow-lg shadow-[#36B7B7]/25"
@@ -255,30 +117,41 @@ export const Team: React.FC = () => {
         </div>
       </section>
 
-
       <section className="py-20">
-        <div 
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <motion.div
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-12 ml-2 text-4xl font-semibold relative inline-block text-transparent bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-0 after:bg-gradient-to-r after:from-[#40E0D0] after:to-[#1A5AFF] after:transition-all after:duration-500 hover:after:w-full">
+            {selectedCategory[0].toUpperCase()}
+            {selectedCategory.slice(1)}
+          </h2>
+
+          <div
             ref={teamRef}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center"
           >
-            {filteredMembers.map((profile, index) => (
-              <motion.div
+            {visibleMembers.map((profile, index) => (
+              <Card
                 key={index}
-                initial={{ opacity: 1, y: 50 }}
-                animate={teamInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card
-                  key={index}
-                  about="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delenitilaudantium unde sunt necessitatibus excepturi accusantium fugitmaiores ipsam similique cum. Aspernatur, alias delenitiarchitecto, ipsum magnam vitae, magni quidem quia voluptatibussint eum omnis voluptatem tempore quasi temporibus maiores modifacere recusandae? Natus culpa minus molestias dicta liberovoluptatem repudiandae?"
-                  {...profile}
-                />
-              </motion.div>
+                about="Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti laudantium unde sunt necessitatibus excepturi accusantium fugit maiores ipsam similique cum. Aspernatur, alias deleniti architecto, ipsum magnam vitae, magni quidem quia voluptatibus sint eum omnis voluptatem tempore quasi temporibus maiores modi facere recusandae? Natus culpa minus molestias dicta libero voluptatem repudiandae?"
+                {...profile}
+              />
             ))}
-          </motion.div>
+          </div>
+
+          {visibleCount < filteredMembers.length && (
+            <div className="mt-10 text-center">
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setVisibleCount((prev) => prev + 9)}
+                className="px-6 py-3 rounded-md font-semibold bg-gradient-to-r from-[#36B7B7] to-[#2AA198] text-white shadow-lg shadow-[#36B7B7]/25"
+              >
+                See More
+              </motion.button>
+            </div>
+          )}
         </div>
       </section>
     </div>
