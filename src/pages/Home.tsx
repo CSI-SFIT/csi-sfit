@@ -73,7 +73,7 @@ export const Home: React.FC = () => {
             className="mb-8"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 bg-clip-text text-transparent animate-gradient bg-300">
+              <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent animate-gradient bg-300"> 
                 Computer Society
               </span>
               <br />
