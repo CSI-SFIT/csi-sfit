@@ -11,7 +11,7 @@ import { Team } from './pages/Team';
 import { Contact } from './pages/Contact';
 import { Gallery } from './pages/Gallery';
 import { Sponsors } from './pages/Sponsors';
-import { Membership } from './pages/Membership';
+// import { Membership } from './pages/Membership';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/sponsors" element={<Sponsors />} />
-            <Route path="/membership" element={<Membership />} />
+{/*             <Route path="/membership" element={<Membership />} /> */}
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
