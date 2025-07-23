@@ -38,8 +38,8 @@ export const Navigation: React.FC = () => {
     { path: '/team', label: 'Team', icon: Users },
     { path: '/gallery', label: 'Gallery', icon: Camera },
     { path: '/sponsors', label: 'Sponsors', icon: Award },
-    { path: '/contact', label: 'Contact', icon: Mail },
-    {path: '/membership', label: 'Join', icon: CirclePlus }  /// New Membership Page Icon
+    { path: '/contact', label: 'Contact', icon: Mail }
+    // {path: '/membership', label: 'Join', icon: CirclePlus }  /// New Membership Page Icon
   ];
 
   return (
