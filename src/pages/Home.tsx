@@ -106,8 +106,8 @@ export const Home: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-              to="/join"
-              className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
+              to="/membership" //Added Page Address Location and changed Color(below)
+              className="group relative px-8 py-4 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
             >
               <span className="flex items-center space-x-2">
                 <span>Join CSI SFIT</span>
