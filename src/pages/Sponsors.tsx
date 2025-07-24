@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Handshake, Download, ExternalLink } from 'lucide-react';
-import { Enhanced3DCard } from '../components/Enhanced3DCard';
+//import { Enhanced3DCard } from '../components/Enhanced3DCard';
 import { GlassCard } from '../components/GlassCard';
+import StarBorder from '../components/StarBorder'; 
 
 interface Sponsor {
   id: string;
@@ -29,34 +30,36 @@ export const Sponsors: React.FC = () => {
     
     return (
       <motion.div
-        key={sponsor.id}
-        ref={ref}
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
+  key={sponsor.id}
+  ref={ref}
+  initial={{ opacity: 0, y: 40 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6, delay: index * 0.1 }}
+>
+  <StarBorder color="#FFCDB9" speed="4s" thickness={4}>
+    <GlassCard className="overflow-visible p-6 text-center max-w-xs bg-white/10 shadow-none border border-white/10">
+      <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-visible">
+        <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-cover" />
+      </div>
+      <h4 className="text-xl font-semibold text-white mb-2">{sponsor.name}</h4>
+      <p className="text-gray-400 text-sm mb-3">{sponsor.description}</p>
+      <p className="text-primary-300 text-sm mb-3">{sponsor.contribution}</p>
+      <motion.a
+        href={sponsor.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium"
       >
-        <Enhanced3DCard glowColor={tierColors[tier as keyof typeof tierColors].glow} intensity={8}>
-          <div className="p-6 text-center max-w-xs">
-            <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-hidden">
-              <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-cover" />
-            </div>
-            <h4 className="text-xl font-semibold text-white mb-2">{sponsor.name}</h4>
-            <p className="text-gray-400 text-sm mb-3">{sponsor.description}</p>
-            <p className="text-primary-300 text-sm mb-3">{sponsor.contribution}</p>
-            <motion.a
-              href={sponsor.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium"
-            >
-              <span>Visit</span>
-              <ExternalLink className="w-4 h-4" />
-            </motion.a>
-          </div>
-        </Enhanced3DCard>
-      </motion.div>
+        <span>Visit</span>
+        <ExternalLink className="w-4 h-4" />
+      </motion.a>
+    </GlassCard>
+  </StarBorder>
+</motion.div>
+
+
     );
   };
 
@@ -117,13 +120,7 @@ export const Sponsors: React.FC = () => {
     }
   ];
 
-  const tierColors = {
-    platinum: { glow: '#e5e7eb' },
-    gold: { glow: '#fbbf24' },
-    silver: { glow: '#9ca3af' },
-    bronze: { glow: '#fb923c' }
-  };
-
+  {/*removed tiercolors*/}
   return (
     <div className="min-h-screen pt-16 bg-dark-900 text-white">
       {/* Hero Section */}
@@ -135,7 +132,7 @@ export const Sponsors: React.FC = () => {
             initial="hidden"
             animate={heroInView ? 'visible' : 'hidden'}
             variants={{
-              hidden: { opacity: 0, y: 60 },
+              hidden: { opacity: 0, y: 50 },
               visible: {
                 opacity: 1,
                 y: 0,
@@ -205,9 +202,7 @@ export const Sponsors: React.FC = () => {
                 >
                   <GlassCard className="p-8 h-full border-2 border-gray-300">
                     <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-200 to-gray-400 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-dark-900">Pt</span>
-                      </div>
+                      {/*Remove Pt icon*/}
                       <h3 className="text-2xl font-bold text-white mb-2">Platinum</h3>
                       <p className="text-gray-300">Premium Partnership</p>
                     </div>
@@ -249,9 +244,7 @@ export const Sponsors: React.FC = () => {
                 >
                   <GlassCard className="p-8 h-full border-2 border-yellow-500">
                     <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-dark-900">Au</span>
-                      </div>
+                      {/*Remove Au icon*/}
                       <h3 className="text-2xl font-bold text-white mb-2">Gold</h3>
                       <p className="text-gray-300">Strategic Partnership</p>
                     </div>
@@ -289,9 +282,7 @@ export const Sponsors: React.FC = () => {
                 >
                   <GlassCard className="p-8 h-full border-2 border-gray-500">
                     <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-400 to-gray-600 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-white">Ag</span>
-                      </div>
+                      {/*Remove Ag icon*/}
                       <h3 className="text-2xl font-bold text-white mb-2">Silver</h3>
                       <p className="text-gray-300">Supporting Partnership</p>
                     </div>
