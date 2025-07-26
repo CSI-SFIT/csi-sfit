@@ -278,6 +278,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
               loading="lazy"
+              onLoad={(e) => {
+                e.currentTarget.classList.remove("blur-sm");
+              }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = "none";

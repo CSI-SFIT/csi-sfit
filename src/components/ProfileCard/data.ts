@@ -2,7 +2,7 @@ import type { CardProps } from "./Card";
 
 const data: CardProps[] = [
   {
-    name: "Shahil Shet",
+    name: "Shahiil Shet",
     title: "Chairperson",
     about: undefined,
     instagramLink: undefined,
@@ -39,7 +39,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "mirage_69420",
     linkedinLink: "https://www.linkedin.com/in/skinatro/",
-    category: "Member"
+    category: "Head"
   },
   {
     name: "Arshvir Singh Kalsi",
@@ -47,7 +47,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "arshvir_singh_kalsi",
     linkedinLink: "https://www.linkedin.com/in/arshvir-singh-kalsi",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Anlea Maria Jose",
@@ -55,7 +55,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: undefined,
     linkedinLink: "https://www.linkedin.com/in/anlea",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Sahil Mundhe",
@@ -63,7 +63,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "sahilmundhe_12",
     linkedinLink: "https://www.linkedin.com/in/sahil-mundhe-5010672b7",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Balaji Nadar",
@@ -71,7 +71,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "balaji_nadar_08",
     linkedinLink: "https://www.linkedin.com/in/balaji-nadar-828b41354/",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Ganesh Fulchand Birajdar",
@@ -79,7 +79,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "ganeshbirajdar286",
     linkedinLink: "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Sarvesh Subhash Devalekar",
@@ -87,7 +87,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "sarvesh.devalelar",
     linkedinLink: "https://www.linkedin.com/in/sarvesh-devalekar-744788351?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Nathan Norbert Almeida",
@@ -95,7 +95,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "__nathan__almeida",
     linkedinLink: "https://www.linkedin.com/in/nathan-almeida-a7501b191/",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Harsh Innawalli",
@@ -103,7 +103,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "h_i_neurogrid",
     linkedinLink: "https://www.linkedin.com/in/harsh-innawalli-2a8170368?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Manasvi Pawar",
@@ -111,7 +111,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "serene.svi",
     linkedinLink: "https://www.linkedin.com/in/manasvi-arun-pawar-437111309/",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Vaishnavi Pradhan",
@@ -119,7 +119,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: undefined,
     linkedinLink: "https://www.linkedin.com/in/vaishnavi-pradhan-b48a25359",
-    category: "Member"
+    category: "Tech Team"
   },
   {
     name: "Sam Manoj",
@@ -127,7 +127,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "_sam.manoj_",
     linkedinLink: "https://www.linkedin.com/in/sam-manoj-7april2005?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "Head"
   },
   {
     name: "Manjima Debbarma",
@@ -135,7 +135,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "_manjima_xd",
     linkedinLink: "https://www.linkedin.com/in/manjima-debbarma-26ba05259/",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Dhruvraj Singh Yuvraj Singh Rathore",
@@ -143,7 +143,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "dhruv.roll",
     linkedinLink: "https://www.linkedin.com/in/dhruvraj-singh-rathore-bb0410336/",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Radha Ursekar",
@@ -151,7 +151,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "radhaursekar_12",
     linkedinLink: "https://www.linkedin.com/in/radha-ursekar-b87a31339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Deep Saboo",
@@ -159,7 +159,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "deepsaboo10",
     linkedinLink: "https://www.linkedin.com/in/deep-saboo-a5a804330/",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Milka Rajesh Kajar",
@@ -167,7 +167,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "milka_kajar",
     linkedinLink: undefined,
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Vaishnavi Poojary",
@@ -175,7 +175,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "vaishnavi_22_",
     linkedinLink: "https://www.linkedin.com/in/vaishnavi-poojary-598422255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Valenka Stacey Ravibalan",
@@ -183,7 +183,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "valenkaa04",
     linkedinLink: "https://www.linkedin.com/in/valenka-stacey-ravibalan-b4818b340/",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Parvani Patil",
@@ -191,7 +191,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "parvani_7",
     linkedinLink: "https://www.linkedin.com/in/parvani-patil-5b375b341/",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Lavanya Hadke",
@@ -199,7 +199,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "lavanyaya.07",
     linkedinLink: "http://linkedin.com/in/hadkelavanya31",
-    category: "Member"
+    category: "Creative Team"
   },
   {
     name: "Rianna Rodrigues",
@@ -207,7 +207,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "rianna_rodz",
     linkedinLink: "https://www.linkedin.com/in/rianna-rodrigues-1b9642317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    category: "Member"
+    category: "Head"
   },
   {
     name: "Joanna Dsouza",
@@ -215,7 +215,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "joanna.d_08",
     linkedinLink: "https://www.linkedin.com/in/joannadsouza08",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Shravani Chaudhari",
@@ -223,7 +223,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: undefined,
     linkedinLink: "https://www.linkedin.com/in/shravani-chaudhari-6a9696357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Prathamesh Mane",
@@ -231,7 +231,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "prathamesh_mane19",
     linkedinLink: "https://www.linkedin.com/in/prathamesh-mane-ab42942a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Drishti Kakkar",
@@ -239,7 +239,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "drishtii.kakkar",
     linkedinLink: "http://linkedin.com/in/drishti-kakkar-13a1992b3",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Rudraa Sharma",
@@ -247,7 +247,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: undefined,
     linkedinLink: undefined,
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Amruta Patel",
@@ -255,7 +255,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "amyzzpatel",
     linkedinLink: "https://www.linkedin.com/in/amruta-patel-696267326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Amogh Vetkar",
@@ -263,7 +263,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "am.amoghh_",
     linkedinLink: "https://www.linkedin.com/posts/amogh-vetkar-8a579b320_im-happy-to-share-that-ive-started-my-bachelor-activity-7269580107541889024-BtH3?utm_source=share&utm_medium=member_android&rcm=ACoAAFFGPD0Be9eoYgVP99yBMXIB7q6fMpd5c1I",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Aurilia Gomes",
@@ -271,7 +271,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "_aurilia_7",
     linkedinLink: "https://www.linkedin.com/in/aurilia-gomes-m06",
-    category: "Member"
+    category: "PR Team"
   },
   {
     name: "Rayan Pawar",
@@ -279,7 +279,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "rayanpawar___",
     linkedinLink: "www.linkedin.com/in/rayanpawar",
-    category: "Member"
+    category: "Head"
   },
   {
     name: "Shrawani Garge",
@@ -287,7 +287,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "_shrawani.garge",
     linkedinLink: undefined,
-    category: "Member"
+    category: "Marketing Team"
   },
   {
     name: "Shubham Bhandari",
@@ -295,7 +295,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "shubham_bhandari_2",
     linkedinLink: undefined,
-    category: "Member"
+    category: "Marketing Team"
   },
   {
     name: "Rich Rebello",
@@ -303,7 +303,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "rebellorich",
     linkedinLink: "http://linkedin.com/in/rich-rebello-036399249",
-    category: "Member"
+    category: "Marketing Team"
   },
   {
     name: "Purwa Parui",
@@ -311,7 +311,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "purwaparui_",
     linkedinLink: "https://www.linkedin.com/in/purwa-parui-03986230a",
-    category: "Member"
+    category: "Marketing Team"
   },
   {
     name: "Shaun Mathew",
@@ -319,7 +319,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "7._.shaun",
     linkedinLink: "https://www.linkedin.com/in/shaun-mathew-8b66372b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    category: "Member"
+    category: "Head"
   },
   {
     name: "Smith Lopes",
@@ -327,7 +327,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "smithlopes1701_",
     linkedinLink: "https://www.linkedin.com/in/smith-lopes-25562026b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    category: "Member"
+    category: "Multimedia Team"
   },
   {
     name: "Deepak Gehlot",
@@ -335,7 +335,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "deepak_2005_._",
     linkedinLink: "www.linkedin.com/in/deepak-gehlot-04a781249",
-    category: "Member"
+    category: "Multimedia Team"
   },
   {
     name: "Aditi Suryawanshi",
@@ -343,7 +343,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: undefined,
     linkedinLink: "https://www.linkedin.com/in/aditi-suryawanshi-a18a96326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    category: "Member"
+    category: "Multimedia Team"
   },
   {
     name: "Maiju Varghese",
@@ -351,7 +351,7 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "m_ann99",
     linkedinLink: undefined,
-    category: "Member"
+    category: "Multimedia Team"
   },
   {
     name: "Mrunal Palav",
@@ -359,9 +359,8 @@ const data: CardProps[] = [
     about: undefined,
     instagramLink: "mrunallpalav",
     linkedinLink: "https://www.linkedin.com/in/mrunalpalav/",
-    category: "Member"
+    category: "Multimedia Team"
   },
-
   {
     name: "Faculty",
     title: "Faculty",
