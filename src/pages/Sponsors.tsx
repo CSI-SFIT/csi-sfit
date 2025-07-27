@@ -200,7 +200,7 @@ export const Sponsors: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                <StarBorder color="#E5E4E2" speed="4s" thickness={4}>
+                <StarBorder color="#ffffff0d" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border border-white/10 bg-white/5 backdrop-blur-md">
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-bold text-white mb-2">Platinum</h3>
@@ -210,7 +210,7 @@ export const Sponsors: React.FC = () => {
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Title partner in all banner and social media</span>
+                        <span>Title partner in all banners</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
@@ -222,11 +222,15 @@ export const Sponsors: React.FC = () => {
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Premium social media campaign (reels, carousel in all events)</span>
+                        <span>Premium social media campaign</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Logo on CSI Website + post event video</span>
+                        <span>Logo on CSI Website</span>
+                      </li>
+                        <li className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Post Event Video</span>
                       </li>
                     </ul>
                   </GlassCard>
@@ -240,6 +244,7 @@ export const Sponsors: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
+                <StarBorder color="#eab308" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border-2 border-yellow-500">
                     <div className="text-center mb-6">
                       {/*Remove Au icon*/}
@@ -262,11 +267,12 @@ export const Sponsors: React.FC = () => {
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Brand Logo on shared bannrs/posters</span>
+                      <span>Brand Logo on shared banners</span>
                       </li>
                     </ul>
                   </GlassCard>
-                </motion.div>
+                  </StarBorder>
+                  </motion.div>
 
                 {/* Silver Tier */}
                 <motion.div
@@ -274,6 +280,7 @@ export const Sponsors: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
+                <StarBorder color="#6b7280" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border-2 border-gray-500">
                     <div className="text-center mb-6">
                       {/*Remove Ag icon*/}
@@ -284,7 +291,7 @@ export const Sponsors: React.FC = () => {
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>One instagram story and logo tag on post event reel</span>
+                        <span>Post Event Social Media Posts</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
@@ -296,6 +303,7 @@ export const Sponsors: React.FC = () => {
                       </li>
                     </ul>
                   </GlassCard>
+                </StarBorder>
                 </motion.div>
               </div>
             </div>
