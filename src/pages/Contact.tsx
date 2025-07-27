@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from "react-router-dom"; 
+import { useLocation } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { GlassCard } from '../components/GlassCard';
@@ -20,7 +20,7 @@ import emailjs from '@emailjs/browser';
 import { Icon } from 'lucide-react';
 
 export const Contact: React.FC = () => {
-  const location = useLocation(); 
+  const location = useLocation();
 
   useEffect(() => {
 
@@ -41,7 +41,7 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJNK7wRbWSHLQMthYsHf82uviKiJQM-vrIAPqti_OceIvLgTjmiGVegLgIZ0EOkRHI/exec'; 
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJNK7wRbWSHLQMthYsHf82uviKiJQM-vrIAPqti_OceIvLgTjmiGVegLgIZ0EOkRHI/exec';
 
     fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
@@ -83,32 +83,32 @@ export const Contact: React.FC = () => {
       color: 'text-primary-500'
     },
     {
-  icon: IconPhoneCall,
-  title: 'Phone',
-  content: (
-    <div className="flex flex-col gap-2 text-gray-300">
-      <a
-        href="tel:+919325209355"
-        className="font-normal hover:text-[#2580E4] transition-colors"
-      >
-        Aryan Brahmane: +91 93252 09355
-      </a>
-      <a
-        href="tel:+919372937532"
-        className="font-normal hover:text-[#2580E4] transition-colors"
-      >
-        Rayan Pawar: +91 93729 37532
-      </a>
-      <a
-        href="tel:+917499531769"
-        className="font-normal hover:text-[#2580E4] transition-colors"
-      >
-        Shahiil Shet: +91 74995 31769
-      </a>
-    </div>
-  ),
-  color: 'text-secondary-500'
-},
+      icon: IconPhoneCall,
+      title: 'Phone',
+      content: (
+        <div className="flex flex-col gap-2 text-gray-300">
+          <a
+            href="tel:+919325209355"
+            className="font-normal hover:text-white transition-colors"
+          >
+            Aryan Brahmane: +91 93252 09355
+          </a>
+          <a
+            href="tel:+919372937532"
+            className="font-normal hover:text-white transition-colors"
+          >
+            Rayan Pawar: +91 93729 37532
+          </a>
+          <a
+            href="tel:+917499531769"
+            className="font-normal hover:text-white transition-colors"
+          >
+            Shahiil Shet: +91 74995 31769
+          </a>
+        </div>
+      ),
+      color: 'text-secondary-500'
+    },
     {
       icon: IconBrandGoogleMaps,
       title: 'Address',
@@ -186,11 +186,11 @@ export const Contact: React.FC = () => {
                             <div>
                               <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">{info.title}</h3>
                               {info.link ? (
-                                <a href={info.link} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#2580E4] transition-colors">
+                                <a href={info.link} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
                                   {info.content}
                                 </a>
                               ) : (
-                                <p className="text-gray-300">{info.content}</p>
+                                <p className="text-gray-300 hover:text-white transition-colors">{info.content}</p>
                               )}
                             </div>
                           </div>
@@ -283,7 +283,7 @@ export const Contact: React.FC = () => {
                   </form>
                 </div>
               </Enhanced3DCard>
-            </motion.div>
+            </motion.div> 
           </div>
         </div>
       </section>
