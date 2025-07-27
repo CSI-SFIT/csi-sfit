@@ -83,31 +83,32 @@ export const Contact: React.FC = () => {
       color: 'text-primary-500'
     },
     {
-      icon: IconPhoneCall,
-      title: 'Phone',
-      content: (
-        <p className="text-gray-300 space-x-2">
-          <span>
-            <a href="tel:+919325209355" className="hover:text-[#2580E4] transition-colors">
-              Aryan Brahmane - +91 93252 09355
-            </a>
-          </span>
-          <span className="mx-2 text-white/30">|</span>
-          <span>
-            <a href="tel:+919372937532" className="hover:text-[#2580E4] transition-colors">
-              Rayan Pawar - +91 93729 37532
-            </a>
-          </span>
-          <span className="mx-2 text-white/30">|</span>
-          <span>
-            <a href="tel:+917499531769" className="hover:text-[#2580E4] transition-colors">
-              Shahiil Shet - +91 74995 31769
-            </a>
-          </span>
-        </p>
-      ),
-      color: 'text-secondary-500'
-    },
+  icon: IconPhoneCall,
+  title: 'Phone',
+  content: (
+    <div className="flex flex-col gap-2 text-gray-300">
+      <a
+        href="tel:+919325209355"
+        className="font-normal hover:text-[#2580E4] transition-colors"
+      >
+        Aryan Brahmane: +91 93252 09355
+      </a>
+      <a
+        href="tel:+919372937532"
+        className="font-normal hover:text-[#2580E4] transition-colors"
+      >
+        Rayan Pawar: +91 93729 37532
+      </a>
+      <a
+        href="tel:+917499531769"
+        className="font-normal hover:text-[#2580E4] transition-colors"
+      >
+        Shahiil Shet: +91 74995 31769
+      </a>
+    </div>
+  ),
+  color: 'text-secondary-500'
+},
     {
       icon: IconBrandGoogleMaps,
       title: 'Address',
