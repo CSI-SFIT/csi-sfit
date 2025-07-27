@@ -196,45 +196,47 @@ export const Sponsors: React.FC = () => {
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Platinum Tier */}
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                  <GlassCard className="p-8 h-full border-2 border-gray-300">
+                <StarBorder color="#ffffff0d" speed="4s" thickness={8}>
+                  <GlassCard className="p-8 h-full border border-white/10 bg-white/5 backdrop-blur-md">
                     <div className="text-center mb-6">
-                      {/*Remove Pt icon*/}
                       <h3 className="text-2xl font-bold text-white mb-2">Platinum</h3>
                       <p className="text-gray-300">Premium Partnership</p>
                     </div>
-                    
+
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Logo on all event materials</span>
+                        <span>Title partner in all banners</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Keynote speaking opportunity</span>
+                        <span>Dedicated Sponsorship desk</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Dedicated booth space</span>
+                        <span>Exclusive Banner space at entry</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Social media promotion</span>
+                        <span>Premium social media campaign</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Workshop hosting rights</span>
+                        <span>Logo on CSI Website</span>
                       </li>
-                      <li className="flex items-center space-x-3">
+                        <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Annual report inclusion</span>
+                        <span>Post Event Video</span>
                       </li>
                     </ul>
                   </GlassCard>
+                </StarBorder>
                 </motion.div>
+
 
                 {/* Gold Tier */}
                 <motion.div
@@ -242,6 +244,7 @@ export const Sponsors: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
+                <StarBorder color="#eab308" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border-2 border-yellow-500">
                     <div className="text-center mb-6">
                       {/*Remove Au icon*/}
@@ -252,27 +255,24 @@ export const Sponsors: React.FC = () => {
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Logo on event banners</span>
+                        <span>Co Partner status in events</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Event co-branding opportunity</span>
+                        <span>Standard Social Media Promotion</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Medium booth space</span>
+                        <span>Mention during key event session</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Website logo placement</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Networking session access</span>
+                      <span>Brand Logo on shared banners</span>
                       </li>
                     </ul>
                   </GlassCard>
-                </motion.div>
+                  </StarBorder>
+                  </motion.div>
 
                 {/* Silver Tier */}
                 <motion.div
@@ -280,6 +280,7 @@ export const Sponsors: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
+                <StarBorder color="#6b7280" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border-2 border-gray-500">
                     <div className="text-center mb-6">
                       {/*Remove Ag icon*/}
@@ -290,22 +291,19 @@ export const Sponsors: React.FC = () => {
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Logo on select materials</span>
+                        <span>Post Event Social Media Posts</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Small booth space</span>
+                        <span>Logo feature in selected banner</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Website acknowledgment</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Event attendee access</span>
+                        <span>Verbal mention in events</span>
                       </li>
                     </ul>
                   </GlassCard>
+                </StarBorder>
                 </motion.div>
               </div>
             </div>
@@ -314,22 +312,24 @@ export const Sponsors: React.FC = () => {
           {/* Sponsorship Kit Section */}
           <section className="py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <GlassCard className="p-8 text-center">
-                <Handshake className="w-16 h-16 text-primary-500 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Sponsorship Kit</h3>
-                <p className="text-gray-400 mb-6">
-                  Download our comprehensive sponsorship kit to learn more about partnership opportunities
-                  and the impact of your support.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white rounded-lg font-medium"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>Download Sponsorship Kit</span>
-                </motion.button>
-              </GlassCard>
+            <GlassCard className="p-8 text-center">
+            <Handshake className="w-16 h-16 text-primary-500 mx-auto mb-6" />
+            <h3 className="text-2xl font-bold text-white mb-4">Sponsorship Kit</h3>
+            <p className="text-gray-400 mb-6">
+              Download our comprehensive sponsorship kit to learn more about partnership opportunities
+              and the impact of your support.
+            </p>
+            <motion.a
+              href="/brochure.pdf"
+              download="CSI-Sponsorship-Kit.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white rounded-lg font-medium"
+            >
+              <Download className="w-5 h-5" />
+              <span>Download Sponsorship Kit</span>
+            </motion.a>
+            </GlassCard>
             </div>
           </section>
         </div>
