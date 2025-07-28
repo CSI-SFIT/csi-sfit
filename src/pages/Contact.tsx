@@ -17,7 +17,6 @@ import {
   IconBrandLinktree
 } from '@tabler/icons-react';
 import emailjs from '@emailjs/browser';
-import { Icon } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const location = useLocation();
