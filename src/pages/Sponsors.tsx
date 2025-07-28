@@ -113,7 +113,7 @@ export const Sponsors: React.FC = () => {
 
   {/*removed tiercolors*/}
   return (
-    <div className="min-h-screen pt-16 bg-dark-900 text-white">
+    <div className="min-h-screen pt-16 bg-dark-800 text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />

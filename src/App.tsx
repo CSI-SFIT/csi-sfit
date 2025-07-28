@@ -14,6 +14,7 @@
   import { Membership } from './pages/Membership';
   import { NotFound } from './pages/NotFound';
   import ShiningStars from './components/ShiningStars';
+  import { Footer } from './components/Footer';
 
   function App() {
     return (
@@ -35,6 +36,7 @@
             </Routes>
           </AnimatePresence>
         </div>
+        <Footer/>
       </Router>
     );
   }
