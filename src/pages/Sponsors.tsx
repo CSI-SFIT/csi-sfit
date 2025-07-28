@@ -10,7 +10,7 @@ interface Sponsor {
   id: string;
   name: string;
   logo: string;
-  tier: 'platinum' | 'gold' | 'silver' | 'bronze';
+  tier: 'platinum' | 'gold' | 'silver';
   description: string;
   website: string;
   contribution: string;
@@ -108,15 +108,6 @@ export const Sponsors: React.FC = () => {
       description: 'Professional development tools and software solutions.',
       website: 'https://devtools.com',
       contribution: 'Software Licenses'
-    },
-    {
-      id: '6',
-      name: 'StartupHub',
-      logo: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=200',
-      tier: 'bronze',
-      description: 'Entrepreneur support network and business development platform.',
-      website: 'https://startuphub.com',
-      contribution: 'Networking Events'
     }
   ];
 
@@ -170,7 +161,7 @@ export const Sponsors: React.FC = () => {
             Current <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">Partners</span>
           </h2>
 
-          {['platinum', 'gold', 'silver', 'bronze'].map((tier) => (
+          {['platinum', 'gold', 'silver'].map((tier) => (
             <div key={tier} className="mb-16">
               <h3 className="text-2xl font-bold text-gray-300 mb-8 text-center capitalize">{tier} Partners</h3>
               <div className="flex flex-wrap justify-center gap-8">
