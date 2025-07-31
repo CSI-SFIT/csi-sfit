@@ -1,10 +1,8 @@
 import "./Card.css";
-import ProfileCard from "./ProfileCard";
-// import man1 from "../assets/man1.png";
-import man1 from "../../../assets/man1.png"
-// import man2 from "../assets/man2.png";
-// import woman1 from "../assets/woman1.png";
+import React, { Suspense } from "react";
+import man1 from "../../../assets/man1.webp";
 import { Instagram, Linkedin } from "lucide-react";
+const ProfileCard = React.lazy(() => import("./ProfileCard"));
 
 export interface CardProps {
   avatarUrl?: string;
@@ -43,36 +41,40 @@ const Card = ({
       <div className="card-container">
         <div className="card">
           <div className="card-face front">
-            <ProfileCard
-              avatarUrl={avatarUrl}
-              showBehindGradient={showBehindGradient}
-              className={className}
-              name={name}
-              enableTilt={enableTilt}
-              title={title?.toUpperCase()}
-              handle={handle}
-              status={status}
-              contactText={contactText}
-              showUserInfo={showUserInfo}
-            />
+            <Suspense
+              fallback={
+                <div className="w-full h-60 bg-gray-800 animate-pulse rounded-lg" />
+              }
+            >
+              <ProfileCard
+                avatarUrl={avatarUrl}
+                showBehindGradient={showBehindGradient}
+                className={className}
+                name={name}
+                enableTilt={enableTilt}
+                title={title?.toUpperCase()}
+                handle={handle}
+                status={status}
+                contactText={contactText}
+                showUserInfo={showUserInfo}
+              />
+            </Suspense>
           </div>
 
           <div className="card-face back">
             <h3>About {name.split(" ")[0]}:</h3>
-            <p>
-              {about}
-            </p>
+            <p>{about}</p>
 
             <div className="socials">
               <p>Socials: </p>
               <ul>
                 <li>
-                  <a href={linkedinLink}>
+                  <a href={linkedinLink} target="_blank">
                     <Linkedin />
                   </a>
                 </li>
                 <li>
-                  <a href={instagramLink}>
+                  <a href={instagramLink} target="_blank">
                     <Instagram />
                   </a>
                 </li>

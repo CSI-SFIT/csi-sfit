@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 | Page Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background-color: #0f0c29;
+      overflow: hidden;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+  .logo {
+    height: 200px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+  }
+
+    /* Aurora Blobs */
+    .blob {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle at 30% 30%, #00d4ff, transparent 70%);
+      opacity: 0.3;
+      border-radius: 50%;
+      animation: move 20s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    .blob:nth-child(2) {
+      background: radial-gradient(circle at 70% 70%, #a855f7, transparent 70%);
+      animation-delay: 10s;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translate(-20%, -20%) scale(1);
+      }
+      100% {
+        transform: translate(20%, 20%) scale(1.3);
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #d1d5db;
+      max-width: 500px;
+      margin: 0 auto 30px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background-color: #00d4ff;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00c0e6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Aurora Blobs -->
+  <div class="blob"></div>
+  <div class="blob"></div>
+
+
+
+<div class="content">
+  <img
+    src="./csi_logo.jpg"
+    alt="CSI Logo"
+    class="logo" />
+  <h2>Page Not Found</h2>
+  <p>Sorry, the page you’re looking for doesn’t exist or has been moved.</p>
+  <a href="https://sfit-csi.netlify.app/" class="btn">Go Back Home</a>
+</div>
+
+
+
+</body>
+</html>

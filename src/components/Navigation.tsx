@@ -1,16 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  Award,
-  Calendar,
-  Camera,
-  Code,
-  Mail,
-  Menu,
-  Users,
-  X,
-} from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+  Menu, X, Code, Users, Calendar, Camera, Award, Mail,CirclePlus
+} from 'lucide-react';
 
 import logo from "../logo.png"; // Assuming logo.png is in src/assets
 
@@ -39,13 +30,14 @@ export const Navigation: React.FC = () => {
   }, []);
 
   const navItems = [
-    { path: "/", label: "Home", icon: Code },
-    { path: "/about", label: "About", icon: Users },
-    { path: "/events", label: "Events", icon: Calendar },
-    { path: "/team", label: "Team", icon: Users },
-    { path: "/gallery", label: "Gallery", icon: Camera },
-    { path: "/sponsors", label: "Sponsors", icon: Award },
-    { path: "/contact", label: "Contact", icon: Mail },
+    { path: '/', label: 'Home', icon: Code },
+    { path: '/about', label: 'About', icon: Users },
+    { path: '/events', label: 'Events', icon: Calendar },
+    { path: '/team', label: 'Team', icon: Users },
+    { path: '/gallery', label: 'Gallery', icon: Camera },
+    { path: '/sponsors', label: 'Sponsors', icon: Award },
+    { path: '/contact', label: 'Contact', icon: Mail }
+    // {path: '/membership', label: 'Join', icon: CirclePlus }  /// New Membership Page Icon
   ];
 
   return (
@@ -147,8 +139,8 @@ export const Navigation: React.FC = () => {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                           isActive
-                            ? "bg-[#1A5AFF]/10 text-[#1A5AFF] border border-[#1A5AFF]/20"
-                            : "text-gray-300 hover:text-white hover:bg-white/5"
+                            ? 'bg-[#1A5AFF]/10 text-[#00FFF0] border border-[#1A5AFF]/20'
+                            : 'text-gray-300 hover:text-white hover:bg-white/5'
                         }`}
                       >
                         <Icon className="w-5 h-5" />

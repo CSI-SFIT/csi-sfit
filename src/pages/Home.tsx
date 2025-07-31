@@ -79,8 +79,8 @@ export const Home: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e30ff]/20 via-[#42e0d8]/10 to-[#f7baa8]/20" />
-
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />
+        
         <motion.div
           ref={heroRef}
           initial={{ opacity: 0 }}
@@ -106,7 +106,7 @@ export const Home: React.FC = () => {
             className="mb-8"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 bg-clip-text text-transparent animate-gradient bg-300">
+              <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent animate-gradient bg-300">
                 Computer Society
               </span>
               <br />
@@ -139,8 +139,8 @@ export const Home: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-              to="/join"
-              className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
+              to="/membership" //Added Page Address Location and changed Color(below)
+              className="group relative px-8 py-4 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
             >
               <span className="flex items-center space-x-2">
                 <span>Join CSI SFIT</span>
@@ -229,10 +229,7 @@ export const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              What We{" "}
-              <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                Offer
-              </span>
+              What We <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent">Offer</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Discover opportunities to grow, learn, and connect with

@@ -1,109 +1,158 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { X, ZoomIn, Calendar, Users, MapPin } from 'lucide-react';
-import { Enhanced3DCard } from '../components/Enhanced3DCard';
+import { useEffect } from 'react';
 
 interface GalleryItem {
   id: string;
-  title: string;
-  description: string;
   image: string;
-  date: string;
-  category: 'workshop' | 'hackathon' | 'seminar' | 'competition' | 'networking';
-  attendees: number;
-  location: string;
+  category: 'workshop' | 'Mosaic';
+  subcategory: 'LLM' | 'Flask' | 'Figma' | 'Ghost Protocol' | 'Space Day';
 }
 
 export const Gallery: React.FC = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [galleryRef, galleryInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  // Move previewIndex and related functions inside the component
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
 
   const galleryItems: GalleryItem[] = [
     {
       id: '1',
-      title: 'AI/ML Workshop 2024',
-      description: 'Hands-on workshop on machine learning algorithms and implementation',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      date: '2024-01-15',
+      image: 'https://i.postimg.cc/4NQpG0hm/img1.avif',
       category: 'workshop',
-      attendees: 75,
-      location: 'Computer Lab A-301'
-    },
-    {
-      id: '2',
-      title: 'CodeFest Hackathon',
-      description: '48-hour coding marathon with innovative project presentations',
-      image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
-      date: '2024-01-20',
-      category: 'hackathon',
-      attendees: 120,
-      location: 'Main Auditorium'
+      subcategory: 'LLM',
     },
     {
       id: '3',
-      title: 'Tech Industry Panel',
-      description: 'Industry experts sharing insights about career opportunities',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-      date: '2024-01-25',
-      category: 'seminar',
-      attendees: 90,
-      location: 'Seminar Hall B-201'
+      image: 'https://i.postimg.cc/HLnSVMGD/IMG-2478.jpg',
+      category: 'workshop',
+      subcategory: 'Flask',
     },
     {
       id: '4',
-      title: 'Web Development Bootcamp',
-      description: 'Intensive training on modern web development technologies',
-      image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=800',
-      date: '2024-02-01',
+      image: 'https://i.postimg.cc/8PxC0bLw/IMG-3678.avif',
       category: 'workshop',
-      attendees: 65,
-      location: 'Computer Lab B-302'
+      subcategory: 'LLM',
     },
     {
-      id: '5',
-      title: 'Coding Competition',
-      description: 'Annual programming contest with challenging algorithmic problems',
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800',
-      date: '2024-02-05',
-      category: 'competition',
-      attendees: 85,
-      location: 'Computer Labs'
+      id: '7',
+      image: 'https://i.postimg.cc/8kmQXsXv/IMG-20250329-123649.jpg',
+      category: 'workshop',
+      subcategory: 'Figma',
     },
     {
       id: '6',
-      title: 'Alumni Networking',
-      description: 'Connecting current students with successful alumni in tech',
-      image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800',
-      date: '2024-02-10',
-      category: 'networking',
-      attendees: 110,
-      location: 'College Cafeteria'
-    }
+      image: 'https://i.postimg.cc/sgz4SbKb/20240921-145323.avif',
+      category: 'workshop',
+      subcategory: 'Figma',
+    },
+    {
+      id: '5',
+      image: 'https://i.postimg.cc/3JFvMNCb/IMG-8402.avif',
+      category: 'workshop',
+      subcategory: 'Figma',
+    },
+    {
+      id: '10',
+      image: 'https://i.postimg.cc/VsTm6Gg1/IMG-0926.avif',
+      category: 'Mosaic',
+      subcategory: 'Space Day',
+    },
+    {
+      id: '8',
+      image: 'https://i.postimg.cc/MHkdLHbp/IMG-4288.avif',
+      category: 'workshop',
+      subcategory: 'Flask',
+    },
+    {
+      id: '9',
+      image: 'https://i.postimg.cc/sf7rgZLK/IMG-9574.avif',
+      category: 'Mosaic',
+      subcategory: 'Space Day',
+    },
+    {
+      id: '2',
+      image: 'https://i.postimg.cc/K8RLTDYN/IMG-3759.avif',
+      category: 'workshop',
+      subcategory: 'LLM',
+    },
+    {
+      id: '11',
+      image: 'https://i.postimg.cc/pLjD76Gd/IMG-9473.avif',
+      category: 'Mosaic',
+      subcategory: 'Space Day',
+    },
+    {
+      id: '12',
+      image: 'https://i.postimg.cc/1RVRNjgB/IMG-4686.avif',
+      category: 'Mosaic',
+      subcategory: 'Ghost Protocol',
+    },
+    {
+      id: '13',
+      image: 'https://i.postimg.cc/PxwGN068/IMG-20250319-WA0027.jpg',
+      category: 'Mosaic',
+      subcategory: 'Ghost Protocol',
+    },
   ];
 
   const categories = [
     { id: 'all', label: 'All' },
     { id: 'workshop', label: 'Workshops' },
-    { id: 'hackathon', label: 'Hackathons' },
-    { id: 'seminar', label: 'Seminars' },
-    { id: 'competition', label: 'Competitions' },
-    { id: 'networking', label: 'Networking' }
+    { id: 'Mosaic', label: 'Mosaic' },
   ];
 
-  const filteredItems = selectedCategory === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === selectedCategory);
+  const filteredItems =
+    selectedCategory === 'all'
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === selectedCategory);
 
+  // Define functions after filteredItems is available in scope
+  const openPreview = (index: number) => {
+    setPreviewIndex(index);
+  };
+
+  const closePreview = () => {
+    setPreviewIndex(null);
+  };
+
+  const showPrev = () => {
+    if (previewIndex !== null) {
+      setPreviewIndex((prevIndex) => (prevIndex! - 1 + filteredItems.length) % filteredItems.length);
+    }
+  };
+
+  const showNext = () => {
+    if (previewIndex !== null) {
+      setPreviewIndex((prevIndex) => (prevIndex! + 1) % filteredItems.length);
+    }
+  };
+useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (previewIndex !== null) {
+      if (e.key === 'ArrowLeft') {
+        showPrev();
+      } else if (e.key === 'ArrowRight') {
+        showNext();
+      } else if (e.key === 'Escape') {
+        closePreview();
+      }
+    }
+  };
+
+  window.addEventListener('keydown', handleKeyDown);
+
+  return () => {
+    window.removeEventListener('keydown', handleKeyDown);
+  };
+}, [previewIndex, showPrev, showNext, closePreview]);
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e30ff]/20 via-[#42e0d8]/10 to-[#f7baa8]/20" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
           <motion.div
             ref={heroRef}
             initial={{ opacity: 0, y: 50 }}
@@ -112,11 +161,15 @@ export const Gallery: React.FC = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Event <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">Gallery</span>
+              Event{' '}
+              <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
+                Gallery
+              </span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Relive the moments from our exciting events, workshops, and community gatherings. 
-              See the passion and innovation that drives our community.
+              Relive the moments from our exciting events, workshops, and
+              community gatherings. See the passion and innovation that drives
+              our community.
             </p>
           </motion.div>
 
@@ -139,7 +192,7 @@ export const Gallery: React.FC = () => {
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   selectedCategory === category.id
                     ? 'bg-gradient-to-r from-[#36B7B7] to-[#2AA198] text-white shadow-lg shadow-[#36B7B7]/25'
-                  : 'text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
+                    : 'text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
                 }`}
               >
                 {category.label}
@@ -151,150 +204,74 @@ export const Gallery: React.FC = () => {
 
       {/* Gallery Grid */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            ref={galleryRef}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {filteredItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={galleryInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Enhanced3DCard 
-                  className="h-full cursor-pointer group"
-                  glowColor="#ff6b00"
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+            <AnimatePresence mode="wait">
+              {filteredItems.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="break-inside-avoid rounded-lg overflow-hidden shadow-lg cursor-pointer transform transition-transform hover:scale-105"
+                  onClick={() => openPreview(index)} // Pass the index here
                 >
-                  <div 
-                    className="relative overflow-hidden h-full"
-                    onClick={() => setSelectedImage(item)}
-                  >
-                    {/* Image */}
-                    <div className="relative h-64 overflow-hidden">
-                      <motion.img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark-800/80 to-transparent" />
-                      
-                      {/* Zoom overlay */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                        className="absolute inset-0 bg-dark-800/60 flex items-center justify-center"
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.2 }}
-                          className="w-16 h-16 bg-primary-500/20 backdrop-blur-sm border border-primary-500/30 rounded-full flex items-center justify-center"
-                        >
-                          <ZoomIn className="w-8 h-8 text-primary-500" />
-                        </motion.div>
-                      </motion.div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-primary-500 transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-400 text-sm mb-4">
-                        {item.description}
-                      </p>
-
-                      {/* Event Details */}
-                      <div className="space-y-2 text-sm text-gray-300">
-                        <div className="flex items-center">
-                          <Calendar className="w-4 h-4 text-primary-500 mr-2" />
-                          {new Date(item.date).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}
-                        </div>
-                        <div className="flex items-center">
-                          <Users className="w-4 h-4 text-secondary-500 mr-2" />
-                          {item.attendees} attendees
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin className="w-4 h-4 text-purple-500 mr-2" />
-                          {item.location}
-                        </div>
-                      </div>
+                  <div className="relative overflow-hidden group">
+                    <img
+                      src={item.image}
+                      alt=""
+                      loading="lazy"
+                      className="w-full h-auto object-cover"
+                    />
+                    <div
+                      className="absolute inset-0 flex items-center justify-center bg-black/50 text-white opacity-0 translate-y-4
+                      group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500"
+                    >
+                      <span className="text-2xl text-white font-bold capitalize">{item.subcategory}</span>
                     </div>
                   </div>
-                </Enhanced3DCard>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
-      {/* Image Modal */}
       <AnimatePresence>
-        {selectedImage && (
+        {previewIndex !== null && (
           <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-dark-800/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative max-w-4xl w-full max-h-[90vh] bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close button */}
+            <div className="relative max-w-4xl mx-auto">
+              <img
+                src={filteredItems[previewIndex].image}
+                alt=""
+                className="max-h-[80vh] w-auto mx-auto rounded shadow-lg"
+              />
               <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-dark-800/80 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-dark-800 transition-colors"
+                onClick={closePreview}
+                className="absolute top-2 right-2 text-white bg-black/50 rounded-full p-2 hover:bg-black"
               >
-                <X className="w-5 h-5" />
+                ✕
               </button>
-
-              {/* Image */}
-              <div className="relative">
-                <img
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
-                  className="w-full h-auto max-h-[60vh] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-800/60 to-transparent" />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h2>
-                <p className="text-gray-300 mb-4">{selectedImage.description}</p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                  <div className="flex items-center text-gray-300">
-                    <Calendar className="w-4 h-4 text-primary-500 mr-2" />
-                    {new Date(selectedImage.date).toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
-                    })}
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <Users className="w-4 h-4 text-secondary-500 mr-2" />
-                    {selectedImage.attendees} attendees
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <MapPin className="w-4 h-4 text-purple-500 mr-2" />
-                    {selectedImage.location}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+              <button
+                onClick={showPrev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 text-3xl text-white bg-black/50 rounded-full p-2 hover:bg-black"
+              >
+                ‹
+              </button>
+              <button
+                onClick={showNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-3xl text-white bg-black/50 rounded-full p-2 hover:bg-black"
+              >
+                ›
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

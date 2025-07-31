@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom"; // <--- ADD THIS LINE
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Check, Star, Users, Calendar, Award, Book, Code, Lightbulb, ArrowRight } from 'lucide-react';
@@ -6,6 +7,15 @@ import { Enhanced3DCard } from '../components/Enhanced3DCard';
 import { GlassCard } from '../components/GlassCard';
 
 export const Membership: React.FC = () => {
+  const location = useLocation(); // <--- ADD THIS LINE
+
+  useEffect(() => {
+    // Only scroll to top if we're on the membership page
+    if (location.pathname === "/membership") {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [benefitsRef, benefitsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formRef, formInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,42 +28,48 @@ export const Membership: React.FC = () => {
     interests: [] as string[]
   });
 
+  // Color classes
+  const gradientTextClass = "bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent";
+  const statsIconColor = "text-[#40E0D0]";
+  const statsValueGradient = "bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent font-bold";
+
+  // Membership benefits with white headings for each card
   const membershipBenefits = [
     {
       icon: Code,
       title: 'Technical Workshops',
       description: 'Access to exclusive hands-on workshops on latest technologies',
-      color: 'text-primary-500'
+      color: statsIconColor
     },
     {
       icon: Users,
       title: 'Networking Events',
       description: 'Connect with industry professionals and like-minded peers',
-      color: 'text-secondary-500'
+      color: statsIconColor
     },
     {
       icon: Book,
       title: 'Learning Resources',
       description: 'Free access to premium courses, books, and learning materials',
-      color: 'text-purple-500'
+      color: statsIconColor
     },
     {
       icon: Award,
       title: 'Certification Programs',
       description: 'Industry-recognized certificates and skill validation',
-      color: 'text-pink-500'
+      color: statsIconColor
     },
     {
       icon: Calendar,
       title: 'Priority Access',
       description: 'Early registration for events, competitions, and hackathons',
-      color: 'text-blue-500'
+      color: statsIconColor
     },
     {
       icon: Lightbulb,
       title: 'Innovation Projects',
       description: 'Opportunity to work on real-world projects and research',
-      color: 'text-green-500'
+      color: statsIconColor
     }
   ];
 
@@ -82,6 +98,19 @@ export const Membership: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Membership form submitted:', formData);
+
+        /// Sending data to Google Apps Script
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCeLaKqxz3ZX8H3EM5_PD340vAHh0ywfMvXTMR-mIeJ397hiTkCJ_lc2gGSNhATmW6/exec'; 
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -104,9 +133,8 @@ export const Membership: React.FC = () => {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e30ff]/20 via-[#42e0d8]/10 to-[#f7baa8]/20" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
           <motion.div
             ref={heroRef}
             initial={{ opacity: 0, y: 50 }}
@@ -114,8 +142,9 @@ export const Membership: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Join <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">CSI SFIT</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-white">Join </span>
+              <span className={gradientTextClass}>CSI SFIT</span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Become part of a vibrant community of tech enthusiasts, innovators, and future leaders. 
@@ -140,8 +169,8 @@ export const Membership: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.1 * index }}
                 >
                   <GlassCard className="p-6 text-center">
-                    <Icon className="w-8 h-8 text-primary-500 mx-auto mb-3" />
-                    <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                    <Icon className={`w-8 h-8 mx-auto mb-3 ${statsIconColor}`} />
+                    <div className={`text-2xl mb-1 ${statsValueGradient}`}>{stat.value}</div>
                     <div className="text-gray-400 text-sm">{stat.label}</div>
                   </GlassCard>
                 </motion.div>
@@ -161,8 +190,9 @@ export const Membership: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Membership <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Benefits</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <span className="text-white">Membership </span>
+              <span className={gradientTextClass}>Benefits</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Unlock exclusive opportunities and resources designed to accelerate your tech journey
@@ -181,10 +211,10 @@ export const Membership: React.FC = () => {
                 >
                   <Enhanced3DCard>
                     <div className="p-8 text-center h-full">
-                      <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex items-center justify-center ${benefit.color}`}>
-                        <Icon className="w-8 h-8" />
+                      <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-white/10 to-white/5 rounded-xl flex items-center justify-center`}>
+                        <Icon className={`w-8 h-8 ${statsIconColor}`} />
                       </div>
-                      <h3 className="text-xl font-semibold text-white mb-4">{benefit.title}</h3>
+                      <h3 className="text-xl font-semibold mb-4 text-white">{benefit.title}</h3>
                       <p className="text-gray-400 leading-relaxed">{benefit.description}</p>
                     </div>
                   </Enhanced3DCard>
@@ -207,7 +237,7 @@ export const Membership: React.FC = () => {
             <Enhanced3DCard>
               <div className="p-8">
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">
+                  <h2 className="text-3xl font-bold mb-4 text-white">
                     Start Your Journey
                   </h2>
                   <p className="text-gray-400">
@@ -324,7 +354,7 @@ export const Membership: React.FC = () => {
                           onClick={() => handleInterestToggle(interest)}
                           className={`p-3 rounded-lg text-sm font-medium transition-all duration-300 ${
                             formData.interests.includes(interest)
-                              ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white'
+                              ? 'bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] text-white'
                               : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
                           }`}
                         >
@@ -352,7 +382,7 @@ export const Membership: React.FC = () => {
                     type="submit"
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-primary-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
+                    className="w-full py-4 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] text-white font-semibold rounded-lg shadow-lg hover:shadow-primary-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
                   >
                     <span>Join CSI SFIT</span>
                     <ArrowRight className="w-5 h-5" />
@@ -369,44 +399,46 @@ export const Membership: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <GlassCard className="p-8">
             <div className="text-center mb-8">
-              <Star className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-4">Why Join CSI SFIT?</h3>
+              <Star className={`w-16 h-16 mx-auto mb-4 ${statsIconColor}`} />
+              <h3 className="text-2xl font-bold mb-4 text-white">
+                Why Join CSI SFIT?
+              </h3>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6 text-gray-300">
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Access to industry experts and mentors</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Hands-on project experience</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Career guidance and placement support</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Scholarship and internship opportunities</span>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Build your professional network</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Leadership and organizational skills</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Recognition and awards</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className={`w-5 h-5 flex-shrink-0 ${statsIconColor}`} />
                   <span>Lifetime alumni network access</span>
                 </div>
               </div>

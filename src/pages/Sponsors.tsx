@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Handshake, Download, ExternalLink } from 'lucide-react';
-import { Enhanced3DCard } from '../components/Enhanced3DCard';
+//import { Enhanced3DCard } from '../components/Enhanced3DCard';
 import { GlassCard } from '../components/GlassCard';
+import StarBorder from '../components/StarBorder'; 
 
 interface Sponsor {
   id: string;
   name: string;
   logo: string;
-  tier: 'platinum' | 'gold' | 'silver' | 'bronze';
+  tier: 'platinum' | 'gold' | 'silver';
   description: string;
   website: string;
   contribution: string;
@@ -29,34 +30,36 @@ export const Sponsors: React.FC = () => {
     
     return (
       <motion.div
-        key={sponsor.id}
-        ref={ref}
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
+  key={sponsor.id}
+  ref={ref}
+  initial={{ opacity: 0, y: 40 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6, delay: index * 0.1 }}
+>
+  <StarBorder color="#FFCDB9" speed="4s" thickness={4}>
+    <GlassCard className="overflow-visible p-6 text-center max-w-xs bg-white/10 shadow-none border border-white/10">
+      <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-visible">
+        <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-cover" />
+      </div>
+      <h4 className="text-xl font-semibold text-white mb-2">{sponsor.name}</h4>
+      <p className="text-gray-400 text-sm mb-3">{sponsor.description}</p>
+      <p className="text-primary-300 text-sm mb-3">{sponsor.contribution}</p>
+      <motion.a
+        href={sponsor.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium"
       >
-        <Enhanced3DCard glowColor={tierColors[tier as keyof typeof tierColors].glow} intensity={8}>
-          <div className="p-6 text-center max-w-xs">
-            <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-hidden">
-              <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-cover" />
-            </div>
-            <h4 className="text-xl font-semibold text-white mb-2">{sponsor.name}</h4>
-            <p className="text-gray-400 text-sm mb-3">{sponsor.description}</p>
-            <p className="text-primary-300 text-sm mb-3">{sponsor.contribution}</p>
-            <motion.a
-              href={sponsor.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg text-sm font-medium"
-            >
-              <span>Visit</span>
-              <ExternalLink className="w-4 h-4" />
-            </motion.a>
-          </div>
-        </Enhanced3DCard>
-      </motion.div>
+        <span>Visit</span>
+        <ExternalLink className="w-4 h-4" />
+      </motion.a>
+    </GlassCard>
+  </StarBorder>
+</motion.div>
+
+
     );
   };
 
@@ -105,37 +108,22 @@ export const Sponsors: React.FC = () => {
       description: 'Professional development tools and software solutions.',
       website: 'https://devtools.com',
       contribution: 'Software Licenses'
-    },
-    {
-      id: '6',
-      name: 'StartupHub',
-      logo: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=200',
-      tier: 'bronze',
-      description: 'Entrepreneur support network and business development platform.',
-      website: 'https://startuphub.com',
-      contribution: 'Networking Events'
     }
   ];
 
-  const tierColors = {
-    platinum: { glow: '#e5e7eb' },
-    gold: { glow: '#fbbf24' },
-    silver: { glow: '#9ca3af' },
-    bronze: { glow: '#fb923c' }
-  };
-
+  {/*removed tiercolors*/}
   return (
-    <div className="min-h-screen pt-16 bg-dark-900 text-white">
+    <div className="min-h-screen pt-16 bg-dark-800 text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e30ff]/20 via-[#42e0d8]/10 to-[#f7baa8]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={heroRef}
             initial="hidden"
             animate={heroInView ? 'visible' : 'hidden'}
             variants={{
-              hidden: { opacity: 0, y: 60 },
+              hidden: { opacity: 0, y: 50 },
               visible: {
                 opacity: 1,
                 y: 0,
@@ -173,7 +161,7 @@ export const Sponsors: React.FC = () => {
             Current <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">Partners</span>
           </h2>
 
-          {['platinum', 'gold', 'silver', 'bronze'].map((tier) => (
+          {['platinum', 'gold', 'silver'].map((tier) => (
             <div key={tier} className="mb-16">
               <h3 className="text-2xl font-bold text-gray-300 mb-8 text-center capitalize">{tier} Partners</h3>
               <div className="flex flex-wrap justify-center gap-8">
@@ -199,47 +187,47 @@ export const Sponsors: React.FC = () => {
               <div className="grid md:grid-cols-3 gap-8">
                 {/* Platinum Tier */}
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                  <GlassCard className="p-8 h-full border-2 border-gray-300">
+                <StarBorder color="#ffffff0d" speed="4s" thickness={8}>
+                  <GlassCard className="p-8 h-full border border-white/10 bg-white/5 backdrop-blur-md">
                     <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-200 to-gray-400 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-dark-900">Pt</span>
-                      </div>
                       <h3 className="text-2xl font-bold text-white mb-2">Platinum</h3>
                       <p className="text-gray-300">Premium Partnership</p>
                     </div>
-                    
+
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Logo on all event materials</span>
+                        <span>Title partner in all banners</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Keynote speaking opportunity</span>
+                        <span>Dedicated Sponsorship desk</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Dedicated booth space</span>
+                        <span>Exclusive Banner space at entry</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Social media promotion</span>
+                        <span>Premium social media campaign</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Workshop hosting rights</span>
+                        <span>Logo on CSI Website</span>
                       </li>
-                      <li className="flex items-center space-x-3">
+                        <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Annual report inclusion</span>
+                        <span>Post Event Video</span>
                       </li>
                     </ul>
                   </GlassCard>
+                </StarBorder>
                 </motion.div>
+
 
                 {/* Gold Tier */}
                 <motion.div
@@ -247,11 +235,10 @@ export const Sponsors: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
+                <StarBorder color="#eab308" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border-2 border-yellow-500">
                     <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-dark-900">Au</span>
-                      </div>
+                      {/*Remove Au icon*/}
                       <h3 className="text-2xl font-bold text-white mb-2">Gold</h3>
                       <p className="text-gray-300">Strategic Partnership</p>
                     </div>
@@ -259,27 +246,24 @@ export const Sponsors: React.FC = () => {
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Logo on event banners</span>
+                        <span>Co Partner status in events</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Event co-branding opportunity</span>
+                        <span>Standard Social Media Promotion</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Medium booth space</span>
+                        <span>Mention during key event session</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Website logo placement</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                        <span>Networking session access</span>
+                      <span>Brand Logo on shared banners</span>
                       </li>
                     </ul>
                   </GlassCard>
-                </motion.div>
+                  </StarBorder>
+                  </motion.div>
 
                 {/* Silver Tier */}
                 <motion.div
@@ -287,11 +271,10 @@ export const Sponsors: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
+                <StarBorder color="#6b7280" speed="4s" thickness={8}>
                   <GlassCard className="p-8 h-full border-2 border-gray-500">
                     <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-400 to-gray-600 flex items-center justify-center">
-                        <span className="text-2xl font-bold text-white">Ag</span>
-                      </div>
+                      {/*Remove Ag icon*/}
                       <h3 className="text-2xl font-bold text-white mb-2">Silver</h3>
                       <p className="text-gray-300">Supporting Partnership</p>
                     </div>
@@ -299,22 +282,19 @@ export const Sponsors: React.FC = () => {
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Logo on select materials</span>
+                        <span>Post Event Social Media Posts</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Small booth space</span>
+                        <span>Logo feature in selected banner</span>
                       </li>
                       <li className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Website acknowledgment</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Event attendee access</span>
+                        <span>Verbal mention in events</span>
                       </li>
                     </ul>
                   </GlassCard>
+                </StarBorder>
                 </motion.div>
               </div>
             </div>
@@ -323,22 +303,24 @@ export const Sponsors: React.FC = () => {
           {/* Sponsorship Kit Section */}
           <section className="py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <GlassCard className="p-8 text-center">
-                <Handshake className="w-16 h-16 text-primary-500 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Sponsorship Kit</h3>
-                <p className="text-gray-400 mb-6">
-                  Download our comprehensive sponsorship kit to learn more about partnership opportunities
-                  and the impact of your support.
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white rounded-lg font-medium"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>Download Sponsorship Kit</span>
-                </motion.button>
-              </GlassCard>
+            <GlassCard className="p-8 text-center">
+            <Handshake className="w-16 h-16 text-primary-500 mx-auto mb-6" />
+            <h3 className="text-2xl font-bold text-white mb-4">Sponsorship Kit</h3>
+            <p className="text-gray-400 mb-6">
+              Download our comprehensive sponsorship kit to learn more about partnership opportunities
+              and the impact of your support.
+            </p>
+            <motion.a
+              href="/brochure.pdf"
+              download="CSI-Sponsorship-Kit.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white rounded-lg font-medium"
+            >
+              <Download className="w-5 h-5" />
+              <span>Download Sponsorship Kit</span>
+            </motion.a>
+            </GlassCard>
             </div>
           </section>
         </div>
