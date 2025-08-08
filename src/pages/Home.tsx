@@ -106,7 +106,7 @@ export const Home: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-              to="/membership" //Added Page Address Location and changed Color(below)
+              to="https://docs.google.com/forms/d/e/1FAIpQLSdh647w0eewNbb681bNVYxY4e3_srF4WxtlK8EBXC_6icjiNA/viewform?usp=header" //Link to google form
               className="group relative px-8 py-4 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] text-white font-semibold rounded-xl shadow-lg hover:shadow-primary-500/25 transition-all duration-300 transform hover:scale-105"
             >
               <span className="flex items-center space-x-2">
