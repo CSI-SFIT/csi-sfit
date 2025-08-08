@@ -305,7 +305,7 @@ export const Sponsors: React.FC = () => {
           <section className="py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <GlassCard className="p-8 text-center">
-            <Handshake className="w-16 h-16 text-primary-500 mx-auto mb-6" />
+            <Handshake className="w-16 h-16 text-blue-600 mx-auto mb-6 " />{/*Handshake logo color changed*/}
             <h3 className="text-2xl font-bold text-white mb-4">Sponsorship Kit</h3>
             <p className="text-gray-400 mb-6">
               Download our comprehensive sponsorship kit to learn more about partnership opportunities
