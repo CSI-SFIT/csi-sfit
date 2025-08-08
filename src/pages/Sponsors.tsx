@@ -181,52 +181,42 @@ export const Sponsors: React.FC = () => {
           <section className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-16">
-                Sponsorship <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Benefits</span>
+                Sponsorship <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">Benefits</span> 
               </h2>
               
               <div className="grid md:grid-cols-3 gap-8">
-                {/* Platinum Tier */}
+                {/* Silver Tier */}
                 <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                <StarBorder color="#ffffff0d" speed="4s" thickness={8}>
-                  <GlassCard className="p-8 h-full border border-white/10 bg-white/5 backdrop-blur-md">
+                <StarBorder color="#6b7280" speed="4s" thickness={8}>
+                  <GlassCard className="p-8 h-full border-2 border-gray-500">
                     <div className="text-center mb-6">
-                      <h3 className="text-2xl font-bold text-white mb-2">Platinum</h3>
-                      <p className="text-gray-300">Premium Partnership</p>
+                      {/*Remove Ag icon*/}
+                      <h3 className="text-2xl font-bold text-white mb-2">Silver</h3>
+                      <p className="text-gray-300">Supporting Partnership</p>
                     </div>
-
+                    
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Title partner in all banners</span>
+                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                        <span>Post Event Social Media Posts</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Dedicated Sponsorship desk</span>
+                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                        <span>Logo feature in selected banner</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Exclusive Banner space at entry</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Premium social media campaign</span>
-                      </li>
-                      <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Logo on CSI Website</span>
-                      </li>
-                        <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                        <span>Post Event Video</span>
+                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                        <span>Verbal mention in events</span>
                       </li>
                     </ul>
                   </GlassCard>
                 </StarBorder>
                 </motion.div>
+
 
 
                 {/* Gold Tier */}
@@ -264,33 +254,44 @@ export const Sponsors: React.FC = () => {
                   </GlassCard>
                   </StarBorder>
                   </motion.div>
-
-                {/* Silver Tier */}
+                
+                {/* Platinum Tier */}
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                <StarBorder color="#6b7280" speed="4s" thickness={8}>
-                  <GlassCard className="p-8 h-full border-2 border-gray-500">
+                <StarBorder color="#ffffff0d" speed="4s" thickness={8}>
+                  <GlassCard className="p-8 h-full border border-white/10 bg-white/5 backdrop-blur-md">
                     <div className="text-center mb-6">
-                      {/*Remove Ag icon*/}
-                      <h3 className="text-2xl font-bold text-white mb-2">Silver</h3>
-                      <p className="text-gray-300">Supporting Partnership</p>
+                      <h3 className="text-2xl font-bold text-white mb-2">Platinum</h3>
+                      <p className="text-gray-300">Premium Partnership</p>
                     </div>
-                    
+
                     <ul className="space-y-3 text-gray-300">
                       <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Post Event Social Media Posts</span>
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Title partner in all banners</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Logo feature in selected banner</span>
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Dedicated Sponsorship desk</span>
                       </li>
                       <li className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span>Verbal mention in events</span>
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Exclusive Banner space at entry</span>
+                      </li>
+                      <li className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Premium social media campaign</span>
+                      </li>
+                      <li className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Logo on CSI Website</span>
+                      </li>
+                        <li className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                        <span>Post Event Video</span>
                       </li>
                     </ul>
                   </GlassCard>
