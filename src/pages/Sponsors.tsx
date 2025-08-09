@@ -24,7 +24,7 @@ export const Sponsors: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  // Sponsor card component to avoid using hooks inside map
+
   const SponsorCard: React.FC<{ sponsor: Sponsor; index: number; tier: string }> = ({ sponsor, index, tier }) => {
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
     
@@ -66,49 +66,14 @@ export const Sponsors: React.FC = () => {
   const sponsors: Sponsor[] = [
     {
       id: '1',
-      name: 'TechCorp Solutions',
-      logo: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=200',
+      name: 'AECC Study Abroad Consultants',
+      logo: '../assets/aecc_logo.jpg',
       tier: 'platinum',
-      description: 'Leading technology solutions provider supporting innovation in education.',
-      website: 'https://techcorp.com',
-      contribution: 'Event Sponsorship & Mentorship'
+      description: 'Expert Study Abroad Consultants for Top Overseas Destinations.',
+      website: 'https://www.aeccglobal.in/',
+      contribution: 'Study Abroad Consultant Partner'
     },
-    {
-      id: '2',
-      name: 'InnovateLabs',
-      logo: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=200',
-      tier: 'gold',
-      description: 'Startup incubator fostering technological innovation and entrepreneurship.',
-      website: 'https://innovatelabs.com',
-      contribution: 'Hackathon Prizes & Workshops'
-    },
-    {
-      id: '3',
-      name: 'DataFlow Systems',
-      logo: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=200',
-      tier: 'gold',
-      description: 'Big data analytics and cloud computing solutions provider.',
-      website: 'https://dataflow.com',
-      contribution: 'Infrastructure & Training'
-    },
-    {
-      id: '4',
-      name: 'CodeCraft Academy',
-      logo: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=200',
-      tier: 'silver',
-      description: 'Online coding education platform with industry-focused curriculum.',
-      website: 'https://codecraft.com',
-      contribution: 'Educational Resources'
-    },
-    {
-      id: '5',
-      name: 'DevTools Pro',
-      logo: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=200',
-      tier: 'silver',
-      description: 'Professional development tools and software solutions.',
-      website: 'https://devtools.com',
-      contribution: 'Software Licenses'
-    }
+    
   ];
 
   {/*removed tiercolors*/}
@@ -161,7 +126,7 @@ export const Sponsors: React.FC = () => {
             Current <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">Partners</span>
           </h2>
 
-          {['platinum', 'gold', 'silver'].map((tier) => (
+          {['platinum'].map((tier) => (
             <div key={tier} className="mb-16">
               <h3 className="text-2xl font-bold text-gray-300 mb-8 text-center capitalize">{tier} Partners</h3>
               <div className="flex flex-wrap justify-center gap-8">
