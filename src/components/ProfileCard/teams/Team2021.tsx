@@ -5,13 +5,13 @@ import TeamRow from "../TeamRow";
 const Team2021 = () => {
   return (
     <div className="flex flex-col gap-[3rem]">
-      <TeamRow department="Core">
+      <TeamRow department="Faculty">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "Core")}
         />
       </TeamRow>
 
-      <TeamRow department="Faculty">
+      <TeamRow department="Core">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "Faculty")}
         />

@@ -271,7 +271,11 @@ export const Sponsors: React.FC = () => {
                   download="CSI-Sponsorship-Kit.pdf"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white rounded-lg font-medium"
+                  className="inline-flex items-center space-x-2 px-6 py-3 
+                            bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] 
+                            hover:from-[#5ef0e0] hover:to-[#3b7bff]
+                            text-white rounded-lg font-medium shadow-lg
+                            transition-colors duration-300"
                 >
                   <Download className="w-5 h-5" />
                   <span>Download Sponsorship Kit</span>
