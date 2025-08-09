@@ -31,7 +31,34 @@ View the live [website](https://sfit-csi.netlify.app/)
 - 📚 Knowledge sharing sessions
 
 ---
+## Getting Started
 
+To locally host this site, follow these steps:
+
+```shell
+# Open a terminal (Command Prompt or PowerShell for Windows, Terminal for macOS or Linux)
+
+# Ensure Git is installed
+# Visit https://git-scm.com to download and install console Git if not already installed
+
+# Clone the repository
+git clone https://github.com/AnleaMj/csi-sfit
+
+# Navigate to the project directory
+cd csi-sfit
+
+# Check if NPM is installed
+npm -v  # Check the installed version of NPM
+# Visit the official NPM website to install or update it if necessary
+
+# Install dependencies
+npm install
+
+# Run the project
+npm run dev
+
+```
+---
 ## Contributing
 
 We welcome contributions!  
