@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
-import data from "./data";
-import "./Card.css";
-const Card = React.lazy(() => import("./Card"));
+import data from "./data/data2026";
+import man1 from "../../../assets/man1.webp";
+const ProfileCard = React.lazy(() => import("./ProfileCard"));
 import SkeletonCard from "./SkeletonCard";
 
 const CardsSection = ({ department }: { department: string }) => {
@@ -20,14 +20,31 @@ const CardsSection = ({ department }: { department: string }) => {
       </div>
 
       <div className="flex justify-center w-full px-4">
-        <div className="flex flex-wrap justify-center gap-10 max-w-screen-xl">
+        <div
+          className={`flex flex-wrap justify-center gap-10 max-w-screen-xl ${
+            filteredData.length === 1 ? "justify-center" : ""
+          }`}
+        >
           {filteredData.map((profile, index) => (
             <Suspense key={index} fallback={<SkeletonCard />}>
-              <div className="w-full sm:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)]">
-                {" "}
-                <Card
-                  about="Lorem ipsum dolor sit amet consectetur..."
-                  {...profile}
+              <div
+                className={`
+                ${
+                  filteredData.length === 2
+                    ? "w-full max-w-sm mx-auto flex justify-center"
+                    : "w-full sm:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)]"
+                }
+              `}
+              >
+                <ProfileCard
+                  avatarUrl={man1}
+                  name={profile.name}
+                  enableTilt={false}
+                  title={profile.title}
+                  handle={profile.name}
+                  showUserInfo={true}
+                  linkedinLink={profile.linkedinLink}
+                  instagramLink={profile.instagramLink}
                 />
               </div>
             </Suspense>
