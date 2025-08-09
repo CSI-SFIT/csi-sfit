@@ -10,14 +10,14 @@ const Team2026 = () => {
           <div className="text-white text-center">Loading members...</div>
         }
       >
-        <CardsSection department="Core" />
+        <CardsSection department="Faculty" />
       </Suspense>
       <Suspense
         fallback={
           <div className="text-white text-center">Loading members...</div>
         }
       >
-        <CardsSection department="Faculty" />
+        <CardsSection department="Core" />
       </Suspense>
       <Suspense
         fallback={

@@ -317,17 +317,17 @@ const data= [
   {
     image: "team22img/AmritaMathur_@toamritamathur.png",
     name: "Amrita Mathur",
-    title: "Coordinator",
+    title: "Convenor",
     instagramLink: "@amrita-mathur",
     url: "https://www.linkedin.com/in/amrita-mathur-1564141a3/",
     category: "Faculty"
   },
   {
-    image: "team22img/Anuradha.Srinivasaraghavan.png",
-    name: "Anuradha Srinivasaraghavan",
-    title: "Coordinator",
-    instagramLink: "@anuradha",
-    linkedinLink: "https://www.linkedin.com/in/anuradha-srinivasaraghavan-83b30242/",
+    image: "team22img/Rajkumar.Shende.png",
+    name: "Rajkumar Shende",
+    title: "Co-Convenor",
+    instagramLink: "@rajkumar",
+    linkedinLink: "https://in.linkedin.com/in/rajkumar-shende-a9917478",
     category: "Faculty"
   },
 ];
