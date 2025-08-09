@@ -67,7 +67,7 @@ export const Sponsors: React.FC = () => {
     {
       id: '1',
       name: 'AECC Study Abroad Consultants',
-      logo: '../assets/aecc_logo.jpg',
+      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfAQe1MTRHj9x0yZ9P3sGBXqW-yLfMWU8v2Q&s',
       tier: 'platinum',
       description: 'Expert Study Abroad Consultants for Top Overseas Destinations.',
       website: 'https://www.aeccglobal.in/',
