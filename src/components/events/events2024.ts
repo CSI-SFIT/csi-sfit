@@ -1,4 +1,8 @@
 import { EventItem } from './events2025';
+import cosmSho from "../../../assets/events/cosm-sho.png";
+import figma101 from "../../../assets/events/figma-101.jpg";
+import gitSmart from "../../../assets/events/git-smart.jpg";
+
 
 const events2024: EventItem[] = [
   {
@@ -6,13 +10,13 @@ const events2024: EventItem[] = [
     title: 'Cosmic Showdown',
     description:
       'A fast-paced game-tech faceoff featuring mini-tournaments, live demos, and a showcase of student-built games.',
-    image: '/assets/events/cosm-sho.png',
+    image: cosmSho,
     dateISO: '2024-08-23',
     displayDate: '23rd August 2024',
     time: '03:00 PM - 05:00 PM',
     location: 'SFIT',
     locationLink: 'https://www.google.com/maps/search/?api=1&query=SFIT',
-    category: 'competition', 
+    category: 'competition',
     status: 'completed',
     tags: ['Game Tech', 'Gaming', 'Showcase', 'Godot'],
     registrationState: 'Event Completed',
@@ -25,7 +29,7 @@ const events2024: EventItem[] = [
     title: 'Figma 101',
     description:
       'Hands-on intro to UI/UX with Figma — frames, components, auto layout, prototyping, and team workflows.',
-    image: '/assets/events/figma-101.jpg',
+    image: figma101,
     dateISO: '2024-09-21',
     displayDate: '21st September 2024',
     time: '03:00 PM - 05:00 PM',
@@ -45,7 +49,7 @@ const events2024: EventItem[] = [
     title: 'Git Smart',
     description:
       'Hero to Zero: Learn the Basics of VCS, Git and Collaboration!',
-    image: '/assets/events/git-smart.jpg',
+    image: gitSmart,
     dateISO: '2024-10-19',
     displayDate: '19th October 2024',
     time: '10:00 AM - 12:00 PM',
