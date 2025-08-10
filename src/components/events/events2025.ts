@@ -1,3 +1,8 @@
+import llm25 from "../../../assets/events/llm-2025.jpg";
+import GhoPro from "../../../assets/events/gho-pro.png";
+import CSILogo from "../../../assets/csi_logo.jpg";
+
+
 export type EventCategory = 'workshop' | 'seminar' | 'competition' | 'event' | 'networking';
 export type EventStatus = 'upcoming' | 'ongoing' | 'completed';
 
@@ -31,7 +36,7 @@ const events2025: EventItem[] = [
     id: '1',
     title: 'Let\'s Talk Code: LLM Workshop',
     description: `Learn practical prompting, RAG basics, and build a simple app integrating an LLM API`,
-    image: '/assets/events/llm-2025.jpg',
+    image: llm25,
     dateISO: '2025-02-06',
     displayDate: '6th Feb 2025',
     time: '03:00 PM',
@@ -49,7 +54,7 @@ const events2025: EventItem[] = [
     id: '2',
     title: 'Mosaic: Ghost Protocol',
     description: `Team up (2–4 members) and build the secrets to the ancient code`,
-    image: '/assets/events/gho-pro.png',
+    image: GhoPro,
     dateISO: '2025-03-25',
     displayDate: '25th-26th Mar 2025',
     time: '09:00 AM',
@@ -91,7 +96,7 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
     id: '4',
     title: 'CSI Day',
     description: 'Welcoming of old members and farewell of old members',
-    image: '/assets/csi_logo.jpg',
+    image: CSILogo,
     dateISO: '2025-08-13',
     displayDate: '13th Aug 2025',
     time: '03:00 PM',
@@ -122,7 +127,7 @@ Content
 5. To understand cuts like j-cut overlapping cuts 
 6. Speed cuts 
 7. Media management, CST, colour correction, black magic fusion, fairlight audio, etc`,
-    image: '/assets/csi_logo.jpg',
+    image: CSILogo,
     dateISO: '2025-08-20',
     displayDate: '20th Aug 2025',
     location: 'SFIT, Room 114',
