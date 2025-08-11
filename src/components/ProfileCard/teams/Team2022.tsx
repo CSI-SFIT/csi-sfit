@@ -1,39 +1,39 @@
 import ChromaGrid from "../ChromaGrid";
 import data from "../data/data2022";
-import TeamRow from "../TeamRow";
+import OldTeamsRow from "../OldTeamsRow";
 
 const Team2022 = () => {
   return (
     <div className="flex flex-col gap-[4rem]">
-      <TeamRow department="Faculty">
-        <ChromaGrid
-          items={data.filter((profile) => profile.category == "Core")}
-        />
-      </TeamRow>
-
-      <TeamRow department="Core">
+      <OldTeamsRow department="Faculty">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "Faculty")}
         />
-      </TeamRow>
+      </OldTeamsRow>
 
-      <TeamRow department="Tech Team">
+      <OldTeamsRow department="Core">
+        <ChromaGrid
+          items={data.filter((profile) => profile.category == "Core")}
+        />
+      </OldTeamsRow>
+
+      <OldTeamsRow department="Tech Team">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "Tech Team")}
         />
-      </TeamRow>
+      </OldTeamsRow>
 
-      <TeamRow department="Creative Team">
+      <OldTeamsRow department="Creative Team">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "Creative Team")}
         />
-      </TeamRow>
+      </OldTeamsRow>
 
-      <TeamRow department="PR Team">
+      <OldTeamsRow department="PR Team">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "PR Team")}
         />
-      </TeamRow>
+      </OldTeamsRow>
     </div>
   );
 };
