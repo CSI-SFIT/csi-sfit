@@ -4,7 +4,7 @@ import man1 from "../../../assets/man1.webp";
 const ProfileCard = React.lazy(() => import("./ProfileCard"));
 import SkeletonCard from "./SkeletonCard";
 
-const CardsSection = ({ department }: { department: string }) => {
+const NewTeamsRow = ({ department }: { department: string }) => {
   const filteredData = data.filter((member) => member.category === department);
 
   return (
@@ -41,7 +41,7 @@ const CardsSection = ({ department }: { department: string }) => {
                   name={profile.name}
                   enableTilt={false}
                   title={profile.title}
-                  handle={profile.name}
+                  handle={profile.name.split(" ")[0]}
                   showUserInfo={true}
                   linkedinLink={profile.linkedinLink}
                   instagramLink={profile.instagramLink}
@@ -55,4 +55,4 @@ const CardsSection = ({ department }: { department: string }) => {
   );
 };
 
-export default CardsSection;
+export default NewTeamsRow;

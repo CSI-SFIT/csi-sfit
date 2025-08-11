@@ -61,7 +61,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   githubLink = "https://github.com/AnleaMJ/csi-sfit",
   email = "cci@sfit.ac.in",
   className = "",
-  enableTilt = true,
+  enableTilt = false,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   name = "Javi A. Torres",
@@ -331,7 +331,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   <div className="pc-user-text">
                     <div className="pc-handle text-sm sm:text-base md:text-lg">
                       <a href="instagram.com" target="_blank">
-                        @{handle.split(" ")[0]}
+                        @{handle}
                       </a>
                     </div>
                   </div>
@@ -388,8 +388,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           </div>
           <div className="pc-content">
             <div className="pc-details">
-              <h3 className="text-base sm:text-lg md:text-xl">{name}</h3>
-              <p className="text-sm sm:text-base md:text-lg">{title}</p>
+              <h3>{name}</h3>
+              <p>{title}</p>
             </div>
           </div>
         </div>

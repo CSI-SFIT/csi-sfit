@@ -1,5 +1,21 @@
 const data= [
   {
+    image: "team22img/AmritaMathur_@toamritamathur.png",
+    name: "Amrita Mathur",
+    title: "Convenor",
+    instagramLink: "@amrita-mathur",
+    url: "https://www.linkedin.com/in/amrita-mathur-1564141a3/",
+    category: "Faculty"
+  },
+  {
+    image: "team22img/Rajkumar.Shende.png",
+    name: "Rajkumar Shende",
+    title: "Co-Convenor",
+    instagramLink: "@rajkumar",
+    linkedinLink: "https://in.linkedin.com/in/rajkumar-shende-a9917478",
+    category: "Faculty"
+  },
+  {
     name: "Shahiil Shet",
     title: "Chairperson",
     instagramLink: undefined,
@@ -313,23 +329,7 @@ const data= [
     instagramLink: "mrunallpalav",
     linkedinLink: "https://www.linkedin.com/in/mrunalpalav/",
     category: "Multimedia Team"
-  },
-  {
-    image: "team22img/AmritaMathur_@toamritamathur.png",
-    name: "Amrita Mathur",
-    title: "Convenor",
-    instagramLink: "@amrita-mathur",
-    url: "https://www.linkedin.com/in/amrita-mathur-1564141a3/",
-    category: "Faculty"
-  },
-  {
-    image: "team22img/Rajkumar.Shende.png",
-    name: "Rajkumar Shende",
-    title: "Co-Convenor",
-    instagramLink: "@rajkumar",
-    linkedinLink: "https://in.linkedin.com/in/rajkumar-shende-a9917478",
-    category: "Faculty"
-  },
+  }
 ];
 
 export default data;

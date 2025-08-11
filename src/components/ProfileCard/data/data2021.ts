@@ -1,6 +1,6 @@
 const data2021 = [
   {
-    image: "team22img/AmritaMathur_@toamritamathur.png",
+    image: "team21img/AmritaMathur_@toamritamathur.png",
     name: "Amrita Mathur",
     title: "Coordinator",
     handle: "@amrita-mathur",
@@ -8,7 +8,7 @@ const data2021 = [
     category: "Faculty"
   },
   {
-    image: "team22img/Anuradha.Srinivasaraghavan.png",
+    image: "team21img/Anuradha.Srinivasaraghavan.png",
     name: "Anuradha Srinivasaraghavan",
     title: "Coordinator",
     handle: "@anuradha",
@@ -16,7 +16,7 @@ const data2021 = [
     category: "Faculty"
   },
   {
-    image: "team22img/DeliciaFernandes_@_deliciafernandes.jpeg",
+    image: "team21img/DeliciaFernandes_@_deliciafernandes.jpeg",
     name: "Delicia Fernandes",
     title: "Chairperson",
     handle: "@deliciafernandes",
@@ -24,7 +24,7 @@ const data2021 = [
     category: "Core"
   },
   {
-    image: "team22img/niharikapattabhi__@nebula_195.jpg",
+    image: "team21img/niharikapattabhi__@nebula_195.jpg",
     name: "Niharika Pattabhi",
     title: "Vice Chairperson",
     handle: "@niharikapattabhi",
@@ -32,7 +32,7 @@ const data2021 = [
     category: "Core"
   },
   {
-    image: "team22img/manav_@maaannnaaavvv.jpg",
+    image: "team21img/manav_@maaannnaaavvv.jpg",
     name: "Manav Parekh",
     title: "General Secretary",
     handle: "@manavparekh",

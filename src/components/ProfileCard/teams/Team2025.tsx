@@ -1,10 +1,10 @@
 import ChromaGrid from "../ChromaGrid";
-import data from "../data/data2021";
+import data from "../data/data2025";
 import OldTeamsRow from "../OldTeamsRow";
 
-const Team2021 = () => {
+const Team2022 = () => {
   return (
-    <div className="flex flex-col gap-[3rem]">
+    <div className="flex flex-col gap-[4rem]">
       <OldTeamsRow department="Faculty">
         <ChromaGrid
           items={data.filter((profile) => profile.category == "Faculty")}
@@ -35,13 +35,19 @@ const Team2021 = () => {
         />
       </OldTeamsRow>
 
-      <OldTeamsRow department="Photographer">
+      <OldTeamsRow department="Marketing Team">
         <ChromaGrid
-          items={data.filter((profile) => profile.category == "Photographer")}
+          items={data.filter((profile) => profile.category == "Marketing Team")}
+        />
+      </OldTeamsRow>
+
+      <OldTeamsRow department="Multimedia Team">
+        <ChromaGrid
+          items={data.filter((profile) => profile.category == "Multimedia Team")}
         />
       </OldTeamsRow>
     </div>
   );
 };
 
-export default Team2021;
+export default Team2022;

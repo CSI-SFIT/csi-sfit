@@ -1,11 +1,11 @@
 import React, { type ReactNode, Suspense } from "react";
 
-interface TeamRowProps {
+interface OldTeamsRowProps {
   children: ReactNode;
   department: string;
 }
 
-const TeamRow: React.FC<TeamRowProps> = ({ children, department }) => {
+const OldTeamsRow: React.FC<OldTeamsRowProps> = ({ children, department }) => {
   return (
     <div className="">
       <div className="flex items-center justify-center mb-8 gap-4">
@@ -28,4 +28,4 @@ const TeamRow: React.FC<TeamRowProps> = ({ children, department }) => {
   );
 };
 
-export default TeamRow;
+export default OldTeamsRow;
