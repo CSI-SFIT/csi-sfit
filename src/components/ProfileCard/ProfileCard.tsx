@@ -1,27 +1,26 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
+import { Mail, Linkedin, Github, Instagram } from "lucide-react";
 
 interface ProfileCardProps {
   avatarUrl: string;
   iconUrl?: string;
   grainUrl?: string;
-  behindGradient?: string;
   innerGradient?: string;
-  showBehindGradient?: boolean;
+  linkedinLink?: string;
+  instagramLink?: string;
+  githubLink?: string;
+  email?: string;
   className?: string;
   enableTilt?: boolean;
-  miniAvatarUrl?: string;
+  enableMobileTilt?: boolean;
+  mobileTiltSensitivity?: number;
   name?: string;
   title?: string;
   handle?: string;
-  status?: string;
-  contactText?: string;
   showUserInfo?: boolean;
   onContactClick?: () => void;
 }
-
-const DEFAULT_BEHIND_GRADIENT =
-  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)";
 
 const DEFAULT_INNER_GRADIENT =
   "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
@@ -31,6 +30,7 @@ const ANIMATION_CONFIG = {
   INITIAL_DURATION: 1500,
   INITIAL_X_OFFSET: 70,
   INITIAL_Y_OFFSET: 60,
+  DEVICE_BETA_OFFSET: 20,
 } as const;
 
 const clamp = (value: number, min = 0, max = 100): number =>
@@ -55,19 +55,19 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = "<Placeholder for avatar URL>",
   iconUrl = "<Placeholder for icon URL>",
   grainUrl = "<Placeholder for grain URL>",
-  behindGradient,
   innerGradient,
-  showBehindGradient = true,
+  linkedinLink = "https://www.linkedin.com/company/csi-sfit/posts/?feedView=all",
+  instagramLink = "https://www.instagram.com/csi_sfit/",
+  githubLink = "https://github.com/AnleaMJ/csi-sfit",
+  email = "cci@sfit.ac.in",
   className = "",
-  enableTilt = true,
-  miniAvatarUrl,
+  enableTilt = false,
+  enableMobileTilt = false,
+  mobileTiltSensitivity = 5,
   name = "Javi A. Torres",
   title = "Software Engineer",
   handle = "javicodes",
-  status = "Online",
-  contactText = "Contact",
   showUserInfo = true,
-  onContactClick,
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -203,6 +203,27 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     [animationHandlers]
   );
 
+  const handleDeviceOrientation = useCallback(
+    (event: DeviceOrientationEvent) => {
+      const card = cardRef.current;
+      const wrap = wrapRef.current;
+
+      if (!card || !wrap || !animationHandlers) return;
+
+      const { beta, gamma } = event;
+      if (!beta || !gamma) return;
+
+      animationHandlers.updateCardTransform(
+        card.clientHeight / 2 + gamma * mobileTiltSensitivity,
+        card.clientWidth / 2 +
+          (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+        card,
+        wrap
+      );
+    },
+    [animationHandlers, mobileTiltSensitivity]
+  );
+
   useEffect(() => {
     if (!enableTilt || !animationHandlers) return;
 
@@ -214,10 +235,34 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     const pointerMoveHandler = handlePointerMove as EventListener;
     const pointerEnterHandler = handlePointerEnter as EventListener;
     const pointerLeaveHandler = handlePointerLeave as EventListener;
+    const deviceOrientationHandler = handleDeviceOrientation as EventListener;
+
+    const handleClick = () => {
+      if (!enableMobileTilt || location.protocol !== "https:") return;
+      if (
+        typeof (window.DeviceMotionEvent as any).requestPermission ===
+        "function"
+      ) {
+        (window.DeviceMotionEvent as any)
+          .requestPermission()
+          .then((state: string) => {
+            if (state === "granted") {
+              window.addEventListener(
+                "deviceorientation",
+                deviceOrientationHandler
+              );
+            }
+          })
+          .catch((err: any) => console.error(err));
+      } else {
+        window.addEventListener("deviceorientation", deviceOrientationHandler);
+      }
+    };
 
     card.addEventListener("pointerenter", pointerEnterHandler);
     card.addEventListener("pointermove", pointerMoveHandler);
     card.addEventListener("pointerleave", pointerLeaveHandler);
+    card.addEventListener("click", handleClick);
 
     const initialX = wrap.clientWidth - ANIMATION_CONFIG.INITIAL_X_OFFSET;
     const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
@@ -235,14 +280,18 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       card.removeEventListener("pointerenter", pointerEnterHandler);
       card.removeEventListener("pointermove", pointerMoveHandler);
       card.removeEventListener("pointerleave", pointerLeaveHandler);
+      card.removeEventListener("click", handleClick);
+      window.removeEventListener("deviceorientation", deviceOrientationHandler);
       animationHandlers.cancelAnimation();
     };
   }, [
     enableTilt,
+    enableMobileTilt,
     animationHandlers,
     handlePointerMove,
     handlePointerEnter,
     handlePointerLeave,
+    handleDeviceOrientation,
   ]);
 
   const cardStyle = useMemo(
@@ -250,17 +299,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       ({
         "--icon": iconUrl ? `url(${iconUrl})` : "none",
         "--grain": grainUrl ? `url(${grainUrl})` : "none",
-        "--behind-gradient": showBehindGradient
-          ? behindGradient ?? DEFAULT_BEHIND_GRADIENT
-          : "none",
         "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
       } as React.CSSProperties),
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
+    [iconUrl, grainUrl, innerGradient]
   );
-
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
 
   return (
     <div
@@ -278,9 +320,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
               loading="lazy"
-              onLoad={(e) => {
-                e.currentTarget.classList.remove("blur-sm");
-              }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = "none";
@@ -289,32 +328,61 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             {showUserInfo && (
               <div className="pc-user-info">
                 <div className="pc-user-details">
-                  <div className="pc-mini-avatar">
-                    <img
-                      src={miniAvatarUrl || avatarUrl}
-                      alt={`${name || "User"} mini avatar`}
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.opacity = "0.5";
-                        target.src = avatarUrl;
-                      }}
-                    />
-                  </div>
                   <div className="pc-user-text">
-                    <div className="pc-handle">@{handle}</div>
-                    <div className="pc-status">{status}</div>
+                    <div className="pc-handle text-sm sm:text-base md:text-lg">
+                      <a href="instagram.com" target="_blank">
+                        @{handle}
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <button
-                  className="pc-contact-btn"
-                  onClick={handleContactClick}
-                  style={{ pointerEvents: "auto" }}
-                  type="button"
-                  aria-label={`Contact ${name || "user"}`}
-                >
-                  {contactText}
-                </button>
+
+                <ul className="pc-social-icons flex justify-center">
+                  {linkedinLink && (
+                    <li>
+                      <a
+                        href={linkedinLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin />
+                      </a>
+                    </li>
+                  )}
+                  {instagramLink && (
+                    <li>
+                      <a
+                        href={instagramLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Instagram />
+                      </a>
+                    </li>
+                  )}
+                  {githubLink && (
+                    <li>
+                      <a
+                        href={githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github />
+                      </a>
+                    </li>
+                  )}
+                  {email && (
+                    <li>
+                      <a
+                        href={`mailto:${email}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Mail />
+                      </a>
+                    </li>
+                  )}
+                </ul>
               </div>
             )}
           </div>

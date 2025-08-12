@@ -14,6 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../logo.png"; // Assuming logo.png is in src/assets
 
+
 interface NavigationProps {
   isHome?: boolean;
 }
