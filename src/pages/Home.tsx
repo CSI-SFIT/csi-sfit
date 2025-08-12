@@ -1,4 +1,10 @@
-import { AnimatePresence, useInView } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import {
   ArrowRight,
   Award,
@@ -12,7 +18,6 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Image1 from "../assets/home-parallax/FIGMA 101 WORKSHOP.png";
@@ -23,8 +28,8 @@ import Image5 from "../assets/home-parallax/SPACE DAY 2.jpg";
 import Image6 from "../assets/home-parallax/TEAM 24 PHOTO.jpg";
 import Footer from "../components/Footer";
 import { GlassCard } from "../components/GlassCard";
-import logo from "../logo-nobg.png";
 import ShiningStars from "../components/ShiningStars";
+import logo from "../logo-nobg.png";
 
 export const Home: React.FC = () => {
   const navItems = [
@@ -363,15 +368,15 @@ export const Home: React.FC = () => {
                 </span>
               </Link>
             </div>
-            <Link
-              to="/gallery"
+            <a
+              href="/"
               className="group relative px-6 sm:px-8 py-3 sm:py-4 text-white bg-[#0f1629] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full text-center"
             >
               <span className="flex items-center justify-center space-x-2">
-                <span>View Gallery</span>
+                <span>View Paradigm Edition 8</span>
                 <Camera className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               </span>
-            </Link>
+            </a>
           </motion.div>
 
           {/* Desktop lines - hidden on mobile */}
