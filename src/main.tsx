@@ -1,10 +1,21 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+root.render(
+  <BrowserRouter>
     <App />
-  </StrictMode>
+  </BrowserRouter>
 );
+
+// Remove full-page gear loader after React has mounted
+window.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("global-loader");
+  if (loader) {
+    loader.style.transition = "opacity 0.8s ease";
+    loader.style.opacity = "0";
+    setTimeout(() => loader.remove(), 500);
+  }
+});

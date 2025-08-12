@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import {
   IconBrandLinkedin,
   IconBrandInstagram,
   IconBrandGithub,
-} from '@tabler/icons-react';
+} from "@tabler/icons-react";
 
 export const Footer: React.FC = () => (
   <footer className="bg-dark-800 text-zinc-200">
@@ -12,9 +12,7 @@ export const Footer: React.FC = () => (
         {/* Branding */}
         <div className="text-center md:text-left space-y-2">
           <h3 className="text-lg font-semibold">CSI SFIT</h3>
-          <p className="text-sm text-zinc-200/80">
-            We Make It Happen
-          </p>
+          <p className="text-sm text-zinc-200/80">We Make It Happen</p>
         </div>
 
         {/* Social Links */}

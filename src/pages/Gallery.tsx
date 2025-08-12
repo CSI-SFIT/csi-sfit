@@ -1,110 +1,113 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 interface GalleryItem {
   id: string;
   image: string;
-  category: 'workshop' | 'Mosaic';
-  subcategory: 'LLM' | 'Flask' | 'Figma' | 'Ghost Protocol' | 'Space Day';
+  category: "workshop" | "Mosaic";
+  subcategory: "LLM" | "Flask" | "Figma" | "Ghost Protocol" | "Space Day";
 }
 
 export const Gallery: React.FC = () => {
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   // Move previewIndex and related functions inside the component
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
 
   const galleryItems: GalleryItem[] = [
     {
-      id: '1',
-      image: 'https://i.postimg.cc/4NQpG0hm/img1.avif',
-      category: 'workshop',
-      subcategory: 'LLM',
+      id: "1",
+      image: "https://i.postimg.cc/4NQpG0hm/img1.avif",
+      category: "workshop",
+      subcategory: "LLM",
     },
     {
-      id: '3',
-      image: 'https://i.postimg.cc/HLnSVMGD/IMG-2478.jpg',
-      category: 'workshop',
-      subcategory: 'Flask',
+      id: "3",
+      image: "https://i.postimg.cc/HLnSVMGD/IMG-2478.jpg",
+      category: "workshop",
+      subcategory: "Flask",
     },
     {
-      id: '4',
-      image: 'https://i.postimg.cc/8PxC0bLw/IMG-3678.avif',
-      category: 'workshop',
-      subcategory: 'LLM',
+      id: "4",
+      image: "https://i.postimg.cc/8PxC0bLw/IMG-3678.avif",
+      category: "workshop",
+      subcategory: "LLM",
     },
     {
-      id: '7',
-      image: 'https://i.postimg.cc/8kmQXsXv/IMG-20250329-123649.jpg',
-      category: 'workshop',
-      subcategory: 'Figma',
+      id: "7",
+      image: "https://i.postimg.cc/8kmQXsXv/IMG-20250329-123649.jpg",
+      category: "workshop",
+      subcategory: "Figma",
     },
     {
-      id: '6',
-      image: 'https://i.postimg.cc/sgz4SbKb/20240921-145323.avif',
-      category: 'workshop',
-      subcategory: 'Figma',
+      id: "6",
+      image: "https://i.postimg.cc/sgz4SbKb/20240921-145323.avif",
+      category: "workshop",
+      subcategory: "Figma",
     },
     {
-      id: '5',
-      image: 'https://i.postimg.cc/3JFvMNCb/IMG-8402.avif',
-      category: 'workshop',
-      subcategory: 'Figma',
+      id: "5",
+      image: "https://i.postimg.cc/3JFvMNCb/IMG-8402.avif",
+      category: "workshop",
+      subcategory: "Figma",
     },
     {
-      id: '10',
-      image: 'https://i.postimg.cc/VsTm6Gg1/IMG-0926.avif',
-      category: 'Mosaic',
-      subcategory: 'Space Day',
+      id: "10",
+      image: "https://i.postimg.cc/VsTm6Gg1/IMG-0926.avif",
+      category: "Mosaic",
+      subcategory: "Space Day",
     },
     {
-      id: '8',
-      image: 'https://i.postimg.cc/MHkdLHbp/IMG-4288.avif',
-      category: 'workshop',
-      subcategory: 'Flask',
+      id: "8",
+      image: "https://i.postimg.cc/MHkdLHbp/IMG-4288.avif",
+      category: "workshop",
+      subcategory: "Flask",
     },
     {
-      id: '9',
-      image: 'https://i.postimg.cc/sf7rgZLK/IMG-9574.avif',
-      category: 'Mosaic',
-      subcategory: 'Space Day',
+      id: "9",
+      image: "https://i.postimg.cc/sf7rgZLK/IMG-9574.avif",
+      category: "Mosaic",
+      subcategory: "Space Day",
     },
     {
-      id: '2',
-      image: 'https://i.postimg.cc/K8RLTDYN/IMG-3759.avif',
-      category: 'workshop',
-      subcategory: 'LLM',
+      id: "2",
+      image: "https://i.postimg.cc/K8RLTDYN/IMG-3759.avif",
+      category: "workshop",
+      subcategory: "LLM",
     },
     {
-      id: '11',
-      image: 'https://i.postimg.cc/pLjD76Gd/IMG-9473.avif',
-      category: 'Mosaic',
-      subcategory: 'Space Day',
+      id: "11",
+      image: "https://i.postimg.cc/pLjD76Gd/IMG-9473.avif",
+      category: "Mosaic",
+      subcategory: "Space Day",
     },
     {
-      id: '12',
-      image: 'https://i.postimg.cc/1RVRNjgB/IMG-4686.avif',
-      category: 'Mosaic',
-      subcategory: 'Ghost Protocol',
+      id: "12",
+      image: "https://i.postimg.cc/1RVRNjgB/IMG-4686.avif",
+      category: "Mosaic",
+      subcategory: "Ghost Protocol",
     },
     {
-      id: '13',
-      image: 'https://i.postimg.cc/PxwGN068/IMG-20250319-WA0027.jpg',
-      category: 'Mosaic',
-      subcategory: 'Ghost Protocol',
+      id: "13",
+      image: "https://i.postimg.cc/PxwGN068/IMG-20250319-WA0027.jpg",
+      category: "Mosaic",
+      subcategory: "Ghost Protocol",
     },
   ];
 
   const categories = [
-    { id: 'all', label: 'All' },
-    { id: 'workshop', label: 'Workshops' },
-    { id: 'Mosaic', label: 'Mosaic' },
+    { id: "all", label: "All" },
+    { id: "workshop", label: "Workshops" },
+    { id: "Mosaic", label: "Mosaic" },
   ];
 
   const filteredItems =
-    selectedCategory === 'all'
+    selectedCategory === "all"
       ? galleryItems
       : galleryItems.filter((item) => item.category === selectedCategory);
 
@@ -119,7 +122,10 @@ export const Gallery: React.FC = () => {
 
   const showPrev = () => {
     if (previewIndex !== null) {
-      setPreviewIndex((prevIndex) => (prevIndex! - 1 + filteredItems.length) % filteredItems.length);
+      setPreviewIndex(
+        (prevIndex) =>
+          (prevIndex! - 1 + filteredItems.length) % filteredItems.length
+      );
     }
   };
 
@@ -128,31 +134,31 @@ export const Gallery: React.FC = () => {
       setPreviewIndex((prevIndex) => (prevIndex! + 1) % filteredItems.length);
     }
   };
-useEffect(() => {
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (previewIndex !== null) {
-      if (e.key === 'ArrowLeft') {
-        showPrev();
-      } else if (e.key === 'ArrowRight') {
-        showNext();
-      } else if (e.key === 'Escape') {
-        closePreview();
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (previewIndex !== null) {
+        if (e.key === "ArrowLeft") {
+          showPrev();
+        } else if (e.key === "ArrowRight") {
+          showNext();
+        } else if (e.key === "Escape") {
+          closePreview();
+        }
       }
-    }
-  };
+    };
 
-  window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
-  return () => {
-    window.removeEventListener('keydown', handleKeyDown);
-  };
-}, [previewIndex, showPrev, showNext, closePreview]);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [previewIndex, showPrev, showNext, closePreview]);
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" /> */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={heroRef}
             initial={{ opacity: 0, y: 50 }}
@@ -161,7 +167,7 @@ useEffect(() => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Event{' '}
+              Event{" "}
               <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
                 Gallery
               </span>
@@ -191,8 +197,8 @@ useEffect(() => {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-[#36B7B7] to-[#2AA198] text-white shadow-lg shadow-[#36B7B7]/25'
-                    : 'text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
+                    ? "bg-gradient-to-r from-[#36B7B7] to-[#2AA198] text-white shadow-lg shadow-[#36B7B7]/25"
+                    : "text-gray-300 hover:bg-white/10 hover:text-white border border-white/10"
                 }`}
               >
                 {category.label}
@@ -229,7 +235,9 @@ useEffect(() => {
                       className="absolute inset-0 flex items-center justify-center bg-black/50 text-white opacity-0 translate-y-4
                       group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500"
                     >
-                      <span className="text-2xl text-white font-bold capitalize">{item.subcategory}</span>
+                      <span className="text-2xl text-white font-bold capitalize">
+                        {item.subcategory}
+                      </span>
                     </div>
                   </div>
                 </motion.div>

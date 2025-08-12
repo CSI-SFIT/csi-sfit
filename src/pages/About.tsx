@@ -130,77 +130,76 @@ export const About: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-16 bg-gradient-to-br from-[#2580E4]/15 via-transparent to-[#FFCDB9]/10">
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        {/* <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617]" /> */}
 
-{/* Hero Section */}
-<section className="relative py-20 overflow-hidden">
-  <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617]" />        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            ref={heroRef}
+            initial={{ opacity: 0, y: 50 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">
+              About{" "}
+              <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
+                CSI SFIT
+              </span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              The Computer Society of India, SFIT Chapter, is a vibrant
+              community of technology enthusiasts dedicated to advancing
+              computer science education and fostering innovation among
+              students.
+            </p>
+          </motion.div>
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <motion.div
-      ref={heroRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={heroInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8 }}
-      className="text-center mb-16"
-    >
-      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6">
-        About{" "}
-        <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
-          CSI SFIT
-        </span>
-      </h1>
-      <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-        The Computer Society of India, SFIT Chapter, is a vibrant community of technology enthusiasts
-        dedicated to advancing computer science education and fostering innovation among students.
-      </p>
-    </motion.div>
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1 }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-20"
+          >
+            {[
+              { count: "500+", label: "Active Members" },
+              { count: "9+", label: "Years Active" },
+              { count: "50+", label: "Events Organized" },
+              { count: "25+", label: "Awards Won" },
+            ].map((stat, i) => (
+              <StarBorder key={i} color="#FFCDB9" thickness={2}>
+                <GlassCard className="flex flex-col justify-center items-center p-4 sm:p-6 text-center w-full h-full">
+                  <div className="text-xl sm:text-2xl font-bold text-[#36B7B7] mb-1 break-words">
+                    {stat.count}
+                  </div>
+                  <div className="text-sm sm:text-base text-gray-400">
+                    {stat.label}
+                  </div>
+                </GlassCard>
+              </StarBorder>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-    {/* Stats */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={heroInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1 }}
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-20"
-    >
-      {[
-        { count: '500+', label: 'Active Members' },
-        { count: '9+',   label: 'Years Active' },
-        { count: '50+',  label: 'Events Organized' },
-        { count: '25+',  label: 'Awards Won' },
-      ].map((stat, i) => (
-        <StarBorder key={i} color="#FFCDB9" thickness={2}>
-          <GlassCard className="flex flex-col justify-center items-center p-4 sm:p-6 text-center w-full h-full">
-            <div className="text-xl sm:text-2xl font-bold text-[#36B7B7] mb-1 break-words">
-              {stat.count}
-            </div>
-            <div className="text-sm sm:text-base text-gray-400">{stat.label}</div>
-          </GlassCard>
-        </StarBorder>
-      ))}
-    </motion.div>
-  </div>
-</section>
-
-{/* Values Section */}
-
-
-<section className="relative py-20 bg-dark-800">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={heroInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: 0.4 }}
-      className="text-center mb-16"
-    >
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-        Our Core{" "}
-       
-
-        <span className="gap-2 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
-  Values
-</span>
-      </h2>
-    </motion.div>
+      {/* Values Section */}
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+              Our Core{" "}
+              <span className="gap-2 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
+                Values
+              </span>
+            </h2>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
@@ -213,44 +212,37 @@ export const About: React.FC = () => {
                 {/* Card with gradient overlay + backdrop-blur */}
                 <div className="relative rounded-xl overflow-hidden hover:scale-105 transition-transform">
                   {/* Gradient + blur overlay */}
-                  <div
-                    className="
-                absolute inset-0 
-                bg-gradient-to-br from-white/10 via-transparent to-transparent 
-                backdrop-blur-sm
-                pointer-events-none
-              "
-                  ></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm pointer-events-none"></div>
 
-            {/* Card Content */}
-            <div className="relative  text-white">
-              <TiltedCardWithContent
-                icon={value.icon}
-                title={value.title}
-                description={value.description}
-              />
-            </div>
+                  {/* Card Content */}
+                  <div className="relative  text-white">
+                    <TiltedCardWithContent
+                      icon={value.icon}
+                      title={value.title}
+                      description={value.description}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
-
-{/* Timeline Section */}
-<section className="py-20 bg-dark-800">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-        Our <span className="gap-2 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
- Journey
-</span>
-      </h2>
-      <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
-        From humble beginnings to becoming a leading tech community
-      </p>
-    </div>
+      {/* Timeline Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+              Our{" "}
+              <span className="gap-2 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
+                Journey
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto">
+              From humble beginnings to becoming a leading tech community
+            </p>
+          </div>
 
           <div className="relative">
             <div className="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-[#1e30ff] to-[#42e0d8]" />
@@ -280,22 +272,21 @@ export const About: React.FC = () => {
                     </GlassCard>
                   </div>
 
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#f7baa8] rounded-full border-4 border-dark-800 z-10" />
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-</section>
+                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#f7baa8] rounded-full border-4 border-dark-800 z-10" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
-
-
-
-{/* Contact Info */}
-<section className="py-20 bg-dark-800">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <GlassCard className="p-8">
-      <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">Visit Us</h3>
+      {/* Contact Info */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <GlassCard className="p-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
+              Visit Us
+            </h3>
 
             <div className="flex flex-col gap-4 items-center">
               <div className="flex flex-col gap-4">
