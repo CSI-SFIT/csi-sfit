@@ -2,4 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+.arc-text {
+  fill: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
+#global-loader {
+  position: fixed;
+  inset: 0;
+  background-color: #0f0f0f;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gear-spinner {
+  width: 80px;
+  height: 80px;
+  animation: spin 1.2s linear infinite;
+}
+
+.loader-text {
+  margin-top: 1.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
