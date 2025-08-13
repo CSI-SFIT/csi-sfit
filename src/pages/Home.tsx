@@ -319,13 +319,13 @@ export const Home: React.FC = () => {
 
           {/* CTA Buttons - Responsive layout */}
           <motion.div
-            className="flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4"
-            style={{ opacity: opacityButs, display }}
+            className="absolute top-[83vh] sm:top-[77vh] z-[999] flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4"
+            // style={{ opacity: opacityButs, display }}
           >
             <div className="flex flex-row gap-4 justify-center items-center w-full">
               <Link
                 to="/membership"
-                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#0f1629] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base"
+                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base"
               >
                 <span className="flex items-center justify-center space-x-2">
                   <span>Join CSI SFIT</span>
@@ -335,7 +335,7 @@ export const Home: React.FC = () => {
 
               <Link
                 to="/events"
-                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#0f1629] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base"
+                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base"
               >
                 <span className="flex items-center justify-center space-x-2">
                   <span>View Events</span>
@@ -346,7 +346,7 @@ export const Home: React.FC = () => {
 
             <a
               href="/brochure.pdf"
-              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#0f1629] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
+              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
             >
               <span className="flex items-center justify-center space-x-2">
                 <span className="truncate">
