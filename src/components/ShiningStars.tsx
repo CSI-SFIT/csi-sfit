@@ -31,7 +31,7 @@ const ShiningStars: React.FC<{ count?: number }> = ({ count = 50 }) => {
   }, [idCounter]);
 
   return (
-    <div className="fixed inset-0 z-[999] pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden">
       {stars.map((star) => (
         <div
           key={star.id}

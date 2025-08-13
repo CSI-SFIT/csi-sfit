@@ -33,7 +33,7 @@ export const Team: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       <section className="relative py-20 pb-6">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm opacity-90" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

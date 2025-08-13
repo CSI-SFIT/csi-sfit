@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -19,6 +19,7 @@
     "framer-motion": "^11.5.4",
     "gsap": "^3.13.0",
     "lucide-react": "^0.525.0",
+    "motion": "^12.23.12",
     "ogl": "^1.0.11",
     "react": "^18.3.1",
     "react-awesome-reveal": "^4.3.1",
