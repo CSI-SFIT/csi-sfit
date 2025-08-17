@@ -1,11 +1,18 @@
 import React, { Suspense } from "react";
 import data from "./data/data2026";
-import man1 from "../../../assets/man1.webp";
 const ProfileCard = React.lazy(() => import("./ProfileCard"));
 import SkeletonCard from "./SkeletonCard";
 
 const NewTeamsRow = ({ department }: { department: string }) => {
   const filteredData = data.filter((member) => member.category === department);
+
+  const getAvatarUrl = (firstName: string, dept: string) => {
+    let imagePath = `../../../assets/team2026/${dept}/${firstName}.webp`;
+    if (dept === "Convenor" || dept === "Co-Convenor") {
+      imagePath = `../../../assets/team2026/Faculty/${firstName}.webp`;
+    }
+    return imagePath;
+  };
 
   return (
     <div>
@@ -37,14 +44,18 @@ const NewTeamsRow = ({ department }: { department: string }) => {
               `}
               >
                 <ProfileCard
-                  avatarUrl={man1}
+                  avatarUrl={getAvatarUrl(
+                    profile.name.split(" ")[0],
+                    profile.title.split(" ")[0]
+                  )}
                   name={profile.name}
-                  enableTilt={false}
                   title={profile.title}
                   handle={profile.name.split(" ")[0]}
                   showUserInfo={true}
                   linkedinLink={profile.linkedinLink}
                   instagramLink={profile.instagramLink}
+                  githubLink={profile.githubLink}
+                  email={profile.email}
                 />
               </div>
             </Suspense>

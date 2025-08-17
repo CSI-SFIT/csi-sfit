@@ -1,5 +1,4 @@
 import React from "react";
-import man2 from "../../../assets/man2.webp";
 
 export interface ChromaItem {
   image: string;
@@ -71,7 +70,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({
           />
           <div className="relative z-10 p-[10px] box-border h-[280px]">
             <img
-              src={man2}
+              src={c.image}
               alt={c.name}
               loading="lazy"
               className="w-full h-full object-cover rounded-[10px] grayscale group-hover:grayscale-0 transition-all duration-500"

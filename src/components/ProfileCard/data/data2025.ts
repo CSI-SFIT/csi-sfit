@@ -1,6 +1,6 @@
 const data = [
   {
-    image: "team25img/AmritaMathur_@toamritamathur.png",
+    image: "../../../../assets/team2025/Faculty/Amrita.webp",
     name: "Amrita Mathur",
     title: "Convenor",
     handle: "@amrita",
@@ -8,7 +8,7 @@ const data = [
     category: "Faculty"
   },
   {
-    image: "team25img/Rajkumar.Shende.png",
+    image: "../../../../assets/team2025/Faculty/Rajkumar.webp",
     name: "Rajkumar Shende",
     title: "Co-Convenor",
     handle: "@rajkumar",
@@ -16,7 +16,7 @@ const data = [
     category: "Faculty"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Core/Vijet.webp",
     name: "Vijet Naik",
     title: "Chairperson",
     handle: "@vijet",
@@ -24,7 +24,7 @@ const data = [
     category: "Core"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Core/Sahil.webp",
     name: "Sahil Saboo",
     title: "Vice Chairperson",
     handle: "@sahil",
@@ -32,7 +32,7 @@ const data = [
     category: "Core"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Core/Prathamesh.webp",
     name: "Prathamesh Desai",
     title: "Treasurer",
     handle: "@prathamesh",
@@ -40,7 +40,7 @@ const data = [
     category: "Core"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Core/Soham.webp",
     name: "Soham Patil",
     title: "General Secretary",
     handle: "@soham",
@@ -48,7 +48,7 @@ const data = [
     category: "Core"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Craig.webp",
     name: "Craig Dsouza",
     title: "Technical Head",
     handle: "@craig",
@@ -56,7 +56,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Elvis.webp",
     name: "Elvis Dsouza",
     title: "Technical Joint Head",
     handle: "@elvis",
@@ -64,7 +64,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Om.webp",
     name: "Om Kate",
     title: "Technical Joint Head",
     handle: "@om",
@@ -72,7 +72,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Viraj.webp",
     name: "Viraj Walavalkar",
     title: "Technical Executive",
     handle: "@viraj",
@@ -80,7 +80,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Shahiil.webp",
     name: "Shahiil Shet",
     title: "Technical Executive",
     handle: "@shahiil",
@@ -88,7 +88,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Soham.webp",
     name: "Soham Banerjee",
     title: "Technical Executive",
     handle: "@soham",
@@ -96,7 +96,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Viraj.webp",
     name: "Viraj Prabhu",
     title: "Technical Executive",
     handle: "@viraj",
@@ -104,7 +104,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Slevin.webp",
     name: "Slevin Cordeiro",
     title: "Technical Executive",
     handle: "@slevin",
@@ -112,7 +112,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Hussain.webp",
     name: "Hussain Motarwala",
     title: "Technical Executive",
     handle: "@hussain",
@@ -120,7 +120,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Technical/Priyanka.webp",
     name: "Priyanka Chavan",
     title: "Technical Executive",
     handle: "@priyanka",
@@ -128,7 +128,7 @@ const data = [
     category: "Tech Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Ansh.webp",
     name: "Ansh Shetty",
     title: "PR Head",
     handle: "@ansh",
@@ -136,7 +136,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Ruth.webp",
     name: "Ruth Bonala",
     title: "PR Joint Head",
     handle: "@ruth",
@@ -144,7 +144,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Soham.webp",
     name: "Soham Ponkshe",
     title: "PR Executive",
     handle: "@soham",
@@ -152,7 +152,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Radhika.webp",
     name: "Radhika Godambe",
     title: "PR Executive",
     handle: "@radhika",
@@ -160,7 +160,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Joanna.webp",
     name: "Joanna Dsouza",
     title: "PR Executive",
     handle: "@joanna",
@@ -168,7 +168,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Kathleen.webp",
     name: "Kathleen Monis",
     title: "PR Executive",
     handle: "@kathleen",
@@ -176,7 +176,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Aryan.webp",
     name: "Aryan Brahmane",
     title: "PR Executive",
     handle: "@aryan",
@@ -184,7 +184,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Sophia.webp",
     name: "Sophia Dsilva",
     title: "PR Executive",
     handle: "@sophia",
@@ -192,7 +192,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/PR/Clarissa.webp",
     name: "Clarissa Dsouza",
     title: "PR Executive",
     handle: "@clarissa",
@@ -200,7 +200,7 @@ const data = [
     category: "PR Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Subhodeep.webp",
     name: "Subhodeep Modak",
     title: "Creative Head",
     handle: "@subhodeep",
@@ -208,7 +208,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Parinita.webp",
     name: "Parinita Dutta",
     title: "Creative Joint Head",
     handle: "@parinita",
@@ -216,7 +216,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Sanika.webp",
     name: "Sanika Bane",
     title: "Creative Joint Head",
     handle: "@sanika",
@@ -224,7 +224,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Esha.webp",
     name: "Esha Tuscano",
     title: "Creative Executive",
     handle: "@esha",
@@ -232,7 +232,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Alicia.webp",
     name: "Alicia Fernandes",
     title: "Creative Executive",
     handle: "@alicia",
@@ -240,7 +240,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Manjima.webp",
     name: "Manjima Debbarma",
     title: "Creative Executive",
     handle: "@manjima",
@@ -248,7 +248,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Sam.webp",
     name: "Sam Manoj",
     title: "Creative Executive",
     handle: "@sam",
@@ -256,7 +256,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Creative/Rianna.webp",
     name: "Rianna Rodrigues",
     title: "Creative Executive",
     handle: "@rianna",
@@ -264,7 +264,7 @@ const data = [
     category: "Creative Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Marketing/Samarth.webp",
     name: "Samarth Jain",
     title: "Marketing Head",
     handle: "@samarth",
@@ -272,7 +272,7 @@ const data = [
     category: "Marketing Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Marketing/Aditya.webp",
     name: "Aditya Patil",
     title: "Marketing Joint Head",
     handle: "@aditya",
@@ -280,23 +280,24 @@ const data = [
     category: "Marketing Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Marketing/Mountantony.webp",
     name: "Mountantony Nadar",
     title: "Marketing Executive",
     handle: "@mountantony",
     url: "",
     category: "Marketing Team"
   },
+  // Image NA
+  // {
+  //   image: "../../../../assets/team2025/Marketing/Darren.webp",
+  //   name: "Darren Pereira",
+  //   title: "Marketing Executive",
+  //   handle: "@darren",
+  //   url: "",
+  //   category: "Marketing Team"
+  // },
   {
-    image: "team25img/",
-    name: "Darren Pereira",
-    title: "Marketing Executive",
-    handle: "@darren",
-    url: "",
-    category: "Marketing Team"
-  },
-  {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Marketing/Shrawani.webp",
     name: "Shrawani Garge",
     title: "Marketing Executive",
     handle: "@shrawani",
@@ -304,7 +305,7 @@ const data = [
     category: "Marketing Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Marketing/Aareen.webp",
     name: "Aareen Mhatre",
     title: "Marketing Executive",
     handle: "@aareen",
@@ -312,7 +313,7 @@ const data = [
     category: "Marketing Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Multimedia/Khushi.webp",
     name: "Khushi Soni",
     title: "Multimedia Head",
     handle: "@khushi",
@@ -320,23 +321,24 @@ const data = [
     category: "Multimedia Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Multimedia/Aabhas.webp",
     name: "Aabhas Kasare",
     title: "Multimedia Executive",
     handle: "@aabhas",
     url: "",
     category: "Multimedia Team"
   },
+  // Image NA
+  // {
+  //   image: "../../../../assets/team2025/Multimedia/Sahil.webp",
+  //   name: "Sahil Topale",
+  //   title: "Multimedia Executive",
+  //   handle: "@sahil",
+  //   url: "",
+  //   category: "Multimedia Team"
+  // },
   {
-    image: "team25img/",
-    name: "Sahil Topale",
-    title: "Multimedia Executive",
-    handle: "@sahil",
-    url: "",
-    category: "Multimedia Team"
-  },
-  {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Multimedia/Shaun.webp",
     name: "Shaun Mathew",
     title: "Multimedia Executive",
     handle: "@shaun",
@@ -344,7 +346,7 @@ const data = [
     category: "Multimedia Team"
   },
   {
-    image: "team25img/",
+    image: "../../../../assets/team2025/Multimedia/Mayank.webp",
     name: "Mayank Manral",
     title: "Multimedia Executive",
     handle: "@mayank",
