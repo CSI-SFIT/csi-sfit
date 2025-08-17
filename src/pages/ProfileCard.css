@@ -551,3 +551,23 @@
     border-radius: 50px;
   }
 }
+
+.pc-card .pc-content {
+  z-index: 1 !important;
+}
+
+.pc-card .pc-avatar-content {
+  z-index: 4 !important;
+}
+
+.pc-card .pc-user-info {
+  z-index: 5 !important;
+}
+
+.pc-glare {
+  z-index: 2 !important;
+}
+
+.pc-avatar-content .avatar {
+  object-position: center 35%;
+}
