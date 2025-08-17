@@ -18,4 +18,4 @@ export const TEAM_MODULES: Record<number, () => Promise<{ default: import("./typ
 
 export const YEARS = Object.keys(TEAM_MODULES)
   .map((y) => Number(y))
-  .sort();
+  .sort((a, b) => b - a);
