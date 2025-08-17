@@ -1,13 +1,13 @@
 const data = [
   {
-    name: "Amrita Mathur",
+    name: "Mrs. Amrita Mathur",
     title: "Convenor",
     instagramLink: undefined,
     linkedinLink: "https://www.linkedin.com/in/amrita-mathur-1564141a3/",
     category: "Faculty",
   },
   {
-    name: "Rajkumar Shende",
+    name: "Mr. Rajkumar Shende",
     title: "Co-Convenor",
     instagramLink: undefined,
     linkedinLink: "https://in.linkedin.com/in/rajkumar-shende-a9917478",
