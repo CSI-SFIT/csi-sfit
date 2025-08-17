@@ -7,9 +7,11 @@ const NewTeamsRow = ({ department }: { department: string }) => {
   const filteredData = data.filter((member) => member.category === department);
 
   const getAvatarUrl = (firstName: string, dept: string) => {
-    let imagePath = `/assets/team2026/${dept}/${firstName}.webp`;
-    if (dept === "Convenor" || dept === "Co-Convenor") {
-      imagePath = `/assets/team2026/Faculty/${firstName}.webp`;
+    let imagePath = `/team2026/${dept}/${firstName}.webp`;
+    if (dept === "Convenor") {
+      imagePath = `/team2026/Faculty/Amrita.webp`;
+    } else if (dept === "Co-Convenor") {
+      imagePath = `/team2026/Faculty/Rajkumar.webp`;
     }
     return imagePath;
   };

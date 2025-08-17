@@ -36,10 +36,16 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: pan-y pan-x;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pc-card-wrapper {
+    touch-action: none;
+  }
 }
 
 .pc-card-wrapper::before {
@@ -170,7 +176,7 @@
 .pc-shine,
 .pc-glare,
 .pc-avatar-content::before {
-  touch-action: none;
+  touch-action: pan-y pan-x;
 }
 
 .pc-user-info,
@@ -278,7 +284,7 @@
   padding: 12px 14px;
 }
 
-.pc-user-info, 
+.pc-user-info,
 .pc-user-info * {
   pointer-events: auto;
 }
@@ -288,10 +294,12 @@
   align-items: center;
   gap: 12px;
 }
+
 .pc-user-info a {
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
+
 .pc-user-info a:hover {
   transform: scale(1.1);
 }
@@ -336,8 +344,8 @@
   display: inline-block;
 
   width: clamp(16px, 2.5svh, 28px);
-    height: clamp(16px, 2.5svh, 28px);
-    flex-shrink: 0;
+  height: clamp(16px, 2.5svh, 28px);
+  flex-shrink: 0;
 }
 
 .pc-content {

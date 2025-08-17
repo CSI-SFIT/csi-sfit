@@ -1,11 +1,6 @@
 import React, { Suspense } from "react";
 import ProfileCard from "../ProfileCard";
 import SkeletonCard from "../SkeletonCard";
-import Shahil from "../../../../assets/team2026/Core/Shahil.webp";
-import Sanika from "../../../../assets/team2026/Core/Sanika.webp";
-import Aryan from "../../../../assets/team2026/Core/Aryan.webp";
-import Kathleen from "../../../../assets/team2026/Core/Kathleen.webp";
-
 
 const NewTeamsRow = React.lazy(() => import("../NewTeamsRow"));
 
@@ -48,7 +43,7 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={Shahil}
+                    avatarUrl="/team2026/Core/Shahil.webp"
                     name="Shahiil Shet"
                     title="Chairperson"
                     handle="Shahiil"
@@ -66,7 +61,7 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={Sanika}
+                    avatarUrl="/team2026/Core/Sanika.webp"
                     name="Sanika Bane"
                     title="Vice Chairperson"
                     handle="Sanika"
@@ -83,7 +78,7 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={Aryan}
+                    avatarUrl="/team2026/Core/Aryan.webp"
                     name="Aryan Brahmane"
                     title="Treasurer"
                     handle="Aryan"
@@ -100,7 +95,7 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={Kathleen}
+                    avatarUrl="/team2026/Core/Kathleen.webp"
                     name="Kathleen Monis"
                     title="General Secretary"
                     handle="Kathleen"
