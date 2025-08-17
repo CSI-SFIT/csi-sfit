@@ -1,7 +1,7 @@
 import { EventItem } from "./events2025";
-import cosmSho from "../../../assets/events/cosm-sho.png";
-import figma101 from "../../../assets/events/figma-101.jpg";
-import gitSmart from "../../../assets/events/git-smart.jpg";
+import cosmSho from "/assets/events/cosm-sho.png";
+import figma101 from "/assets/events/figma-101.jpg";
+import gitSmart from "/assets/events/git-smart.jpg";
 
 const events2024: EventItem[] = [
   {

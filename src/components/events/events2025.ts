@@ -1,6 +1,6 @@
-import llm25 from "../../../assets/events/llm-2025.jpg";
-import GhoPro from "../../../assets/events/gho-pro.png";
-import CSILogo from "../../../assets/csi_logo.jpg";
+import llm25 from "/assets/events/llm-2025.jpg";
+import GhoPro from "/assets/events/gho-pro.png";
+import CSILogo from "/assets/csi_logo.jpg";
 
 export type EventCategory =
   | "workshop"

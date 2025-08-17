@@ -6,7 +6,7 @@ export const Footer: React.FC = () => (
     <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
       {/* Branding */}
       <div className="text-center md:text-left">
-        <h3 className="text-lg font-semibold">CSI SFIT</h3>
+        <h3 className="text-lg font-semibold">Computer Society Of India, St Francis Institute Of Technology</h3>
         <p className="text-sm text-zinc-400">We Make It Happen</p>
       </div>
 

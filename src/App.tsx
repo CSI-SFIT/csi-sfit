@@ -24,7 +24,7 @@ function HashScroller({ children }: { children: React.ReactNode }) {
   const { hash, pathname } = useLocation();
 
   useEffect(() => {
-    if (!hash) return;
+    if (!hash) return;  
     requestAnimationFrame(() => {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });

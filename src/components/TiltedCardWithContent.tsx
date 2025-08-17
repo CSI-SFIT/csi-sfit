@@ -1,6 +1,6 @@
-import type { SpringOptions } from "framer-motion";
-// import { useRef, useState } from "react";
-// import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useSpring, type SpringOptions } from "framer-motion";
+
 
 interface TiltedCardProps {
   icon: React.ElementType;
@@ -79,7 +79,7 @@ export const TiltedCardWithContent: React.FC<TiltedCardProps> = ({
           <Icon className="w-8 h-8 text-white" />
         </div>
         <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-        <p className="text-neutral-400 text-ms p-5">{description}</p>
+        <p className="text-neutral-400 text-sm p-5">{description}</p>
       </motion.div>
     </div>
   );

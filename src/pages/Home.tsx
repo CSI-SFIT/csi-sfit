@@ -324,14 +324,17 @@ export const Home: React.FC = () => {
           {/* CTA Buttons */}
           <motion.div
             className="absolute top-[83vh] sm:top-[77vh] z-[999] flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4"
-            // style={{ opacity: opacityButs, display }}
           >
-            <div className="flex flex-row gap-4 justify-center items-center w-full">
+            <div className="flex flex-row flex-wrap gap-4 justify-center items-center w-full">
               <Link
                 to="/membership"
-                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base"
+                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden"
               >
-                <span className="flex items-center justify-center space-x-2">
+                {/* More prominent shimmer for Join CSI SFIT */}
+                <span className="absolute inset-0 pointer-events-none">
+                  <span className="block w-full h-full shimmer-glow" />
+                </span>
+                <span className="flex items-center justify-center space-x-2 relative z-10">
                   <span>Join CSI SFIT</span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -339,20 +342,44 @@ export const Home: React.FC = () => {
 
               <Link
                 to="/events"
-                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base"
+                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden"
               >
-                <span className="flex items-center justify-center space-x-2">
+                {/* Shimmer/Glow Effect */}
+                <span className="absolute inset-0 pointer-events-none">
+                  <span className="block w-full h-full shimmer-glow" />
+                </span>
+                <span className="flex items-center justify-center space-x-2 relative z-10">
                   <span>View Events</span>
                   <Calendar className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
                 </span>
               </Link>
+
+              <a
+                href="https://chat.whatsapp.com/JWRSyFzmrzT3YJFr3HIM5H?mode=ac_t"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden"
+              >
+                {/* Shimmer/Glow Effect */}
+                <span className="absolute inset-0 pointer-events-none">
+                  <span className="block w-full h-full shimmer-glow" />
+                </span>
+                <span className="flex items-center justify-center space-x-2 relative z-10">
+                  <span>Code with CSI</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
             </div>
 
             <a
-              href="/brochure.pdf"
-              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base"
+              href="/magazine.pdf"
+              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base mt-2 overflow-hidden"
             >
-              <span className="flex items-center justify-center space-x-2">
+              {/* Shimmer/Glow Effect */}
+              <span className="absolute inset-0 pointer-events-none">
+                <span className="block w-full h-full shimmer-glow" />
+              </span>
+              <span className="flex items-center justify-center space-x-2 relative z-10">
                 <span className="truncate">
                   View Paradigm Edition 8 Magazine
                 </span>
@@ -479,7 +506,7 @@ export const Home: React.FC = () => {
                     Offer
                   </span>
                 </h2>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto font-normal">
                   Discover opportunities to grow, learn, and connect with
                   like-minded tech enthusiasts
                 </p>
