@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const generateStar = (id: number) => ({
   id,
@@ -12,7 +12,7 @@ const generateStar = (id: number) => ({
 
 const ShiningStars: React.FC<{ count?: number }> = ({ count = 50 }) => {
   const [stars, setStars] = useState(() =>
-    Array.from({ length: count }, (_, i) => generateStar(i))
+    Array.from({ length: count }, (_, i) => generateStar(i)),
   );
   const [idCounter, setIdCounter] = useState(count);
 
@@ -25,7 +25,7 @@ const ShiningStars: React.FC<{ count?: number }> = ({ count = 50 }) => {
       setTimeout(() => {
         setStars((prev) => prev.filter((s) => s.id !== newStar.id));
       }, newStar.lifeSpan);
-    }, 250); 
+    }, 250);
 
     return () => clearInterval(spawnInterval);
   }, [idCounter]);
@@ -44,8 +44,8 @@ const ShiningStars: React.FC<{ count?: number }> = ({ count = 50 }) => {
             animationDelay: `${star.delay}s`,
             animationDuration: `${star.duration}s`,
             opacity: 0.8,
-            filter: 'drop-shadow(0 0 6px white)',
-            transition: 'opacity 1s ease-in-out',
+            filter: "drop-shadow(0 0 6px white)",
+            transition: "opacity 1s ease-in-out",
           }}
         />
       ))}

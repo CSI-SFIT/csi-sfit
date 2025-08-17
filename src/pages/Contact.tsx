@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { GlassCard } from '../components/GlassCard';
-import { Enhanced3DCard } from '../components/Enhanced3DCard';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { GlassCard } from "../components/GlassCard";
+import { Enhanced3DCard } from "../components/Enhanced3DCard";
 import {
   IconBrandGmail,
   IconPhoneCall,
@@ -14,76 +14,89 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconSend,
-  IconBrandLinktree
-} from '@tabler/icons-react';
-import emailjs from '@emailjs/browser';
+  IconBrandLinktree,
+} from "@tabler/icons-react";
+import emailjs from "@emailjs/browser";
 
 export const Contact: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-
     if (location.pathname === "/contact") {
       window.scrollTo(0, 0);
     }
   }, [location.pathname]);
 
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [formRef, formInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  const [formRef, formInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJNK7wRbWSHLQMthYsHf82uviKiJQM-vrIAPqti_OceIvLgTjmiGVegLgIZ0EOkRHI/exec';
+    const GOOGLE_SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbxJNK7wRbWSHLQMthYsHf82uviKiJQM-vrIAPqti_OceIvLgTjmiGVegLgIZ0EOkRHI/exec";
 
     fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
+      method: "POST",
+      mode: "no-cors",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
 
-    emailjs.send(
-      'service_khb9g4c',
-      'template_qceaydk',
-      {
-        name: formData.name,
-        email: formData.email,
-        title: formData.subject,
-        message: formData.message,
-      },
-      'Y53Ks5mSa6DtLbiHI'
-    ).then(() => {
-      alert('Message sent!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, () => {
-      alert('Failed to send message. Please try again.');
-    });
+    emailjs
+      .send(
+        "service_khb9g4c",
+        "template_qceaydk",
+        {
+          name: formData.name,
+          email: formData.email,
+          title: formData.subject,
+          message: formData.message,
+        },
+        "Y53Ks5mSa6DtLbiHI",
+      )
+      .then(
+        () => {
+          alert("Message sent!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        },
+        () => {
+          alert("Failed to send message. Please try again.");
+        },
+      );
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const contactInfo = [
     {
       icon: IconBrandGmail,
-      title: 'Email',
-      content: 'csi@sfit.ac.in',
-      link: 'mailto:csi@sfit.ac.in',
-      color: 'text-primary-500'
+      title: "Email",
+      content: "csi@sfit.ac.in",
+      link: "mailto:csi@sfit.ac.in",
+      color: "text-primary-500",
     },
     {
       icon: IconPhoneCall,
-      title: 'Phone',
+      title: "Phone",
       content: (
         <div className="flex flex-col gap-2 text-gray-300">
           <a
@@ -106,29 +119,50 @@ export const Contact: React.FC = () => {
           </a>
         </div>
       ),
-      color: 'text-secondary-500'
+      color: "text-secondary-500",
     },
     {
       icon: IconBrandGoogleMaps,
-      title: 'Address',
-      content: 'St. Francis Institute of Technology, Mount Poinsur, S.V.P. Road, Borivali West, Mumbai - 400103',
-      link: 'https://maps.app.goo.gl/Zh8Tk7Wj2m7pSGQJ6',
-      color: 'text-purple-500'
+      title: "Address",
+      content:
+        "St. Francis Institute of Technology, Mount Poinsur, S.V.P. Road, Borivali West, Mumbai - 400103",
+      link: "https://maps.app.goo.gl/Zh8Tk7Wj2m7pSGQJ6",
+      color: "text-purple-500",
     },
     {
       icon: IconClockHour9,
-      title: 'Office Hours',
-      content: 'Monday - Friday: 9:00 AM - 5:00 PM',
-      color: 'text-pink-500'
-    }
+      title: "Office Hours",
+      content: "Monday - Friday: 9:00 AM - 5:00 PM",
+      color: "text-pink-500",
+    },
   ];
 
   const socialLinks = [
-    { icon: IconBrandFacebook, link: 'https://www.facebook.com/csi.sfit/', color: 'hover:text-blue-500' },
-    { icon: IconBrandX, link: 'https://x.com/csi_sfit?lang=ar-x-fm', color: 'hover:text-sky-500' },
-    { icon: IconBrandInstagram, link: 'https://www.instagram.com/csi_sfit?igsh=YTdsdGM0bG9ieHRv', color: 'hover:text-pink-500' },
-    { icon: IconBrandLinkedin, link: 'https://www.linkedin.com/company/csi-sfit/', color: 'hover:text-blue-600' },
-    { icon: IconBrandLinktree, link: ' https://linktr.ee/CSI_SFIT', color: 'hover:text-green-500' }
+    {
+      icon: IconBrandFacebook,
+      link: "https://www.facebook.com/csi.sfit/",
+      color: "hover:text-blue-500",
+    },
+    {
+      icon: IconBrandX,
+      link: "https://x.com/csi_sfit?lang=ar-x-fm",
+      color: "hover:text-sky-500",
+    },
+    {
+      icon: IconBrandInstagram,
+      link: "https://www.instagram.com/csi_sfit?igsh=YTdsdGM0bG9ieHRv",
+      color: "hover:text-pink-500",
+    },
+    {
+      icon: IconBrandLinkedin,
+      link: "https://www.linkedin.com/company/csi-sfit/",
+      color: "hover:text-blue-600",
+    },
+    {
+      icon: IconBrandLinktree,
+      link: " https://linktr.ee/CSI_SFIT",
+      color: "hover:text-green-500",
+    },
   ];
 
   return (
@@ -145,10 +179,14 @@ export const Contact: React.FC = () => {
             className="text-center mb-10 sm:mb-16"
           >
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
-              Get In <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">Touch</span>
+              Get In{" "}
+              <span className="bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent">
+                Touch
+              </span>
             </h1>
             <p className="text-base sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Have questions about CSI SFIT? Want to collaborate or join our community? We'd love to hear from you.
+              Have questions about CSI SFIT? Want to collaborate or join our
+              community? We'd love to hear from you.
             </p>
           </motion.div>
         </div>
@@ -165,7 +203,9 @@ export const Contact: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-12 lg:mb-0"
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">Contact Information</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">
+                Contact Information
+              </h2>
               <div className="space-y-6 mb-8">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
@@ -176,20 +216,34 @@ export const Contact: React.FC = () => {
                       animate={heroInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.6, delay: 0.1 * index }}
                     >
-                      <Enhanced3DCard intensity={5} className="transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(54,183,183,0.3)]">
+                      <Enhanced3DCard
+                        intensity={5}
+                        className="transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(54,183,183,0.3)]"
+                      >
                         <div className="p-4 sm:p-6">
                           <div className="flex items-start space-x-3 sm:space-x-4">
-                            <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center ${info.color}`}>
+                            <div
+                              className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center ${info.color}`}
+                            >
                               <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
                             <div>
-                              <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">{info.title}</h3>
+                              <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">
+                                {info.title}
+                              </h3>
                               {info.link ? (
-                                <a href={info.link} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
+                                <a
+                                  href={info.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-gray-300 hover:text-white transition-colors"
+                                >
                                   {info.content}
                                 </a>
                               ) : (
-                                <p className="text-gray-300 hover:text-white transition-colors">{info.content}</p>
+                                <p className="text-gray-300 hover:text-white transition-colors">
+                                  {info.content}
+                                </p>
                               )}
                             </div>
                           </div>
@@ -207,7 +261,9 @@ export const Contact: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="mb-4"
               >
-                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Follow Us</h3>
+                <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">
+                  Follow Us
+                </h3>
                 <div className="flex flex-wrap gap-4 sm:gap-6">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
@@ -238,19 +294,46 @@ export const Contact: React.FC = () => {
             >
               <Enhanced3DCard>
                 <div className="p-4 sm:p-8">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Send Message</h2>
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
+                    Send Message
+                  </h2>
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 sm:space-y-6"
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                        <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium text-gray-300 mb-2"
+                        >
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
                           className="w-full px-4 py-3 bg-white/5 border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors"
                           placeholder="Your name"
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-gray-300 mb-2"
+                        >
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
                           className="w-full px-4 py-3 bg-white/5 border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors"
                           placeholder="your.email@example.com"
                         />
@@ -258,22 +341,47 @@ export const Contact: React.FC = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
-                      <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleInputChange} required
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium text-gray-300 mb-2"
+                      >
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        required
                         className="w-full px-4 py-3 bg-white/5 border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors"
                         placeholder="What's this about?"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                      <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows={6}
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-gray-300 mb-2"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                        rows={6}
                         className="w-full px-4 py-3 bg-white/5 border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-colors resize-none"
                         placeholder="Tell us more about your inquiry..."
                       />
                     </div>
 
-                    <motion.button type="submit" whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}
+                    <motion.button
+                      type="submit"
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
                       className="w-full py-4 bg-gradient-to-r from-[#2580E4] to-[#1B6DC1] text-white font-semibold rounded-lg shadow-lg hover:shadow-[0_4px_8px_0_#2580E433,0_5px_12px_0_#36B7B766] transition-all duration-300 flex items-center justify-center space-x-2"
                     >
                       <IconSend className="w-5 h-5" />
@@ -282,7 +390,7 @@ export const Contact: React.FC = () => {
                   </form>
                 </div>
               </Enhanced3DCard>
-            </motion.div> 
+            </motion.div>
           </div>
         </div>
       </section>
@@ -295,7 +403,9 @@ export const Contact: React.FC = () => {
             animate={formInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Location</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
+              Location
+            </h2>
             <GlassCard className="overflow-hidden">
               <div className="h-64 sm:h-96 w-full">
                 <iframe
@@ -303,7 +413,7 @@ export const Contact: React.FC = () => {
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3766.8900917764836!2d72.853269!3d19.2436212!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b13affffffff%3A0xfd071f1d3a7844ef!2sSt.%20Francis%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1751699365795!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: 'invert(90%)' }}
+                  style={{ border: 0, filter: "invert(90%)" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

@@ -6,7 +6,6 @@ import Sanika from "../../../../assets/team2026/Core/Sanika.webp";
 import Aryan from "../../../../assets/team2026/Core/Aryan.webp";
 import Kathleen from "../../../../assets/team2026/Core/Kathleen.webp";
 
-
 const NewTeamsRow = React.lazy(() => import("../NewTeamsRow"));
 
 const Team2026 = () => {

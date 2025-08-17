@@ -3,15 +3,20 @@
   position: relative;
 }
 .featured-badge::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -60%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
   z-index: 1;
-  transition: left 0.6s cubic-bezier(0.4,0,0.2,1);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 .group:hover .featured-badge::before {

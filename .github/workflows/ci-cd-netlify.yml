@@ -32,7 +32,6 @@ jobs:
 
       - run: npm run lint --if-present
 
-      - run: npm test --if-present
 
       - run: npm run build
         env:

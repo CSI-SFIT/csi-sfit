@@ -4,7 +4,6 @@ import { Linkedin, Instagram, Github } from "lucide-react";
 export const Footer: React.FC = () => (
   <footer className="bg-dark-800 text-zinc-200">
     <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      
       {/* Branding */}
       <div className="text-center md:text-left">
         <h3 className="text-lg font-semibold">CSI SFIT</h3>

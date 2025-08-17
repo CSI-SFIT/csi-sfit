@@ -118,7 +118,7 @@ export const About: React.FC = () => {
                 end: "top 40%",
                 scrub: 2,
               },
-            }
+            },
           );
           triggers.push(animation.scrollTrigger as ScrollTrigger);
         }, ref);

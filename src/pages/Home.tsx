@@ -122,23 +122,23 @@ export const Home: React.FC = () => {
   const yUp1 = useTransform(
     scrollYProgress,
     [0.05, 0.1, 0.2, 0.25],
-    ["100vw", "2vw", "2vw", "-100vw"]
+    ["100vw", "2vw", "2vw", "-100vw"],
   );
   const t1Opacity = useTransform(
     scrollYProgress,
     [0.094, 0.1, 0.2, 0.205],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
 
   const yUp2 = useTransform(
     scrollYProgress,
     [0.205, 0.21, 0.27, 0.45],
-    ["100vw", "-3vw", "-3vw", "-100vw"]
+    ["100vw", "-3vw", "-3vw", "-100vw"],
   );
   const t2Opacity = useTransform(
     scrollYProgress,
     [0.2095, 0.21, 0.27, 0.279],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
 
   const yUp3 = useTransform(scrollYProgress, [0.27, 0.28], ["100vw", "-8vw"]);
@@ -149,14 +149,15 @@ export const Home: React.FC = () => {
   const imgWidth = useTransform(
     scrollYProgress,
     [0, 0.1],
-    ["calc(1/3 * 100%)", "calc(1/48 * 100%)"]
+    ["calc(1/3 * 100%)", "calc(1/48 * 100%)"],
   );
   const imgHeight = useTransform(scrollYProgress, [0, 0.1], ["100%", "100%"]);
 
   // ✅ Instantly hide the hero logo as soon as any “We are …” headline becomes visible
   const logoOpacity = useTransform(
     [t1Opacity, t2Opacity, t3Opacity],
-    ([o1, o2, o3]) => ((Number(o1) > 0 || Number(o2) > 0 || Number(o3) > 0) ? 0 : 1)
+    ([o1, o2, o3]) =>
+      Number(o1) > 0 || Number(o2) > 0 || Number(o3) > 0 ? 0 : 1,
   );
 
   return (
