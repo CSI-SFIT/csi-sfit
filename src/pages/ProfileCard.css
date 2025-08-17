@@ -285,11 +285,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center 70%; /* default for most */
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
+
+
 
 .pc-avatar-content::before {
   content: "";

@@ -447,9 +447,12 @@ export const Home: React.FC = () => {
         <section className="px-4 sm:px-8 md:px-16 lg:px-[20rem] py-20 text-center text-white text-2xl font-bold mx-auto relative z-[200] bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              About Us
+              About{' '}
+              <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent">
+                Us
+              </span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-normal leading-relaxed">
               Empowering students with cutting-edge technology, fostering
               innovation, and building the next generation of tech leaders
               through collaborative learning and hands-on experience.
