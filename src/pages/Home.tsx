@@ -16,12 +16,12 @@ import {
 import { motion, useScroll, useTransform } from "motion/react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Image1 from "../assets/home-parallax/FIGMA 101 WORKSHOP.png";
-import Image2 from "../assets/home-parallax/FLASK FORWARD WORKSHOP.png";
-import Image3 from "../assets/home-parallax/LLM WORKSHOP.png";
-import Image4 from "../assets/home-parallax/SPACE DAY 1.jpg";
-import Image5 from "../assets/home-parallax/SPACE DAY 2.jpg";
-import Image6 from "../assets/home-parallax/TEAM 24 PHOTO.jpg";
+// import Image1 from "../assets/home-parallax/FIGMA 101 WORKSHOP.png";
+// import Image2 from "../assets/home-parallax/FLASK FORWARD WORKSHOP.png";
+// import Image3 from "../assets/home-parallax/LLM WORKSHOP.png";
+// import Image4 from "../assets/home-parallax/SPACE DAY 1.jpg";
+// import Image5 from "../assets/home-parallax/SPACE DAY 2.jpg";
+// import Image6 from "../assets/home-parallax/TEAM 24 PHOTO.jpg";
 import Footer from "../components/Footer";
 import { GlassCard } from "../components/GlassCard";
 import ShiningStars from "../components/ShiningStars";
@@ -73,17 +73,15 @@ export const Home: React.FC = () => {
     },
   ];
 
-  // An array of image objects to display.
-  // Each object has a src URL and a unique animation variant.
-  // An array of image objects for parallax.
-  const images = [
-    { src: Image1, alt: "Parallax Image 1" },
-    { src: Image2, alt: "Parallax Image 2" },
-    { src: Image3, alt: "Parallax Image 3" },
-    { src: Image4, alt: "Parallax Image 4" },
-    { src: Image5, alt: "Parallax Image 5" },
-    { src: Image6, alt: "Parallax Image 6" },
-  ];
+  // Parallax images (if needed elsewhere)
+  // const images = [
+  //   { src: Image1, alt: "Parallax Image 1" },
+  //   { src: Image2, alt: "Parallax Image 2" },
+  //   { src: Image3, alt: "Parallax Image 3" },
+  //   { src: Image4, alt: "Parallax Image 4" },
+  //   { src: Image5, alt: "Parallax Image 5" },
+  //   { src: Image6, alt: "Parallax Image 6" },
+  // ];
 
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const contentRef = React.useRef<HTMLDivElement>(null);
@@ -106,7 +104,6 @@ export const Home: React.FC = () => {
     const handleScroll = () => {
       const heroSection = sectionRef.current;
       if (heroSection) {
-        // Calculate when the hero section is no longer in view
         const isPastHero = window.scrollY > heroSection.clientHeight + 1000;
         setIsLogoVisible(isPastHero);
       }
@@ -118,11 +115,10 @@ export const Home: React.FC = () => {
   }, []);
 
   const lineWidth = useTransform(scrollYProgress, [0, 0.4], ["52%", "0%"]);
-  // const opacity = useTransform(scrollYProgress, [0, 0.1, 0.15, 1], [0, 0, 1, 1]);
-  const opacityButs = useTransform(scrollYProgress, [0, 0.03], [1, 0]);
-  const display = useTransform(scrollYProgress, [0.02, 0.03], ["flex", "none"]);
+  // const opacityButs = useTransform(scrollYProgress, [0, 0.03], [1, 0]);
+  // const display = useTransform(scrollYProgress, [0.02, 0.03], ["flex", "none"]);
 
-  // Inside the Home component
+  // Headline motion values
   const yUp1 = useTransform(
     scrollYProgress,
     [0.05, 0.1, 0.2, 0.25],
@@ -157,9 +153,15 @@ export const Home: React.FC = () => {
   );
   const imgHeight = useTransform(scrollYProgress, [0, 0.1], ["100%", "100%"]);
 
+  // ✅ Instantly hide the hero logo as soon as any “We are …” headline becomes visible
+  const logoOpacity = useTransform(
+    [t1Opacity, t2Opacity, t3Opacity],
+    ([o1, o2, o3]) => ((Number(o1) > 0 || Number(o2) > 0 || Number(o3) > 0) ? 0 : 1)
+  );
+
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm">
-      {/* Navbar - Made more responsive */}
+      {/* Navbar */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -173,7 +175,7 @@ export const Home: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-[9999]">
           <div className="flex items-center justify-between h-14 sm:h-16">
-            {/* Logo - Responsive sizing */}
+            {/* Logo (navbar) */}
             <Link
               to="/"
               className="flex items-center space-x-2 sm:space-x-3 group"
@@ -191,7 +193,7 @@ export const Home: React.FC = () => {
               </span>
             </Link>
 
-            {/* Desktop Nav - Hide on smaller screens */}
+            {/* Desktop Nav */}
             <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -239,7 +241,7 @@ export const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Nav - Enhanced */}
+        {/* Mobile Nav */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -262,7 +264,7 @@ export const Home: React.FC = () => {
                       className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                         isActive
                           ? "bg-[#1A5AFF]/10 text-[#00FFF0] border border-[#1A5AFF]/20"
-                          : "text-gray-300 hover:text-white hover:bg-white/5"
+                          : "text-gray-300 hover:text-white hover:bg:white/5"
                       }`}
                     >
                       <Icon className="w-5 h-5" />
@@ -281,23 +283,24 @@ export const Home: React.FC = () => {
           ref={sectionRef}
           className="sticky top-0 pb-12 z-[100] min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6"
         >
-          {/* Desktop lines - responsive visibility */}
+          {/* Desktop lines */}
           <motion.div
             style={{ width: lineWidth }}
             className="absolute left-[-10vw] top-[37.6vh] w-1/2 h-[9px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
-          ></motion.div>
+          />
           <motion.div
             style={{ width: lineWidth }}
             className="absolute right-[-10vw] top-[37.5vh] w-1/2 h-[10px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
-          ></motion.div>
+          />
 
-          {/* Logo - Responsive sizing */}
+          {/* Hero Logo (snaps to opacity 0 when any headline appears) */}
           <motion.img
             src={logo}
             alt="CSI Logo"
             className="object-contain invert pt-16 sm:pt-[7.15rem] m-0 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] mb-[-1rem] sm:mb-[-2rem] md:mb-[-4.5rem] z-20 w-24 sm:w-32 md:w-48 lg:w-64 h-auto"
             draggable={false}
             style={{
+              opacity: logoOpacity,
               width:
                 typeof window !== "undefined" && window.innerWidth < 768
                   ? "auto"
@@ -317,7 +320,7 @@ export const Home: React.FC = () => {
             }}
           />
 
-          {/* CTA Buttons - Responsive layout */}
+          {/* CTA Buttons */}
           <motion.div
             className="absolute top-[83vh] sm:top-[77vh] z-[999] flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4"
             // style={{ opacity: opacityButs, display }}
@@ -357,17 +360,17 @@ export const Home: React.FC = () => {
             </a>
           </motion.div>
 
-          {/* Desktop lines - responsive visibility */}
+          {/* Desktop lines */}
           <motion.div
             style={{ width: lineWidth }}
             className="absolute left-[-10vw] top-[53.3vh] w-1/2 h-[5.5px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
-          ></motion.div>
+          />
           <motion.div
             style={{ width: lineWidth }}
             className="absolute right-[-10vw] top-[53.2vh] w-1/2 h-[6px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
-          ></motion.div>
+          />
 
-          {/* Hero text - Responsive sizing */}
+          {/* Headline text */}
           <motion.h1
             style={{ y: yUp1, opacity: t1Opacity }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-white text-center leading-tight px-4"
@@ -398,7 +401,7 @@ export const Home: React.FC = () => {
             </span>
           </motion.h1>
 
-          {/* Video - Responsive */}
+          {/* Background video */}
           <motion.video
             className="absolute w-full h-[105vh] object-cover top-0 -z-10 grayscale brightness-[0.25]"
             autoPlay
@@ -427,7 +430,7 @@ export const Home: React.FC = () => {
             </p>
           </div>
 
-          {/* Stats - Responsive grid */}
+          {/* Stats */}
           <section className="py-10 relative">
             <div className="max-w-7xl mx-auto">
               <motion.div
@@ -459,7 +462,7 @@ export const Home: React.FC = () => {
             </div>
           </section>
 
-          {/* Features - Responsive grid */}
+          {/* Features */}
           <section className="py-20 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div

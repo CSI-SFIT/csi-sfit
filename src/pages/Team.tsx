@@ -34,11 +34,11 @@ const computeImage = (m: Member, year: number) => {
   return `/assets/team${year}/${folder}/${firstName(m.name)}.webp`;
 };
 
-const AcademicYearLabel: React.FC<{ year: number }> = ({ year }) => (
-  <span className="text-2xl font-semibold text-gray-300">
-    Team of {year - 1}-{year - 2000}
-  </span>
-);
+// const AcademicYearLabel: React.FC<{ year: number }> = ({ year }) => (
+//   <span className="text-2xl font-semibold text-gray-300">
+//     Team of {year - 1}-{year - 2000}
+//   </span>
+// );
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <motion.div

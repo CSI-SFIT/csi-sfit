@@ -98,7 +98,7 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
     description: 'Welcoming of old members and farewell of old members',
     image: CSILogo,
     dateISO: '2025-08-13',
-    displayDate: '13th Aug 2025',
+    displayDate: '19th Aug 2025',
     time: '03:00 PM',
     location: 'SFIT, Room 105',
     locationLink: 'https://www.google.com/maps/search/?api=1&query=SFIT%2C%20Room%20105',
@@ -117,16 +117,7 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
 1. To give inspiration for film making 
 2. Teach basics of photography and videography 
 3. Give knowledge such as video composition, script planning, etc 
-4. Teach basics of DaVinci Resolve (management of data, cutting and trimming, effects and sound, fusion and colour correction) 
-
-Content 
-1. Basics of composition of photography - rule of third, symmetry, colour basics, colour chart etc
-2. Basic composition of videography - use of grid, placing, mapping and depth
-3. Understanding the value of lighting and how to create cinematic aspects 
-4. Shallow dive in video editing software da Vinci 
-5. To understand cuts like j-cut overlapping cuts 
-6. Speed cuts 
-7. Media management, CST, colour correction, black magic fusion, fairlight audio, etc`,
+4. Teach basics of DaVinci Resolve (management of data, cutting and trimming, effects and sound, fusion and colour correction) `,
     image: CSILogo,
     dateISO: '2025-08-20',
     displayDate: '20th Aug 2025',
@@ -135,8 +126,8 @@ Content
     category: 'workshop',
     status: 'upcoming',
     tags: ['Workshop','Videography','Film Making','Photography','Video Editing','Da Vinci Resolve'],
-    registrationState: 'Not Taking Registrations Yet',
-    formLink: null,
+    registrationState: 'Register Now',
+    formLink: `https://forms.gle/oSrdYjTjkQV4Tbwa7`,
     entry: 'Free',
     speakers: [
       'Bhautik Nandha (Video Editor, Film Maker, Director)',
