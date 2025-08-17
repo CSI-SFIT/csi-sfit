@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { ChevronLeft, ChevronRight, Mail, Linkedin, Github, Instagram } from "lucide-react";
 import type { Member, Category } from "../team-data/types";
 import { TEAM_MODULES, YEARS, CATEGORY_ORDER } from "../team-data";
+import "./ProfileCard.css";
 
 const categoryFolder = (c: Category) => {
   switch (c) {
@@ -42,12 +43,12 @@ const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <motion.div
     initial={{ opacity: 0, y: 12, scale: 0.98 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
-    viewport={{ once: true, amount: 0.4 }}
+    viewport={{ once: true, amount: 0.35 }}
     transition={{ duration: 0.4, ease: "easeOut" }}
     className="flex items-center justify-center mb-8 gap-4"
   >
     <div className="w-32 h-1 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] animate-pulse rounded-full" />
-    <p className="text-3xl font-bold bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent whitespace-nowrap">
+    <p className="text-3xl font-semibold bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] bg-clip-text text-transparent whitespace-nowrap">
       {title}
     </p>
     <div className="w-32 h-1 bg-gradient-to-r from-[#40E0D0] to-[#1A5AFF] animate-pulse rounded-full" />
@@ -56,87 +57,81 @@ const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
 
 const ProfileCard: React.FC<{ member: Member; year: number }> = ({ member, year }) => {
   const img = computeImage(member, year);
-  const [failed, setFailed] = useState(false);
-  const initials = useMemo(
-    () =>
-      member.name
-        .split(/\s+/)
-        .slice(0, 2)
-        .map((s) => s[0]?.toUpperCase())
-        .join(""),
-    [member.name]
+  const cardStyle = useMemo(
+    () => ({
+      "--icon": "none",
+      "--grain": "none",
+      "--inner-gradient": "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)",
+    }) as React.CSSProperties,
+    []
   );
 
-  const handleCardMove: React.MouseEventHandler<HTMLElement> = (e) => {
-    const card = e.currentTarget as HTMLElement;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
-  };
-
   return (
-    <motion.article
-      onMouseMove={handleCardMove}
-      initial={{ opacity: 0, y: 18, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="group relative flex flex-col w-[300px] h-[380px] rounded-[20px] overflow-hidden border-2 border-transparent transition-colors duration-300 cursor-pointer bg-[#1C2C4A]"
-      style={{ "--spotlight-color": "rgba(255, 255, 255, 0.25)" } as React.CSSProperties}
-    >
-      <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100"
-        style={{ background: "linear-gradient(145deg, #3B82F6, #1C2C4A)" }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 40%)",
-        }}
-      />
-      <div className="relative z-10 p-[10px] box-border h-[280px]">
-        {!failed ? (
-          <img
-            src={img}
-            alt={member.name}
-            loading="lazy"
-            onError={() => setFailed(true)}
-            className="w-full h-full object-cover rounded-[10px] grayscale group-hover:grayscale-0 transition-all duration-500"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-600 to-sky-500 rounded-[10px]">
-            <span className="text-white/90 text-5xl font-bold">{initials}</span>
+    <div className="pc-card-wrapper" style={cardStyle}>
+      <section className="pc-card">
+        <div className="pc-inside">
+          <div className="pc-shine" />
+          <div className="pc-glare" />
+          <div className="pc-content pc-avatar-content">
+            <img
+              className="avatar"
+              src={img}
+              alt={`${member.name} avatar`}
+              loading="lazy"
+              onError={(e) => {
+                const t = e.target as HTMLImageElement;
+                t.style.display = "none";
+              }}
+            />
+            <div className="pc-user-info">
+              <div className="pc-user-details">
+                <div className="pc-user-text">
+                  <div className="pc-handle text-sm sm:text-base md:text-lg">
+                    @{firstName(member.name).toLowerCase()}
+                  </div>
+                </div>
+              </div>
+              <ul className="pc-social-icons flex justify-center">
+                {member.linkedinLink && (
+                  <li>
+                    <a href={member.linkedinLink} target="_blank" rel="noopener noreferrer">
+                      <Linkedin />
+                    </a>
+                  </li>
+                )}
+                {member.instagramLink && (
+                  <li>
+                    <a href={member.instagramLink} target="_blank" rel="noopener noreferrer">
+                      <Instagram />
+                    </a>
+                  </li>
+                )}
+                {member.githubLink && (
+                  <li>
+                    <a href={member.githubLink} target="_blank" rel="noopener noreferrer">
+                      <Github />
+                    </a>
+                  </li>
+                )}
+                {member.email && (
+                  <li>
+                    <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer">
+                      <Mail />
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
-        )}
-      </div>
-      <footer className="relative z-10 p-3 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
-        <h3 className="m-0 text-[1.05rem] font-semibold">{member.name}</h3>
-        {member.email && (
-          <a href={`mailto:${member.email}`} target="_blank" rel="noreferrer" className="opacity-80 hover:opacity-100">
-            <Mail size={18} />
-          </a>
-        )}
-        <p className="m-0 text-[0.95rem] opacity-80 col-span-2">{member.title}</p>
-        <div className="col-span-2 mt-1 flex items-center gap-3">
-          {member.linkedinLink && (
-            <a href={member.linkedinLink} target="_blank" rel="noreferrer" className="opacity-80 hover:opacity-100">
-              <Linkedin size={18} />
-            </a>
-          )}
-          {member.githubLink && (
-            <a href={member.githubLink} target="_blank" rel="noreferrer" className="opacity-80 hover:opacity-100">
-              <Github size={18} />
-            </a>
-          )}
-          {member.instagramLink && (
-            <a href={member.instagramLink} target="_blank" rel="noreferrer" className="opacity-80 hover:opacity-100">
-              <Instagram size={18} />
-            </a>
-          )}
+          <div className="pc-content">
+            <div className="pc-details">
+              <h3>{member.name}</h3>
+              <p>{member.title}</p>
+            </div>
+          </div>
         </div>
-      </footer>
-    </motion.article>
+      </section>
+    </div>
   );
 };
 
@@ -223,6 +218,7 @@ export const Team: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         {loading && <div className="text-center text-gray-400">Loading members…</div>}
         {!loading && members && (
