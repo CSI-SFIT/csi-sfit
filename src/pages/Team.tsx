@@ -1,9 +1,17 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ChevronLeft, ChevronRight, Mail, Linkedin, Github, Instagram } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Mail,
+  Linkedin,
+  Github,
+  Instagram,
+} from "lucide-react";
 import type { Member, Category } from "../team-data/types";
 import { TEAM_MODULES, YEARS, CATEGORY_ORDER } from "../team-data";
+import ChromaGrid from "../components/ChromaGrid.tsx";
 import "./ProfileCard.css";
 
 const categoryFolder = (c: Category) => {
@@ -29,15 +37,17 @@ const firstName = (full: string) => full.trim().split(/\s+/)[0];
 
 const computeImage = (m: Member, year: number) => {
   if (m.image) return m.image;
-  const folder = m.title.toLowerCase().includes("convenor") ? "Faculty" : categoryFolder(m.category);
+  const folder = m.title.toLowerCase().includes("convenor")
+    ? "Faculty"
+    : categoryFolder(m.category);
   return `/assets/team${year}/${folder}/${firstName(m.name)}.webp`;
 };
 
-const AcademicYearLabel: React.FC<{ year: number }> = ({ year }) => (
-  <span className="text-2xl font-semibold text-gray-300">
-    Team of {year - 1}-{year - 2000}
-  </span>
-);
+// const AcademicYearLabel: React.FC<{ year: number }> = ({ year }) => (
+//   <span className="text-2xl font-semibold text-gray-300">
+//     Team of {year - 1}-{year - 2000}
+//   </span>
+// );
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <motion.div
@@ -55,15 +65,20 @@ const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   </motion.div>
 );
 
-const ProfileCard: React.FC<{ member: Member; year: number }> = ({ member, year }) => {
+const ProfileCard: React.FC<{ member: Member; year: number }> = ({
+  member,
+  year,
+}) => {
   const img = computeImage(member, year);
   const cardStyle = useMemo(
-    () => ({
-      "--icon": "none",
-      "--grain": "none",
-      "--inner-gradient": "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)",
-    }) as React.CSSProperties,
-    []
+    () =>
+      ({
+        "--icon": "none",
+        "--grain": "none",
+        "--inner-gradient":
+          "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)",
+      }) as React.CSSProperties,
+    [],
   );
 
   return (
@@ -94,28 +109,44 @@ const ProfileCard: React.FC<{ member: Member; year: number }> = ({ member, year 
               <ul className="pc-social-icons flex justify-center">
                 {member.linkedinLink && (
                   <li>
-                    <a href={member.linkedinLink} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={member.linkedinLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Linkedin />
                     </a>
                   </li>
                 )}
                 {member.instagramLink && (
                   <li>
-                    <a href={member.instagramLink} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={member.instagramLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Instagram />
                     </a>
                   </li>
                 )}
                 {member.githubLink && (
                   <li>
-                    <a href={member.githubLink} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={member.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github />
                     </a>
                   </li>
                 )}
                 {member.email && (
                   <li>
-                    <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={`mailto:${member.email}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Mail />
                     </a>
                   </li>
@@ -140,7 +171,10 @@ export const Team: React.FC = () => {
   const year = YEARS[index];
   const [members, setMembers] = useState<Member[] | null>(null);
   const [loading, setLoading] = useState(true);
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -159,6 +193,19 @@ export const Team: React.FC = () => {
 
   const goPrev = () => setIndex((p) => (p - 1 + YEARS.length) % YEARS.length);
   const goNext = () => setIndex((p) => (p + 1) % YEARS.length);
+
+  const toChromaItems = (list: Member[], y: number) =>
+    list.map((m) => ({
+      image: computeImage(m, y),
+      title: m.title,
+      name: m.name,
+      handle: `@${firstName(m.name).toLowerCase()}`,
+      url:
+        m.linkedinLink ||
+        m.githubLink ||
+        m.instagramLink ||
+        (m.email ? `mailto:${m.email}` : undefined),
+    }));
 
   return (
     <div className="min-h-screen">
@@ -179,7 +226,9 @@ export const Team: React.FC = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Meet the passionate individuals who drive innovation and excellence at CSI SFIT. Together, we're building the future of technology.
+              Meet the passionate individuals who drive innovation and
+              excellence at CSI SFIT. Together, we're building the future of
+              technology.
             </p>
             <div className="flex flex-col items-center mt-16">
               <div className="flex items-center gap-6 mb-4">
@@ -220,19 +269,46 @@ export const Team: React.FC = () => {
       </section>
 
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        {loading && <div className="text-center text-gray-400">Loading members…</div>}
+        {loading && (
+          <div className="text-center text-gray-400">Loading members…</div>
+        )}
         {!loading && members && (
           <div className="max-w-7xl mx-auto flex flex-col gap-20">
             {CATEGORY_ORDER.map((cat) => {
               const list = members.filter((m) => m.category === cat);
               if (list.length === 0) return null;
+              const isCore = cat === "Core";
+
+              if (year === 2025) {
+                const items = toChromaItems(list, year);
+                return (
+                  <div key={`${cat}-${year}`}>
+                    <SectionHeader title={cat} />
+                    <ChromaGrid
+                      items={items}
+                      className="w-full max-w-screen-xl mx-auto"
+                    />
+                  </div>
+                );
+              }
+
               return (
                 <div key={`${cat}-${year}`}>
                   <SectionHeader title={cat} />
                   <div className="flex justify-center w-full px-2">
-                    <div className="flex flex-wrap justify-center gap-8 max-w-screen-xl">
+                    <div
+                      className={
+                        isCore
+                          ? "grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center w-full max-w-[860px] mx-auto"
+                          : "flex flex-wrap justify-center gap-8 max-w-screen-xl"
+                      }
+                    >
                       {list.map((m, i) => (
-                        <ProfileCard key={`${m.name}-${i}`} member={m} year={year} />
+                        <ProfileCard
+                          key={`${m.name}-${i}`}
+                          member={m}
+                          year={year}
+                        />
                       ))}
                     </div>
                   </div>

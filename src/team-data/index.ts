@@ -10,8 +10,11 @@ export const CATEGORY_ORDER: Category[] = [
   "Multimedia Team",
 ];
 
-export const TEAM_MODULES: Record<number, () => Promise<{ default: import("./types").Member[] }>> = {
-    // Add new years eg 2027 first
+export const TEAM_MODULES: Record<
+  number,
+  () => Promise<{ default: import("./types").Member[] }>
+> = {
+  // Add new years eg 2027 first
   2026: () => import("./2026"),
   2025: () => import("./2025"),
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 export const FloatingElements: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ export const FloatingElements: React.FC = () => {
           transition={{
             duration: 10 + Math.random() * 20,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
             delay: Math.random() * 5,
           }}
           style={{
@@ -49,7 +49,7 @@ export const FloatingElements: React.FC = () => {
           transition={{
             duration: 8 + Math.random() * 12,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             delay: Math.random() * 3,
           }}
           style={{

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface Particle {
   x: number;
@@ -19,7 +19,7 @@ export const ParticleBackground: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -29,10 +29,13 @@ export const ParticleBackground: React.FC = () => {
 
     const createParticles = () => {
       const particles: Particle[] = [];
-      const particleCount = Math.min(150, Math.floor((canvas.width * canvas.height) / 8000));
-      
-      const colors = ['#ff6b00', '#00c9a7', '#ffffff'];
-      
+      const particleCount = Math.min(
+        150,
+        Math.floor((canvas.width * canvas.height) / 8000),
+      );
+
+      const colors = ["#ff6b00", "#00c9a7", "#ffffff"];
+
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
@@ -44,12 +47,12 @@ export const ParticleBackground: React.FC = () => {
           color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
-      
+
       particlesRef.current = particles;
     };
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(15, 15, 15, 0.05)';
+      ctx.fillStyle = "rgba(15, 15, 15, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle, index) => {
@@ -76,7 +79,8 @@ export const ParticleBackground: React.FC = () => {
         for (let j = index + 1; j < particlesRef.current.length; j++) {
           const particle2 = particlesRef.current[j];
           const distance = Math.sqrt(
-            Math.pow(particle.x - particle2.x, 2) + Math.pow(particle.y - particle2.y, 2)
+            Math.pow(particle.x - particle2.x, 2) +
+              Math.pow(particle.y - particle2.y, 2),
           );
 
           if (distance < 100) {
@@ -105,10 +109,10 @@ export const ParticleBackground: React.FC = () => {
       createParticles();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }

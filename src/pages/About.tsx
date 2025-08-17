@@ -90,9 +90,9 @@ export const About: React.FC = () => {
     },
     {
       year: "2024",
-      title: "AI & ML Center",
+      title: "Code With CSI",
       description:
-        "Established dedicated center for Artificial Intelligence and Machine Learning research.",
+        "Launched 'Code With CSI', a WhatsApp group where students can discuss and share information about DSA, cybersecurity, game development, and more.",
       color: "from-teal-500 to-teal-700",
     },
   ];
@@ -118,7 +118,7 @@ export const About: React.FC = () => {
                 end: "top 40%",
                 scrub: 2,
               },
-            }
+            },
           );
           triggers.push(animation.scrollTrigger as ScrollTrigger);
         }, ref);
@@ -149,10 +149,10 @@ export const About: React.FC = () => {
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              The Computer Society of India, SFIT Chapter, is a vibrant
-              community of technology enthusiasts dedicated to advancing
-              computer science education and fostering innovation among
-              students.
+              The Computer Society of India, St Francis Institute of Technology
+              Chapter, is a vibrant community of technology enthusiasts
+              dedicated to advancing computer science education and fostering
+              innovation among students.
             </p>
           </motion.div>
 

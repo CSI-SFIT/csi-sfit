@@ -28,7 +28,7 @@ const dataByYear: Record<YearKey, EventItem[]> = {
 const toMapsLink = (location: string, explicit?: string) =>
   explicit ||
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    location
+    location,
   )}`;
 
 const toCalendarLink = (e: EventItem) => {
@@ -117,7 +117,7 @@ export const Events: React.FC = () => {
         count: events.filter((e) => e.category === "networking").length,
       },
     ],
-    [events]
+    [events],
   );
 
   const filteredEvents = useMemo(() => {
@@ -134,26 +134,29 @@ export const Events: React.FC = () => {
     });
   }, [events, selectedCategory, searchTerm]);
 
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      workshop: "from-blue-500 to-blue-700",
-      seminar: "from-green-500 to-green-700",
-      competition: "from-purple-500 to-purple-700",
-      hackathon: "from-red-500 to-red-700",
-      networking: "from-yellow-500 to-yellow-700",
-    } as const;
-    return (colors as any)[category] || "from-[#2580E4] to-[#36B7B7]";
+  const getCategoryColor = (
+    category: EventItem["category"] | "hackathon",
+  ): string => {
+    const colors: Partial<Record<EventItem["category"] | "hackathon", string>> =
+      {
+        workshop: "from-blue-500 to-blue-700",
+        seminar: "from-green-500 to-green-700",
+        competition: "from-purple-500 to-purple-700",
+        networking: "from-yellow-500 to-yellow-700",
+        event: "from-red-500 to-red-700",
+        hackathon: "from-red-500 to-red-700",
+      };
+    return colors[category] ?? "from-[#2580E4] to-[#36B7B7]";
   };
 
-  const getStatusColor = (status: string) => {
-    const colors = {
+  const getStatusColor = (status: EventItem["status"]): string => {
+    const colors: Partial<Record<EventItem["status"], string>> = {
       upcoming: "bg-green-500/20 text-green-400 border-green-500/30",
       ongoing: "bg-blue-500/20 text-blue-400 border-blue-500/30",
       completed: "bg-gray-500/20 text-gray-400 border-gray-500/30",
-    } as const;
+    };
     return (
-      (colors as any)[status] ||
-      "bg-[#2580E4]/20 text-[#2580E4] border-[#2580E4]/30"
+      colors[status] ?? "bg-[#2580E4]/20 text-[#2580E4] border-[#2580E4]/30"
     );
   };
 
@@ -320,7 +323,7 @@ export const Events: React.FC = () => {
 
                         <div
                           className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold border ${getStatusColor(
-                            event.status
+                            event.status,
                           )}`}
                         >
                           {event.status.charAt(0).toUpperCase() +
@@ -329,7 +332,7 @@ export const Events: React.FC = () => {
 
                         <div
                           className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${getCategoryColor(
-                            event.category
+                            event.category,
                           )} text-white`}
                         >
                           {event.category.charAt(0).toUpperCase() +
@@ -353,7 +356,7 @@ export const Events: React.FC = () => {
                               window.open(
                                 toCalendarLink(event),
                                 "_blank",
-                                "noopener,noreferrer"
+                                "noopener,noreferrer",
                               )
                             }
                             className="flex items-center text-left text-sm text-gray-300 hover:text-white transition cursor-pointer underline decoration-dotted underline-offset-4"
@@ -370,7 +373,7 @@ export const Events: React.FC = () => {
                                   year: "numeric",
                                   month: "long",
                                   day: "numeric",
-                                }
+                                },
                               )}
                             {event.time && (
                               <>
@@ -387,7 +390,7 @@ export const Events: React.FC = () => {
                               window.open(
                                 toMapsLink(event.location, explicitMaps),
                                 "_blank",
-                                "noopener,noreferrer"
+                                "noopener,noreferrer",
                               )
                             }
                             className="flex items-center text-left text-sm text-gray-300 hover:text-white transition cursor-pointer underline decoration-dotted underline-offset-4"
@@ -414,7 +417,7 @@ export const Events: React.FC = () => {
                                 window.open(
                                   toCalendarLink(event),
                                   "_blank",
-                                  "noopener,noreferrer"
+                                  "noopener,noreferrer",
                                 )
                               }
                               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-white/90 bg-white/10 border border-white/15 hover:bg-white/15 transition"
@@ -430,7 +433,7 @@ export const Events: React.FC = () => {
                                 window.open(
                                   toMapsLink(event.location, explicitMaps),
                                   "_blank",
-                                  "noopener,noreferrer"
+                                  "noopener,noreferrer",
                                 )
                               }
                               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-white/90 bg-white/10 border border-white/15 hover:bg-white/15 transition"
@@ -476,7 +479,7 @@ export const Events: React.FC = () => {
                                                 window.open(
                                                   links.instagram!,
                                                   "_blank",
-                                                  "noopener,noreferrer"
+                                                  "noopener,noreferrer",
                                                 )
                                               }
                                               className="p-1 rounded hover:bg-white/10"
@@ -492,7 +495,7 @@ export const Events: React.FC = () => {
                                                 window.open(
                                                   links.github!,
                                                   "_blank",
-                                                  "noopener,noreferrer"
+                                                  "noopener,noreferrer",
                                                 )
                                               }
                                               className="p-1 rounded hover:bg-white/10"
@@ -508,7 +511,7 @@ export const Events: React.FC = () => {
                                                 window.open(
                                                   links.linkedin!,
                                                   "_blank",
-                                                  "noopener,noreferrer"
+                                                  "noopener,noreferrer",
                                                 )
                                               }
                                               className="p-1 rounded hover:bg-white/10"
@@ -548,7 +551,7 @@ export const Events: React.FC = () => {
                               window.open(
                                 event.formLink,
                                 "_blank",
-                                "noopener,noreferrer"
+                                "noopener,noreferrer",
                               );
                           }}
                           className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 ${

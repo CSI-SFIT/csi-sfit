@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const NotFound: React.FC = () => {
   return (
@@ -11,7 +11,9 @@ export const NotFound: React.FC = () => {
           alt="CSI Logo"
           className="w-40 h-40 rounded-lg mb-8"
         />
-        <h1 className="text-4xl font-bold text-white mb-4">404 - Page Not Found</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">
+          404 - Page Not Found
+        </h1>
         <p className="text-gray-200 mb-6">
           The page you're looking for doesn't exist.
         </p>

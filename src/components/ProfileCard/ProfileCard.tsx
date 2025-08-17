@@ -43,15 +43,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         "--icon": iconUrl ? `url(${iconUrl})` : "none",
         "--grain": grainUrl ? `url(${grainUrl})` : "none",
         "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
-      } as React.CSSProperties),
-    [iconUrl, grainUrl, innerGradient]
+      }) as React.CSSProperties,
+    [iconUrl, grainUrl, innerGradient],
   );
 
   return (
-    <div
-      className={`pc-card-wrapper ${className}`.trim()}
-      style={cardStyle}
-    >
+    <div className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       <section className="pc-card">
         <div className="pc-inside">
           <div className="pc-shine" />

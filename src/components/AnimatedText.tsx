@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface AnimatedTextProps {
   text: string;
@@ -10,11 +10,11 @@ interface AnimatedTextProps {
 
 export const AnimatedText: React.FC<AnimatedTextProps> = ({
   text,
-  className = '',
+  className = "",
   delay = 0,
-  duration = 0.05
+  duration = 0.05,
 }) => {
-  const words = text.split(' ');
+  const words = text.split(" ");
 
   const container = {
     hidden: { opacity: 0 },
@@ -53,11 +53,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
       animate="visible"
     >
       {words.map((word, index) => (
-        <motion.span
-          variants={child}
-          key={index}
-          className="inline-block mr-2"
-        >
+        <motion.span variants={child} key={index} className="inline-block mr-2">
           {word}
         </motion.span>
       ))}

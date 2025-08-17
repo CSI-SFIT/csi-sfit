@@ -43,7 +43,9 @@ const Team2022 = () => {
 
       <OldTeamsRow department="Multimedia Team">
         <ChromaGrid
-          items={data.filter((profile) => profile.category == "Multimedia Team")}
+          items={data.filter(
+            (profile) => profile.category == "Multimedia Team",
+          )}
         />
       </OldTeamsRow>
     </div>

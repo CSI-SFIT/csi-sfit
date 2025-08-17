@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import React, { useRef, useState } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface Random3DCardProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface Random3DCardProps {
 
 const Random3DCard: React.FC<Random3DCardProps> = ({
   children,
-  className = '',
+  className = "",
   intensity = 15,
   glowColor,
 }) => {
@@ -21,8 +21,16 @@ const Random3DCard: React.FC<Random3DCardProps> = ({
   const y = useMotionValue(0);
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [intensity, -intensity]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-intensity, intensity]);
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    [intensity, -intensity],
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    [-intensity, intensity],
+  );
 
   const setCoordinates = (clientX: number, clientY: number) => {
     if (!ref.current) return;
@@ -73,7 +81,7 @@ const Random3DCard: React.FC<Random3DCardProps> = ({
       style={{
         rotateY,
         rotateX,
-        transformStyle: 'preserve-3d',
+        transformStyle: "preserve-3d",
       }}
       className={`relative ${className}`}
     >
@@ -81,15 +89,13 @@ const Random3DCard: React.FC<Random3DCardProps> = ({
         animate={{
           boxShadow: isHovered
             ? `0 25px 50px -12px ${glowColor}66, 0 0 60px ${glowColor}33`
-            : '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            : "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
         transition={{ duration: 0.3 }}
         className="w-full h-full backdrop-blur-sm bg-white/5 border border-white/10 rounded-xl overflow-hidden"
-        style={{ transform: 'translateZ(50px)' }}
+        style={{ transform: "translateZ(50px)" }}
       >
-        <div className="relative z-10 h-full">
-          {children}
-        </div>
+        <div className="relative z-10 h-full">{children}</div>
 
         <motion.div
           animate={{ opacity: isHovered ? 0.6 : 0 }}
@@ -99,7 +105,7 @@ const Random3DCard: React.FC<Random3DCardProps> = ({
             background: `radial-gradient(circle at ${
               mouseXSpring.get() * 100 + 50
             }% ${mouseYSpring.get() * 100 + 50}%, ${glowColor}88, transparent 60%)`,
-            transform: 'translateZ(-50px)',
+            transform: "translateZ(-50px)",
           }}
         />
       </motion.div>

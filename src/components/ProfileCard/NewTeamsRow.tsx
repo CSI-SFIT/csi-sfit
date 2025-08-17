@@ -46,7 +46,7 @@ const NewTeamsRow = ({ department }: { department: string }) => {
                 <ProfileCard
                   avatarUrl={getAvatarUrl(
                     profile.name.split(" ")[0],
-                    profile.title.split(" ")[0]
+                    profile.title.split(" ")[0],
                   )}
                   name={profile.name}
                   title={profile.title}
