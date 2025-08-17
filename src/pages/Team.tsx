@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { ChevronLeft, ChevronRight, Mail, Linkedin, Github, Instagram } from "lucide-react";
 import type { Member, Category } from "../team-data/types";
 import { TEAM_MODULES, YEARS, CATEGORY_ORDER } from "../team-data";
+import ChromaGrid from "../components/ChromaGrid.tsx";
 import "./ProfileCard.css";
 
 const categoryFolder = (c: Category) => {
@@ -160,6 +161,15 @@ export const Team: React.FC = () => {
   const goPrev = () => setIndex((p) => (p - 1 + YEARS.length) % YEARS.length);
   const goNext = () => setIndex((p) => (p + 1) % YEARS.length);
 
+  const toChromaItems = (list: Member[], y: number) =>
+    list.map((m) => ({
+      image: computeImage(m, y),
+      title: m.title,
+      name: m.name,
+      handle: `@${firstName(m.name).toLowerCase()}`,
+      url: m.linkedinLink || m.githubLink || m.instagramLink || (m.email ? `mailto:${m.email}` : undefined),
+    }));
+
   return (
     <div className="min-h-screen">
       <section className="relative py-20 pb-6">
@@ -226,11 +236,29 @@ export const Team: React.FC = () => {
             {CATEGORY_ORDER.map((cat) => {
               const list = members.filter((m) => m.category === cat);
               if (list.length === 0) return null;
+              const isCore = cat === "Core";
+
+              if (year === 2025) {
+                const items = toChromaItems(list, year);
+                return (
+                  <div key={`${cat}-${year}`}>
+                    <SectionHeader title={cat} />
+                    <ChromaGrid items={items} className="w-full max-w-screen-xl mx-auto" />
+                  </div>
+                );
+              }
+
               return (
                 <div key={`${cat}-${year}`}>
                   <SectionHeader title={cat} />
                   <div className="flex justify-center w-full px-2">
-                    <div className="flex flex-wrap justify-center gap-8 max-w-screen-xl">
+                    <div
+                      className={
+                        isCore
+                          ? "grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center w-full max-w-[860px] mx-auto"
+                          : "flex flex-wrap justify-center gap-8 max-w-screen-xl"
+                      }
+                    >
                       {list.map((m, i) => (
                         <ProfileCard key={`${m.name}-${i}`} member={m} year={year} />
                       ))}
