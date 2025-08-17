@@ -1,7 +1,11 @@
 import React, { Suspense } from "react";
 import ProfileCard from "../ProfileCard";
 import SkeletonCard from "../SkeletonCard";
-import man1 from "../../../../assets/man1.webp";
+import Shahil from "../../../../assets/team2026/Core/Shahil.webp";
+import Sanika from "../../../../assets/team2026/Core/Sanika.webp";
+import Aryan from "../../../../assets/team2026/Core/Aryan.webp";
+import Kathleen from "../../../../assets/team2026/Core/Kathleen.webp";
+
 
 const NewTeamsRow = React.lazy(() => import("../NewTeamsRow"));
 
@@ -44,10 +48,14 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={man1}
+                    avatarUrl={Shahil}
                     name="Shahiil Shet"
                     title="Chairperson"
                     handle="Shahiil"
+                    instagramLink="https://www.instagram.com/obscure_jonin/"
+                    linkedinLink="https://www.linkedin.com/in/shahiil-shet-3ba9a7314/"
+                    githubLink="https://github.com/shahiil"
+                    email="shahiilshet@student.sfit.ac.in"
                   />
                 </div>
               </Suspense>
@@ -58,16 +66,16 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={man1}
+                    avatarUrl={Sanika}
                     name="Sanika Bane"
                     title="Vice Chairperson"
                     handle="Sanika"
+                    instagramLink="https://www.instagram.com/sanika_303/"
+                    email="sanikabane22@student.sfit.ac.in"
                   />
                 </div>
               </Suspense>
               <div className="w-full h-0 m-0 p-0"></div>
-              {/* <div className="basis-full"></div> */}
-              {/* <br /> */}
               <Suspense fallback={<SkeletonCard />}>
                 <div
                   className={
@@ -75,10 +83,13 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={man1}
+                    avatarUrl={Aryan}
                     name="Aryan Brahmane"
                     title="Treasurer"
                     handle="Aryan"
+                    instagramLink="https://www.instagram.com/_.aryan._.b._/"
+                    linkedinLink="https://www.linkedin.com/in/aryanbrahmane/"
+                    email="aryanbrahmane@student.sfit.ac.in"
                   />
                 </div>
               </Suspense>
@@ -89,10 +100,13 @@ const Team2026 = () => {
                   }
                 >
                   <ProfileCard
-                    avatarUrl={man1}
+                    avatarUrl={Kathleen}
                     name="Kathleen Monis"
                     title="General Secretary"
                     handle="Kathleen"
+                    instagramLink="https://www.instagram.com/kathleen_monis/"
+                    linkedinLink="https://www.linkedin.com/in/kathleen-monis-8490aa2b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    email="kathleenmonis28@student.sfit.ac.in"
                   />
                 </div>
               </Suspense>

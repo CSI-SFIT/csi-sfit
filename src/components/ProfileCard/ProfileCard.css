@@ -166,6 +166,21 @@
   background-repeat: repeat;
 }
 
+.pc-inside,
+.pc-shine,
+.pc-glare,
+.pc-avatar-content::before {
+  touch-action: none;
+}
+
+.pc-user-info,
+.pc-user-info *,
+.pc-social-icons,
+.pc-social-icons *,
+.pc-user-info a {
+  touch-action: auto;
+}
+
 .pc-shine::before,
 .pc-shine::after {
   content: "";
@@ -215,18 +230,22 @@
 }
 
 .pc-avatar-content {
-  mix-blend-mode: screen;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .pc-avatar-content .avatar {
-  width: 90%;
-  /* Change width to 100% if required  */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%) scale(1);
-  bottom: 2px;
-  opacity: calc(1.75 - var(--pointer-from-center));
+  bottom: 0;
+  left: 0;
 }
 
 .pc-avatar-content::before {

@@ -4,8 +4,8 @@ import { useInView } from "react-intersection-observer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Team2026 from "../components/ProfileCard/teams/Team2026";
 import Team2025 from "../components/ProfileCard/teams/Team2025";
-import Team2022 from "../components/ProfileCard/teams/Team2022";
-import Team2021 from "../components/ProfileCard/teams/Team2021";
+// import Team2022 from "../components/ProfileCard/teams/Team2022";
+// import Team2021 from "../components/ProfileCard/teams/Team2021";
 
 export const Team: React.FC = () => {
   const [heroRef, heroInView] = useInView({
@@ -14,8 +14,8 @@ export const Team: React.FC = () => {
   });
 
   const teamComponents = [
-    { year: 2021, component: <Team2021 /> },
-    { year: 2022, component: <Team2022 /> },
+    // { year: 2021, component: <Team2021 /> },
+    // { year: 2022, component: <Team2022 /> },
     { year: 2025, component: <Team2025 /> },
     { year: 2026, component: <Team2026 /> },
   ];
@@ -77,7 +77,8 @@ export const Team: React.FC = () => {
                       transition={{ duration: 0.25 }}
                       className="text-2xl font-semibold text-gray-300 leading-relaxed"
                     >
-                      Team of  {teamComponents[currentIndex].year - 1}-{teamComponents[currentIndex].year - 2000}
+                      Team of {teamComponents[currentIndex].year - 1}-
+                      {teamComponents[currentIndex].year - 2000}
                     </motion.span>
                   </AnimatePresence>
                 </div>
