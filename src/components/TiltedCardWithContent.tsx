@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useSpring, type SpringOptions } from "framer-motion";
 
-
 interface TiltedCardProps {
   icon: React.ElementType;
   title: string;

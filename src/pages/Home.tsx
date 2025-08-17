@@ -322,9 +322,7 @@ export const Home: React.FC = () => {
           />
 
           {/* CTA Buttons */}
-          <motion.div
-            className="absolute top-[83vh] sm:top-[77vh] z-[999] flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4"
-          >
+          <motion.div className="absolute top-[83vh] sm:top-[77vh] z-[999] flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4">
             <div className="flex flex-row flex-wrap gap-4 justify-center items-center w-full">
               <Link
                 to="/membership"

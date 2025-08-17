@@ -5,16 +5,16 @@ We welcome contributions from everyone. Please read these guidelines carefully t
 
 ---
 
-| Sr. No. | Table of Contents |
-|:-------:|:------------------|
-| 1 | [How Can I Contribute?](#how-can-i-contribute) |
-| 2 | [Getting Started](#getting-started) |
-| 3 | [Code Style Guidelines](#code-style-guidelines) |
-| 4 | [Commit Messages](#commit-messages) |
-| 5 | [Submitting a Pull Request](#submitting-a-pull-request) |
-| 6 | [Reporting Issues](#reporting-issues) |
-| 7 | [Community Standards](#community-standards) |
-| 8 | [Contact](#contact) |
+| Sr. No. | Table of Contents                                       |
+| :-----: | :------------------------------------------------------ |
+|    1    | [How Can I Contribute?](#how-can-i-contribute)          |
+|    2    | [Getting Started](#getting-started)                     |
+|    3    | [Code Style Guidelines](#code-style-guidelines)         |
+|    4    | [Commit Messages](#commit-messages)                     |
+|    5    | [Submitting a Pull Request](#submitting-a-pull-request) |
+|    6    | [Reporting Issues](#reporting-issues)                   |
+|    7    | [Community Standards](#community-standards)             |
+|    8    | [Contact](#contact)                                     |
 
 ---
 
@@ -91,13 +91,11 @@ Fixes #45
    ```
 
 2. **Open a Pull Request:**
-
    - Go to your fork on GitHub.
    - Click "Compare & pull request".
    - Fill in the PR template, describing your changes clearly.
 
 3. **Wait for Review:**
-
    - Address any feedback or requested changes.
    - Once approved, your PR will be merged.
 

@@ -149,10 +149,10 @@ export const About: React.FC = () => {
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              The Computer Society of India, St Francis Institute of Technology Chapter, is a vibrant
-              community of technology enthusiasts dedicated to advancing
-              computer science education and fostering innovation among
-              students.
+              The Computer Society of India, St Francis Institute of Technology
+              Chapter, is a vibrant community of technology enthusiasts
+              dedicated to advancing computer science education and fostering
+              innovation among students.
             </p>
           </motion.div>
 
@@ -260,8 +260,9 @@ export const About: React.FC = () => {
                 <li
                   key={item.year}
                   ref={(el) => (timelineRefs.current[index] = el)}
-                  className={`relative flex flex-col md:flex-row items-center ${index % 2 !== 0 ? "md:flex-row-reverse" : ""
-                    }`}
+                  className={`relative flex flex-col md:flex-row items-center ${
+                    index % 2 !== 0 ? "md:flex-row-reverse" : ""
+                  }`}
                 >
                   <div className="md:w-1/2  w-full px-4">
                     <GlassCard className="p-6 backdrop-blur-sm no-hover">

@@ -2,7 +2,8 @@
 <tr>
 <td>
 
-# Computer Society of India (CSI) - SFIT  
+# Computer Society of India (CSI) - SFIT
+
 ## St. Francis Institute of Technology - Student Chapter
 
 </td>
@@ -14,6 +15,7 @@
 
 [![CI/CD Deploy to Netlify](https://github.com/AnleaMJ/csi-sfit/actions/workflows/ci-cd-netlify.yml/badge.svg)](https://github.com/AnleaMJ/csi-sfit/actions/workflows/ci-cd-netlify.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5f416c4b-1e6a-47e4-97a7-c26c738be72a/deploy-status)](https://app.netlify.com/projects/sfit-csi/deploys)
+
 ---
 
 ## About
@@ -22,7 +24,9 @@
 We are dedicated to fostering a vibrant community of students and professionals passionate about computing, technology, and innovation.
 
 ---
+
 View the live [website](https://sfit-csi.netlify.app/)
+
 ## Features
 
 - 💻 Community-driven events, workshops & seminars
@@ -31,6 +35,7 @@ View the live [website](https://sfit-csi.netlify.app/)
 - 📚 Knowledge sharing sessions
 
 ---
+
 ## Getting Started
 
 To locally host this site, follow these steps:
@@ -58,7 +63,9 @@ npm install
 npm run dev
 
 ```
+
 ---
+
 ## Contributing
 
 We welcome contributions!  
