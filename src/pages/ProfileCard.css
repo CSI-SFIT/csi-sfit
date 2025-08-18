@@ -36,10 +36,16 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: pan-y pan-x;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pc-card-wrapper {
+    touch-action: none;
+  }
 }
 
 .pc-card-wrapper::before {
@@ -142,59 +148,11 @@
   mix-blend-mode: color-dodge;
 }
 
-.pc-shine,
-.pc-shine::after {
-  --space: 5%;
-  --angle: -45deg;
-  transform: translate3d(0, 0, 1px);
-  overflow: hidden;
-  z-index: 3;
-  background: transparent;
-  background-size: cover;
-  background-position: center;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      var(--sunpillar-clr-1) calc(var(--space) * 1),
-      var(--sunpillar-clr-2) calc(var(--space) * 2),
-      var(--sunpillar-clr-3) calc(var(--space) * 3),
-      var(--sunpillar-clr-4) calc(var(--space) * 4),
-      var(--sunpillar-clr-5) calc(var(--space) * 5),
-      var(--sunpillar-clr-6) calc(var(--space) * 6),
-      var(--sunpillar-clr-1) calc(var(--space) * 7)
-    ),
-    repeating-linear-gradient(
-      var(--angle),
-      #0e152e 0%,
-      hsl(180, 10%, 60%) 3.8%,
-      hsl(180, 29%, 66%) 4.5%,
-      hsl(180, 10%, 60%) 5.2%,
-      #0e152e 10%,
-      #0e152e 12%
-    ),
-    radial-gradient(
-      farthest-corner circle at var(--pointer-x) var(--pointer-y),
-      hsla(0, 0%, 0%, 0.1) 12%,
-      hsla(0, 0%, 0%, 0.15) 20%,
-      hsla(0, 0%, 0%, 0.25) 120%
-    );
-  background-position:
-    0 var(--background-y),
-    var(--background-x) var(--background-y),
-    center;
-  background-blend-mode: color, hard-light;
-  background-size:
-    500% 500%,
-    300% 300%,
-    200% 200%;
-  background-repeat: repeat;
-}
-
 .pc-inside,
 .pc-shine,
 .pc-glare,
 .pc-avatar-content::before {
-  touch-action: none;
+  touch-action: pan-y pan-x;
 }
 
 .pc-user-info,
@@ -399,7 +357,7 @@
     0.1px
   ) !important;
   z-index: 5;
-  mix-blend-mode: luminosity;
+  /* mix-blend-mode: luminosity; */
 }
 
 .pc-details {
@@ -415,7 +373,8 @@
   font-weight: 600;
   line-height: 1.3;
   margin: 0;
-  font-size: min(5svh, 3em);
+  /* font-size: min(5svh, 3em); */
+  font-size: 2.2rem;
   margin: 0;
   background-image: linear-gradient(to bottom, #fff, #6f6fbe);
   background-size: 1em 1.5em;
