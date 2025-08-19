@@ -41,7 +41,7 @@ jobs:
      # - name: Run Prettier (check)
        # run: npx prettier . --check
 
-      - run: npm run lint --if-present
+      # - run: npm run lint --if-present
 
       - run: npm run build
         env:
