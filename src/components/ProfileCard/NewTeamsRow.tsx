@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import data from "./data/data2026";
+import data from "../../team-data/2026.ts";
 const ProfileCard = React.lazy(() => import("./ProfileCard"));
 import SkeletonCard from "./SkeletonCard";
 
