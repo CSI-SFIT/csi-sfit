@@ -67,7 +67,7 @@ const ChromaGrid: React.FC<ChromaGridProps> = ({ items, className = "" }) => {
               src={c.image}
               alt={c.name}
               loading="lazy"
-              className="w-full h-full object-cover rounded-[10px] grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full object-cover rounded-[10px]"
             />
           </div>
           <footer className="relative z-10 p-3 text-white font-sans grid grid-cols-[1fr_auto] gap-x-3 gap-y-1">
