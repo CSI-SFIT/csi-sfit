@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import ProfileCard from "../ProfileCard";
 import SkeletonCard from "../SkeletonCard";
-import Shahil from "../../../../assets/team2026/Core/Shahil.webp";
-import Sanika from "../../../../assets/team2026/Core/Sanika.webp";
-import Aryan from "../../../../assets/team2026/Core/Aryan.webp";
-import Kathleen from "../../../../assets/team2026/Core/Kathleen.webp";
+import Shahil from "/assets/team2026/Core/Shahil.webp";
+import Sanika from "/assets/team2026/Core/Sanika.webp";
+import Aryan from "/assets/team2026/Core/Aryan.webp";
+import Kathleen from "/assets/team2026/Core/Kathleen.webp";
 
 const NewTeamsRow = React.lazy(() => import("../NewTeamsRow"));
 
