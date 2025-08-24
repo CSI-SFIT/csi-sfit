@@ -27,6 +27,10 @@ import { GlassCard } from "../components/GlassCard";
 import ShiningStars from "../components/ShiningStars";
 import logo from "../logo-nobg.png";
 import logo2 from "../logo.png";
+import Silk from "../components/Silk";
+import GradientBlinds from "../components/GradientBlinds";
+import FaultyTerminal from "../components/FaultyTerminal";
+import Hyperspeed from "../components/Hyperspeed";
 
 export const Home: React.FC = () => {
   const navItems = [
@@ -104,7 +108,7 @@ export const Home: React.FC = () => {
     const handleScroll = () => {
       const heroSection = sectionRef.current;
       if (heroSection) {
-        const isPastHero = window.scrollY > heroSection.clientHeight + 1000;
+        const isPastHero = window.scrollY > heroSection.clientHeight + 800;
         setIsLogoVisible(isPastHero);
       }
     };
@@ -122,23 +126,23 @@ export const Home: React.FC = () => {
   const yUp1 = useTransform(
     scrollYProgress,
     [0.05, 0.1, 0.2, 0.25],
-    ["100vw", "2vw", "2vw", "-100vw"],
+    ["100vw", "2vw", "2vw", "-100vw"]
   );
   const t1Opacity = useTransform(
     scrollYProgress,
     [0.094, 0.1, 0.2, 0.205],
-    [0, 1, 1, 0],
+    [0, 1, 1, 0]
   );
 
   const yUp2 = useTransform(
     scrollYProgress,
     [0.205, 0.21, 0.27, 0.45],
-    ["100vw", "-3vw", "-3vw", "-100vw"],
+    ["100vw", "-3vw", "-3vw", "-100vw"]
   );
   const t2Opacity = useTransform(
     scrollYProgress,
     [0.2095, 0.21, 0.27, 0.279],
-    [0, 1, 1, 0],
+    [0, 1, 1, 0]
   );
 
   const yUp3 = useTransform(scrollYProgress, [0.27, 0.28], ["100vw", "-8vw"]);
@@ -149,7 +153,7 @@ export const Home: React.FC = () => {
   const imgWidth = useTransform(
     scrollYProgress,
     [0, 0.1],
-    ["calc(1/3 * 100%)", "calc(1/48 * 100%)"],
+    ["calc(1/3 * 100%)", "calc(1/48 * 100%)"]
   );
   const imgHeight = useTransform(scrollYProgress, [0, 0.1], ["100%", "100%"]);
 
@@ -157,7 +161,7 @@ export const Home: React.FC = () => {
   const logoOpacity = useTransform(
     [t1Opacity, t2Opacity, t3Opacity],
     ([o1, o2, o3]) =>
-      Number(o1) > 0 || Number(o2) > 0 || Number(o3) > 0 ? 0 : 1,
+      Number(o1) > 0 || Number(o2) > 0 || Number(o3) > 0 ? 0 : 1
   );
 
   return (
@@ -184,9 +188,7 @@ export const Home: React.FC = () => {
               <motion.img
                 src={logo2}
                 alt="CSI Logo"
-                className={`w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-md transition-opacity duration-500 p-0 m-0 logo-w drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] z-[999] ${
-                  isLogoVisible ? "opacity-100 invert-0" : "opacity-0 invert"
-                }`}
+                className={`w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-md transition-opacity duration-500 p-0 m-0 logo-w drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] z-[999] opacity-100 invert-0`}
                 draggable={false}
               />
               <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-[#1A5AFF] to-[#00FFF0] bg-clip-text text-transparent">
@@ -279,101 +281,114 @@ export const Home: React.FC = () => {
         </AnimatePresence>
       </motion.nav>
 
-      <div className="relative min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm">
+      <div className="relative min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm -mt-16">
         <section
           ref={sectionRef}
-          className="sticky top-0 pb-12 z-[100] min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6"
+          className="sticky top-0 pb-12 min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 animate-gradient bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] bg-[length:400%_400%] z-[999]"
         >
-          {/* Desktop lines */}
+          {/* Desktop lines - top */}
           <motion.div
             style={{ width: lineWidth }}
-            className="absolute left-[-10vw] top-[37.6vh] w-1/2 h-[9px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
+            className="absolute -right-44 top-[38.4vh] md:top-[37.5vh] mx-auto 
+               h-[clamp(3px,0.6vw,8px)] bg-white 
+               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block  z-[999]"
           />
           <motion.div
             style={{ width: lineWidth }}
-            className="absolute right-[-10vw] top-[37.5vh] w-1/2 h-[10px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
+            className="absolute -left-44 top-[53.2vh] mx-auto 
+               h-[clamp(3px,0.6vw,8px)] bg-white 
+               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block z-[999]"
           />
-
-          {/* Hero Logo (snaps to opacity 0 when any headline appears) */}
+          <motion.div
+            style={{ width: lineWidth }}
+            className="absolute -left-44 top-[38.4vh] md:top-[37.5vh] mx-auto 
+               h-[clamp(3px,0.6vw,8px)] bg-white 
+               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block z-[999]"
+          />
+          <motion.div
+            style={{ width: lineWidth }}
+            className="absolute -right-44 top-[53.2vh] mx-auto 
+               h-[clamp(3px,0.6vw,8px)] bg-white 
+               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block z-[999]"
+          />
+          {/* Hero Logo */}
           <motion.img
             src={logo}
             alt="CSI Logo"
-            className="object-contain invert pt-16 sm:pt-[7.15rem] m-0 select-none pointer-events-none drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] mb-[-1rem] sm:mb-[-2rem] md:mb-[-4.5rem] z-20 w-24 sm:w-32 md:w-48 lg:w-64 h-auto"
+            className="object-contain invert mb-4 select-none pointer-events-none 
+               drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] z-[999]
+               w-[clamp(6rem,15vw,16rem)] h-auto"
             draggable={false}
-            style={{
-              opacity: logoOpacity,
-              width:
-                typeof window !== "undefined" && window.innerWidth < 768
-                  ? "auto"
-                  : imgWidth,
-              height:
-                typeof window !== "undefined" && window.innerWidth < 768
-                  ? "auto"
-                  : imgHeight,
-              y:
-                typeof window !== "undefined" && window.innerWidth < 768
-                  ? 0
-                  : y,
-              x:
-                typeof window !== "undefined" && window.innerWidth < 768
-                  ? 0
-                  : x,
-            }}
+            style={{ width: "69vh" }}
           />
-
           {/* CTA Buttons */}
-          <motion.div className="absolute top-[83vh] sm:top-[77vh] z-[999] flex flex-col gap-4 justify-center items-center w-full max-w-md sm:max-w-2xl px-4">
-            <div className="flex flex-row flex-wrap gap-4 justify-center items-center w-full">
+          <motion.div
+            className="
+        absolute bottom-6 sm:bottom-12 
+        z-[999] flex flex-col gap-4 
+        justify-center items-center 
+        w-full max-w-3xl px-4
+      "
+          >
+            {/* Primary Buttons Row */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center items-center w-full">
+              {/* Join CSI */}
               <Link
                 to="/membership"
                 className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden"
               >
-                {/* More prominent shimmer for Join CSI SFIT */}
                 <span className="absolute inset-0 pointer-events-none">
                   <span className="block w-full h-full shimmer-glow" />
                 </span>
                 <span className="flex items-center justify-center space-x-2 relative z-10">
                   <span>Join CSI SFIT</span>
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </span>
               </Link>
 
+              {/* Events */}
               <Link
                 to="/events"
-                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden"
+                className=" group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 
+            text-white bg-[#182547] border border-[#1A5AFF]/20 
+            font-semibold rounded-xl shadow-lg 
+            hover:shadow-[#2d4277] transition-all duration-300 
+            transform hover:scale-105 
+            w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden
+          "
               >
-                {/* Shimmer/Glow Effect */}
                 <span className="absolute inset-0 pointer-events-none">
                   <span className="block w-full h-full shimmer-glow" />
                 </span>
                 <span className="flex items-center justify-center space-x-2 relative z-10">
                   <span>View Events</span>
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform flex-shrink-0" />
                 </span>
               </Link>
 
+              {/* WhatsApp Link */}
               <a
                 href="https://chat.whatsapp.com/JWRSyFzmrzT3YJFr3HIM5H?mode=ac_t"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden"
+                className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center text-sm sm:text-base overflow-hidden
+          "
               >
-                {/* Shimmer/Glow Effect */}
                 <span className="absolute inset-0 pointer-events-none">
                   <span className="block w-full h-full shimmer-glow" />
                 </span>
                 <span className="flex items-center justify-center space-x-2 relative z-10">
                   <span>Code with CSI</span>
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </span>
               </a>
             </div>
 
+            {/* Magazine CTA */}
             <a
               href="/magazine.pdf"
-              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base mt-2 overflow-hidden"
+              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base w-full sm:w-auto overflow-hidden"
             >
-              {/* Shimmer/Glow Effect */}
               <span className="absolute inset-0 pointer-events-none">
                 <span className="block w-full h-full shimmer-glow" />
               </span>
@@ -385,69 +400,107 @@ export const Home: React.FC = () => {
               </span>
             </a>
           </motion.div>
-
-          {/* Desktop lines */}
-          <motion.div
-            style={{ width: lineWidth }}
-            className="absolute left-[-10vw] top-[53.3vh] w-1/2 h-[5.5px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
+          
+          {/* ALL AVAILABLE BACKGROUND ELEMENTS */}
+          <Silk
+            speed={20}
+            scale={1}
+            color="#294585"
+            noiseIntensity={1}
+            rotation={180}
           />
-          <motion.div
-            style={{ width: lineWidth }}
-            className="absolute right-[-10vw] top-[53.2vh] w-1/2 h-[6px] bg-white drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block"
-          />
 
-          {/* Headline text */}
-          <motion.h1
-            style={{ y: yUp1, opacity: t1Opacity }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-white text-center leading-tight px-4"
-          >
-            We are{" "}
-            <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent">
-              Student Innovators.
-            </span>
-          </motion.h1>
+          {/* <GradientBlinds
+            className="absolute inset-0 -z-10"
+            gradientColors={["#1A5AFF", "#00FFF0", "#1A5AFF"]}
+            angle={45}
+            noise={0.3}
+            blindCount={12}
+            blindMinWidth={50}
+            spotlightRadius={0.5}
+            spotlightSoftness={1}
+            spotlightOpacity={1}
+            mouseDampening={0.15}
+            distortAmount={0}
+            shineDirection="left"
+            mixBlendMode="lighten"
+          /> */}
 
-          <motion.h1
-            style={{ y: yUp2, opacity: t2Opacity }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-white text-center leading-tight px-4"
-          >
-            We are{" "}
-            <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent">
-              Tech Builders.
-            </span>
-          </motion.h1>
+          {/* <div className="absolute inset-0 -z-10 opacity-20">
+            <FaultyTerminal
+              scale={2.5}
+              gridMul={[3, 1]}
+              digitSize={2.5}
+              timeScale={1}
+              pause={false}
+              scanlineIntensity={1}
+              glitchAmount={0}
+              flickerAmount={0}
+              noiseAmp={1}
+              chromaticAberration={0}
+              dither={1}
+              curvature={0}
+              tint="#183a92"
+              mouseReact={true}
+              mouseStrength={2.5}
+              pageLoadAnimation={false}
+              brightness={1}
+            />
+          </div> */}
 
-          <motion.h1
-            style={{ y: yUp3, opacity: t3Opacity }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-white text-center leading-tight px-4 sm:pb-0 pb-4"
-          >
-            We are{" "}
-            <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent">
-              CSI
-            </span>
-          </motion.h1>
-
-          {/* Background video */}
-          <motion.video
-            className="absolute w-full h-[105vh] object-cover top-0 -z-10 grayscale brightness-[0.25]"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="/csi-intro.mp4" type="video/mp4" />
-          </motion.video>
+          {/* <div className="absolute inset-0 -z-10">
+            <Hyperspeed
+              effectOptions={{
+                onSpeedUp: () => {},
+                onSlowDown: () => {},
+                distortion: "turbulentDistortion",
+                length: 600,
+                roadWidth: 10,
+                islandWidth: 2,
+                lanesPerRoad: 4,
+                fov: 90,
+                fovSpeedUp: 150,
+                speedUp: 2,
+                carLightsFade: 0.4,
+                totalSideLightSticks: 20,
+                lightPairsPerRoadWay: 40,
+                shoulderLinesWidthPercentage: 0.05,
+                brokenLinesWidthPercentage: 0.1,
+                brokenLinesLengthPercentage: 0.5,
+                lightStickWidth: [0.12, 0.5],
+                lightStickHeight: [1.3, 1.7],
+                movingAwaySpeed: [60, 80],
+                movingCloserSpeed: [-120, -160],
+                carLightsLength: [400 * 0.03, 400 * 0.2],
+                carLightsRadius: [0.05, 0.14],
+                carWidthPercentage: [0.3, 0.5],
+                carShiftX: [-0.8, 0.8],
+                carFloorSeparation: [0, 5],
+                colors: {
+                  roadColor: 0x080808,
+                  islandColor: 0x0a0a0a,
+                  background: 0x000000,
+                  shoulderLines: 0xffffff,
+                  brokenLines: 0xffffff,
+                  leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+                  rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+                  sticks: 0x03b3c3,
+                },
+              }}
+            />
+          </div> */}
         </section>
 
         <div
           ref={contentRef}
-          className="h-[150vh] sm:h-[100vh] min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm"
+          className="h-[70vh] sm:h-[100vh]"
+          // className="h-[150vh] sm:h-[100vh] min-h-screen bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm"
         />
 
-        <section className="px-4 sm:px-8 md:px-16 lg:px-[20rem] py-20 text-center text-white text-2xl font-bold mx-auto relative z-[200] bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm">
+        <section className="px-4 sm:px-8 md:px-16 lg:px-[20rem] py-20 text-center text-white text-2xl font-bold mx-auto relative z-[9999] bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#020617] backdrop-blur-sm ">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              About{' '}
+              About{" "}
               <span className="bg-[linear-gradient(135deg,#40E0D0_0%,#1A5AFF_50%,#40E0D0_100%)] bg-clip-text text-transparent">
                 Us
               </span>
@@ -544,7 +597,7 @@ export const Home: React.FC = () => {
 
       <Footer />
 
-      <ShiningStars count={25} />
+      <ShiningStars count={200} />
     </div>
   );
 };

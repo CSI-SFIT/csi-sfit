@@ -12,7 +12,7 @@ const generateStar = (id: number) => ({
 
 const ShiningStars: React.FC<{ count?: number }> = ({ count = 50 }) => {
   const [stars, setStars] = useState(() =>
-    Array.from({ length: count }, (_, i) => generateStar(i)),
+    Array.from({ length: count }, (_, i) => generateStar(i))
   );
   const [idCounter, setIdCounter] = useState(count);
 
