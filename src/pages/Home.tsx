@@ -286,31 +286,6 @@ export const Home: React.FC = () => {
           ref={sectionRef}
           className="sticky top-0 pb-12 min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 animate-gradient bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] bg-[length:400%_400%] z-[999]"
         >
-          {/* Desktop lines - top */}
-          <motion.div
-            style={{ width: lineWidth }}
-            className="absolute -right-44 top-[38.4vh] md:top-[37.5vh] mx-auto 
-               h-[clamp(3px,0.6vw,8px)] bg-white 
-               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block  z-[999]"
-          />
-          <motion.div
-            style={{ width: lineWidth }}
-            className="absolute -left-44 top-[53.2vh] mx-auto 
-               h-[clamp(3px,0.6vw,8px)] bg-white 
-               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block z-[999]"
-          />
-          <motion.div
-            style={{ width: lineWidth }}
-            className="absolute -left-44 top-[38.4vh] md:top-[37.5vh] mx-auto 
-               h-[clamp(3px,0.6vw,8px)] bg-white 
-               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block z-[999]"
-          />
-          <motion.div
-            style={{ width: lineWidth }}
-            className="absolute -right-44 top-[53.2vh] mx-auto 
-               h-[clamp(3px,0.6vw,8px)] bg-white 
-               drop-shadow-[0_0_10px_rgba(255,255,255,1)] hidden lg:block z-[999]"
-          />
           {/* Hero Logo */}
           <motion.img
             src={logo}
