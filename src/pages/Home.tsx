@@ -47,10 +47,10 @@ export const Home: React.FC = () => {
   ];
 
   const stats = [
-    { icon: Users, label: "Active Members", value: "500+" },
+    { icon: Users, label: "Active Members", value: "40+" },
     { icon: Calendar, label: "Events Organized", value: "50+" },
-    { icon: Trophy, label: "Awards Won", value: "25+" },
-    { icon: Code2, label: "Projects Completed", value: "100+" },
+    { icon: Trophy, label: "Awards Won by Members", value: "25+" },
+    { icon: Code2, label: "Projects Completed by Members", value: "50+" },
   ];
 
   const features = [

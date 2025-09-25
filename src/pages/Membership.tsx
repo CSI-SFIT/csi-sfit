@@ -98,9 +98,9 @@ export const Membership: React.FC = () => {
   ];
 
   const membershipStats = [
-    { label: "Active Members", value: "500+", icon: Users },
-    { label: "Events Per Year", value: "50+", icon: Calendar },
-    { label: "Workshops Conducted", value: "100+", icon: Code },
+    { label: "Active Members", value: "40+", icon: Users },
+    { label: "Events Per Year", value: "10+", icon: Calendar },
+    { label: "Workshops Conducted", value: "50+", icon: Code },
     { label: "Alumni Network", value: "2000+", icon: Award },
   ];
 
