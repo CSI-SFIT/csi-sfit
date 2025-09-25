@@ -164,10 +164,10 @@ export const About: React.FC = () => {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-20"
           >
             {[
-              { count: "500+", label: "Active Members" },
+              { count: "40+", label: "Active Members" },
               { count: "9+", label: "Years Active" },
-              { count: "50+", label: "Events Organized" },
-              { count: "25+", label: "Awards Won" },
+              { count: "30+", label: "Events Organized" },
+              { count: "25+", label: "Awards Won By Members" },
             ].map((stat, i) => (
               <StarBorder key={i} color="#FFCDB9" thickness={2}>
                 <GlassCard className="flex flex-col justify-center items-center p-4 sm:p-6 text-center w-full h-full">

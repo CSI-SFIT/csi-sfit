@@ -1,6 +1,7 @@
 import llm25 from "/assets/events/llm-2025.jpg";
 import GhoPro from "/assets/events/gho-pro.png";
 import CSILogo from "/assets/csi_logo.jpg";
+import FTM from "/assets/events/ftm.webp"
 
 export type EventCategory =
   | "workshop"
@@ -114,7 +115,7 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
     locationLink:
       "https://www.google.com/maps/search/?api=1&query=SFIT%2C%20Room%20105",
     category: "networking",
-    status: "upcoming",
+    status: "completed",
     tags: ["Networking", "CSI Day", "Alumni"],
     registrationState: "Registrations Over",
     formLink: null,
@@ -129,14 +130,14 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
 2. Teach basics of photography and videography 
 3. Give knowledge such as video composition, script planning, etc 
 4. Teach basics of DaVinci Resolve (management of data, cutting and trimming, effects and sound, fusion and colour correction) `,
-    image: CSILogo,
+    image: FTM,
     dateISO: "2025-08-20",
     displayDate: "20th Aug 2025",
     location: "SFIT, Room 114",
     locationLink:
       "https://www.google.com/maps/search/?api=1&query=SFIT%2C%20Room%20114",
     category: "workshop",
-    status: "upcoming",
+    status: "completed",
     tags: [
       "Workshop",
       "Videography",
@@ -145,12 +146,11 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
       "Video Editing",
       "Da Vinci Resolve",
     ],
-    registrationState: "Register Now",
+    registrationState: "Event Completed",
     formLink: `https://forms.gle/oSrdYjTjkQV4Tbwa7`,
     entry: "Free",
     speakers: [
       "Bhautik Nandha (Video Editor, Film Maker, Director)",
-      "Eden Fernandes (Photographer, Faculty)",
       "Shaun Mathew (Multimedia Head)",
       "Smith Lopes (Multimedia Joint Head)",
       "Deepak Gehlot (Editor, Multimedia Executive)",
