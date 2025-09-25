@@ -12,6 +12,7 @@ import {
   Trophy,
   Users,
   X,
+  Book,
 } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
 import React, { useEffect, useState } from "react";
@@ -39,6 +40,7 @@ export const Home: React.FC = () => {
     { path: "/events", label: "Events", icon: Calendar },
     { path: "/team", label: "Team", icon: Users },
     { path: "/gallery", label: "Gallery", icon: Camera },
+    { path: "/magazine", label: "Magazine", icon: Book },
     { path: "/sponsors", label: "Sponsors", icon: Award },
     { path: "/contact", label: "Contact", icon: Mail },
   ];
@@ -361,7 +363,7 @@ export const Home: React.FC = () => {
 
             {/* Magazine CTA */}
             <a
-              href="/magazine.pdf"
+              href="/magazine"
               className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base w-full sm:w-auto overflow-hidden"
             >
               <span className="absolute inset-0 pointer-events-none">

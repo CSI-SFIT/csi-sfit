@@ -8,6 +8,7 @@ import {
   Menu,
   Users,
   X,
+  Book,
 } from "lucide-react";
 
 import { useEffect, useRef, useState } from "react";
@@ -62,6 +63,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isHome }) => {
     { path: "/events", label: "Events", icon: Calendar },
     { path: "/team", label: "Team", icon: Users },
     { path: "/gallery", label: "Gallery", icon: Camera },
+    { path: "/magazine", label: "Magazine", icon: Book },
     { path: "/sponsors", label: "Sponsors", icon: Award },
     { path: "/contact", label: "Contact", icon: Mail },
   ];
