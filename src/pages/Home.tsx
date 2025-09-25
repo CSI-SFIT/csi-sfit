@@ -32,6 +32,7 @@ import Silk from "../components/Silk";
 import GradientBlinds from "../components/GradientBlinds";
 import FaultyTerminal from "../components/FaultyTerminal";
 import Hyperspeed from "../components/Hyperspeed";
+import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   const navItems = [
@@ -362,20 +363,21 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Magazine CTA */}
-            <a
-              href="/magazine"
-              className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base w-full sm:w-auto overflow-hidden"
-            >
-              <span className="absolute inset-0 pointer-events-none">
-                <span className="block w-full h-full shimmer-glow" />
-              </span>
-              <span className="flex items-center justify-center space-x-2 relative z-10">
-                <span className="truncate">
-                  View Paradigm Edition 8 Magazine
-                </span>
-                <BookMarked className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform flex-shrink-0" />
-              </span>
-            </a>
+      
+
+
+<Link
+  to="/magazine"
+  className="group relative px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-white bg-[#182547] border border-[#1A5AFF]/20 font-semibold rounded-xl shadow-lg hover:shadow-[#2d4277] transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base w-full sm:w-auto overflow-hidden"
+>
+  <span className="absolute inset-0 pointer-events-none">
+    <span className="block w-full h-full shimmer-glow" />
+  </span>
+  <span className="flex items-center justify-center space-x-2 relative z-10">
+    <span className="truncate">View Paradigm Edition 8 Magazine</span>
+    <BookMarked className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform flex-shrink-0" />
+  </span>
+</Link>
           </motion.div>
           
           {/* ALL AVAILABLE BACKGROUND ELEMENTS */}
