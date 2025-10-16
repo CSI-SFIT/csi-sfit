@@ -32,7 +32,6 @@ import Silk from "../components/Silk";
 import GradientBlinds from "../components/GradientBlinds";
 import FaultyTerminal from "../components/FaultyTerminal";
 import Hyperspeed from "../components/Hyperspeed";
-import { Link } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   const navItems = [

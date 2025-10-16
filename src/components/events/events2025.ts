@@ -126,10 +126,7 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
     id: "5",
     title: "Frame The Moment",
     description: `Agenda of the workshop - 
-1. To give inspiration for film making 
-2. Teach basics of photography and videography 
-3. Give knowledge such as video composition, script planning, etc 
-4. Teach basics of DaVinci Resolve (management of data, cutting and trimming, effects and sound, fusion and colour correction) `,
+  A workshop on the fundamentals of filmmaking, from photography and scripting to post-production editing with DaVinci Resolve. `,
     image: FTM,
     dateISO: "2025-08-20",
     displayDate: "20th Aug 2025",
@@ -141,20 +138,13 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
     tags: [
       "Workshop",
       "Videography",
-      "Film Making",
       "Photography",
-      "Video Editing",
       "Da Vinci Resolve",
     ],
     registrationState: "Event Completed",
-    formLink: `https://forms.gle/oSrdYjTjkQV4Tbwa7`,
+    formLink: null,
     entry: "Free",
-    speakers: [
-      "Bhautik Nandha (Video Editor, Film Maker, Director)",
-      "Shaun Mathew (Multimedia Head)",
-      "Smith Lopes (Multimedia Joint Head)",
-      "Deepak Gehlot (Editor, Multimedia Executive)",
-    ],
+    speakers: [],
     speakerLinks: {
       "Bhautik Nandha (Video Editor, Film Maker, Director)": {
         instagram: "https://instagram.com/",
@@ -164,6 +154,25 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
       },
     },
   },
+  {
+    id: "6",
+    title: "Mosaic: Mission Impossible : SFIT Chapter", 
+    description: `Team up (4 members) and work together to find the scattered runes, solve the riddle for their sequence, and present them to the altar. The ancient code will be yours.`,
+    image: CSILogo,
+    dateISO: "2025-10-17",
+    displayDate: "17th-18th October 2025",
+    time: "9:00 AM",
+    location: "SFIT",
+    locationLink: "https://www.google.com/maps/search/?api=1&query=SFIT",
+    category: "Event",
+    status: "Live",
+    tags: ["Game", "Team", "Prizes"],
+    registrationState: "Register Now",
+    formLink: https://mosaic-2025-registeration.vercel.app,
+    entry: "₹70",
+    speakers: [],
+  },
+  
 ];
 
 export default events2025;

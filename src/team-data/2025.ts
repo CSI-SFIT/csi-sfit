@@ -60,7 +60,7 @@ const data2025: Member[] = [
     category: "Tech Team",
   },
   {
-    image: "/assets/team2025/Technical/Viraj.webp",
+    image: "/assets/team2025/Technical/VirajWalavalkar.webp",
     name: "Viraj Walavalkar",
     title: "Technical Executive",
     category: "Tech Team",
