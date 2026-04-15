@@ -18,9 +18,11 @@ import { GlassCard } from "../components/GlassCard";
 
 import events2024 from "../components/events/events2024";
 import events2025, { EventItem } from "../components/events/events2025";
+import events2026 from "../components/events/events2026";
 
-type YearKey = "2025" | "2024";
+type YearKey = "2026" | "2025" | "2024";
 const dataByYear: Record<YearKey, EventItem[]> = {
+  "2026": events2026,
   "2025": events2025,
   "2024": events2024,
 };
@@ -82,7 +84,7 @@ export const Events: React.FC = () => {
     threshold: 0.1,
   });
 
-  const [selectedYear, setSelectedYear] = useState<YearKey>("2025");
+  const [selectedYear, setSelectedYear] = useState<YearKey>("2026");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -196,7 +198,7 @@ export const Events: React.FC = () => {
               <div className="flex flex-col gap-4 md:grid md:grid-cols-12 md:items-center">
                 {/* Year Toggle */}
                 <div className="md:col-span-3 flex justify-center md:justify-start gap-2">
-                  {(["2025", "2024"] as YearKey[]).map((yr) => (
+                  {(["2026", "2025", "2024"] as YearKey[]).map((yr) => (
                     <button
                       key={yr}
                       onClick={() => setSelectedYear(yr)}
@@ -544,10 +546,10 @@ export const Events: React.FC = () => {
                         )}
 
                         <motion.button
-                          whileHover={{ scale: event.formLink ? 1.02 : 1.0 }}
-                          whileTap={{ scale: event.formLink ? 0.98 : 1.0 }}
+                          whileHover={{ scale: (event.registrationState === "Register Now" && event.formLink) ? 1.02 : 1.0 }}
+                          whileTap={{ scale: (event.registrationState === "Register Now" && event.formLink) ? 0.98 : 1.0 }}
                           onClick={() => {
-                            if (event.formLink)
+                            if (event.registrationState === "Register Now" && event.formLink)
                               window.open(
                                 event.formLink,
                                 "_blank",
@@ -555,11 +557,11 @@ export const Events: React.FC = () => {
                               );
                           }}
                           className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 ${
-                            event.formLink
+                            (event.registrationState === "Register Now" && event.formLink)
                               ? "bg-gradient-to-r from-[#2580E4] to-[#1B6DC1] text-white hover:shadow-[0_4px_8px_0_#2580E433,0_5px_12px_0_#36B7B766]"
                               : "bg-white/10 text-gray-400 border border-white/20 cursor-not-allowed"
                           }`}
-                          aria-disabled={!event.formLink}
+                          aria-disabled={event.registrationState !== "Register Now" || !event.formLink}
                         >
                           <span>{event.registrationState}</span>
                           {event.formLink && (

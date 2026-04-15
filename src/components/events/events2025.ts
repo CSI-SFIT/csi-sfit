@@ -30,10 +30,10 @@ export interface EventItem {
   status: EventStatus;
   tags: string[];
   registrationState:
-    | "Event Completed"
-    | "Registrations Over"
-    | "Not Taking Registrations Yet"
-    | "Register Now";
+  | "Event Completed"
+  | "Registrations Over"
+  | "Not Taking Registrations Yet"
+  | "Register Now";
   formLink: string | null;
   entry?: string | null;
   speakers: string[];
@@ -156,7 +156,7 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
   },
   {
     id: "6",
-    title: "Mosaic: Mission Impossible : SFIT Chapter", 
+    title: "Mosaic: Mission Impossible : SFIT Chapter",
     description: `Team up (4 members) and work together to find the scattered runes, solve the riddle for their sequence, and present them to the altar. The ancient code will be yours.`,
     image: CSILogo,
     dateISO: "2025-10-17",
@@ -168,11 +168,11 @@ GET FREE INTERNSHIP BY ATTENDING THIS EVENT!`,
     status: "completed",
     tags: ["Game", "Team", "Prizes"],
     registrationState: "Event Completed",
-    formLink: "https://mosaic-2025-registeration.vercel.app",
+    formLink: null,
     entry: "₹70",
     speakers: [],
   },
-  
+
 ];
 
 export default events2025;
